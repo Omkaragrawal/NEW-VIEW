@@ -1,13 +1,13 @@
-/* eslint-disable no-use-before-define */
 #!/usr/bin/env node
+/* eslint-disable no-use-before-define */
 
 /**
  * Module dependencies.
  */
 
-const app = require('../app');
 const debug = require('debug')('abc:server');
 const http = require('http');
+const app = require('../server');
 
 /**
  * Get port from environment and store in Express.
@@ -88,4 +88,5 @@ function onListening() {
     ? `pipe ${addr}`
     : `port ${addr.port}`;
   debug(`Listening on ${bind}`);
+  console.log(`Listening on ${bind}`);
 }

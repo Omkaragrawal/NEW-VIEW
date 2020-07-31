@@ -20,7 +20,7 @@
     "express-session": "1.17.1",
     "express-validator": "6.6.0",
     "helmet": "3.23.3",
-    "http-errors": "~1.6.3",
+    "http-errors": "1.6.3",
     "morgan": "~1.9.1",
     "passport": "0.4.1",
     "passport-custom": "1.1.1"
@@ -36,6 +36,7 @@
   },
   "homepage": "https://github.com/LetsUpgrade/NEW-VIEW#readme",
   "devDependencies": {
+    "chai": "4.2.0",
     "eslint": "7.2.0",
     "eslint-config-airbnb": "18.2.0",
     "eslint-plugin-import": "2.21.2",
