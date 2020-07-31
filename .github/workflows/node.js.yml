@@ -21,7 +21,7 @@ jobs:
         releaseBranch: master
       env:
         GITHUB_PR_USERNAME: ${{ github.actor }}
-        GITHUB_TOKEN: ${{ secrets.NEW_VIEW_SNYK }}
+        GITHUB_TOKEN: ${{ secrets.NEW_VIEW_SNYK_GITHUB }}
   security:
     runs-on: ubuntu-latest
     steps:
