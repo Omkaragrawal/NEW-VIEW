@@ -28,4 +28,12 @@ Any web technology can be used but I am thinking about using NodeJS ecosystem.
       (git clone https://github.com/<your-github-username>/LetsUpgrade/NEW-VIEW)
 ```    
 
+# Instructions
+* Install dependencies in both the folder ie root and front-end.
+* Run the command ```npm start``` or ```npm run dev``` first.
+* Open a new shell/ command promt/ bash.
+* Execute ```npm start``` in the front-end folder for development.
+* Execute ```npm run pre-commit``` before staging and commiting the front-end changes.
+<hr>
+
 ![TMDB is used for API services in this project](TMDB-logo.svg)

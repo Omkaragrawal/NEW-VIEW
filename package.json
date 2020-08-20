@@ -27,22 +27,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/LetsUpgrade/NEW-VIEW.git"
+    "url": "git+https://github.com/Omkaragrawal/NEW-VIEW.git"
   },
   "author": "OMKAR AGRAWAL <omkar3654@gmail.com>",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/LetsUpgrade/NEW-VIEW/issues"
+    "url": "https://github.com/Omkaragrawal/NEW-VIEW/issues"
   },
-  "homepage": "https://github.com/LetsUpgrade/NEW-VIEW#readme",
+  "homepage": "https://github.com/Omkaragrawal/NEW-VIEW#readme",
   "devDependencies": {
     "chai": "4.2.0",
-    "eslint": "7.2.0",
-    "eslint-config-airbnb": "18.2.0",
-    "eslint-plugin-import": "2.21.2",
-    "eslint-plugin-jsx-a11y": "6.3.0",
-    "eslint-plugin-react": "7.20.0",
-    "eslint-plugin-react-hooks": "4.0.0",
     "mocha": "8.1.0",
     "nodemon": "2.0.4"
   }
