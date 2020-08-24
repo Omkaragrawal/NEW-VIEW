@@ -51,6 +51,7 @@ class App extends React.Component {
         marginTop: '10px',
         borderBottom : '2px solid yellowgreen',
         paddingBottom : '10px'  }}
+          label = "search Bar"
           onChange={e => this.onChangeHandler(e)}
           placeholder="Type something to search"
         />
