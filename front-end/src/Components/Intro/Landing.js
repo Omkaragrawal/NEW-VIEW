@@ -20,7 +20,7 @@ class Landing extends React.Component {
         return(
         <div className="landing" >
             <div className='nav'>
-            <img src={require('./tmdb.svg')}></img>
+            <img src={require('./tmdb.svg')} alt= "Logo"></img>
                 <div className="menu">
                     <ul>
                         <li><a href='./Landing.js'>Home</a></li>
