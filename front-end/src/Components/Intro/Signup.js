@@ -18,20 +18,20 @@ class Signup extends React.Component {
                 <h1>Create your Account</h1>
                 <div className="inputBox">
                     <p>First name</p>
-                    <input type="text"/>
+                    <input type="text" label = "first name"/>
                     <p>Last name</p>
-                    <input type="text"/>
+                    <input type="text" label = "last name"/>
                     <p>Email</p>
-                    <input type="text"/>
+                    <input type="text" label = "Email"/>
                     <p>Mobile Number</p>
-                    <input type="text"/>
+                    <input type="text" label = "Mobile Number"/>
                     <p>Password</p>
-                    <input type="text"/>
+                    <input type="text" label = "Password"/>
                     <p>Conform your Password</p>
-                    <input type="text"/>
+                    <input type="text" label = "Conform Password"/>
                 </div>
                 <div className="buttons">
-                    <button type="button" >SUBMIT</button>
+                    <button type="button" label = "Submit_Button">SUBMIT</button>
                 </div>  
             </div>
         )
