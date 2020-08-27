@@ -77,6 +77,7 @@ class Api extends React.Component {
         paddingBottom : '10px'
         
       }}
+          label= "searchBar"
           value={this.state.value}
           onChange={this.handleInput}
           placeholder="Type something to search"
