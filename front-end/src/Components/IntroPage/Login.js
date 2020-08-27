@@ -32,9 +32,9 @@ class Login extends React.Component {
                 <p style={{margin : '30px'}}>Login to your Account</p>
                     <div className="inputBox-login">
                         <p>Username or E-mail</p>
-                        <input type="text" onChange={this.handleInput}/>
+                        <input type="text" onChange={this.handleInput} label="username"/>
                         <p>Password</p>
-                        <input type="password" onChange={this.handleInputPassword}/>
+                        <input type="password" onChange={this.handleInputPassword} label="password"/>
                 </div>
                 <div className="buttons">
 
