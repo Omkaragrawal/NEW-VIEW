@@ -1,13 +1,19 @@
 import React from "react";
 import Movie from "./Movie";
+import './Result_Page/Main.css'
 import classes from "./Movies.module.css";
+// import Result from "./Result_Page/Result";
 
-function Movies ({ list , openPopup }) {
-  let cards = <h1>Loading</h1>;
- 
+const Movies = ({ list  , openPopup}) => {
+  let cards = ""
+
   if (list) {
-    cards = list.map((result) =><div> <Movie key={result.id} item={result} openPopup = {openPopup}/></div>);
-  }
+    cards = list.map((m, i) =><div> <Movie key={i} item={m} openPopup={openPopup}/></div>);
+    // console.log(cards)
+}
+
+
+
   return (
     <div className={classes.Container}>
       <div className={classes.ContainerInner}>{cards}</div>

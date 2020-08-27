@@ -6,7 +6,8 @@ class MovieCard extends React.Component {
     super(props);
     this.state = {
       getting : props.item,
-      selected : {}
+      selected : {},
+      style : {},
     }
   }
 
@@ -26,19 +27,25 @@ render(){
       }
   // console.log(this.state.selected)
   return (
+    <div style={this.state.style}> 
     <div 
+    onClick = {() => { let movies = data.id
+    // console.log(this.props)
+    this.props.openPopup(movies)
+  }}
     className={classes.Container}
       style={{
         backgroundImage:
           `url(${posterImg})`,
       }}>
-        {console.log(this.state.getting)}
+    
       <div className={classes.VoteContainer}>
         <span className={classes.Vote}>{vote_average}</span>
       </div>
       <div className={classes.Bottom}>
         <h3 className={classes.Title}>{truncStr(title,20)}</h3>
       </div>
+    </div>
     </div>
   );
 };

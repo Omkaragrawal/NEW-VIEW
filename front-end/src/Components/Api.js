@@ -1,5 +1,6 @@
 import React from "react";
 import { search } from "./utils";
+import Result from './Result_Page/Result'
 import Movies from "./Movies";
 import './Style.css'
 class App extends React.Component {
@@ -14,6 +15,17 @@ class App extends React.Component {
     };
   }
   
+
+  openPopup = (id) => {
+    fetch(`https://api.themoviedb.org/3/movie/${id}?&api_key=dbc0a6d62448554c27b6167ef7dabb1b`)
+    .then(data => data.json()).then(data => {
+      let movie = data
+      // console.log(movie)
+      this.setState(prev => {
+        return {...prev,selected : movie}
+      })
+    })
+  }
 
   search = async val => {
     this.setState({ loading: true });
@@ -34,7 +46,7 @@ class App extends React.Component {
     let movies = "";
     if (this.state.movies) {
       // console.log(movies)
-      movies = <Movies list={this.state.movies} />;
+      movies = <Movies list={this.state.movies} openPopup={this.openPopup}/>;
     }
     return movies;
   }
@@ -55,7 +67,8 @@ class App extends React.Component {
           onChange={e => this.onChangeHandler(e)}
           placeholder="Type something to search"
         />
-         {this.renderMovies}  
+         {typeof (this.state.loading === true) ? this.renderMovies : false}  
+    {(typeof this.state.selected !== "undefined") ? <Result selected = {this.state.selected} closePopup={this.closePopup}/>: false }
       </div>
       </div>
     );
