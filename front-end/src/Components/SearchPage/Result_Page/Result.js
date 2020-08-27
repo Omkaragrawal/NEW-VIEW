@@ -42,7 +42,7 @@ function Result({selected, closePopup}){
     backdropIMG = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSols5HZxlQWyS9JY5d3_L9imbk0LiziHiyDtMZLHt_UNzoYUXs2g';  
   }
   return (
-  <div className="popup" backgroundImage={backdropIMG}>
+  <div className="popup">
     <div className="Inner"  style={{backgroundImage:`url(${backdropIMG})`}}>
       <div className="poster">
         <img id="poster" className='poster' src={require('./tmdb.svg')} alt="LOGO"/>
