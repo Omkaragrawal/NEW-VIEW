@@ -6,23 +6,26 @@ import Signup from './Components/IntroPage/Signup'
 import Landing from './Components/IntroPage/Landing'
 import './index.css'
 import { BrowserRouter, Link ,Switch , Route} from 'react-router-dom';
+// eslint-disable-next-line
 import Api from './Components/SearchPage/Api'
+
 ReactDOM.render(
-  <Api />
-  // <BrowserRouter>   
-  // <div className="nav">
-  //     <ul>
-  //       <li><Link to ="/" style={{color:"white"}} >Home</Link></li>
-  //       <li><Link to ="/login" style={{color:"white"}}>Login</Link></li>
-  //       <li><Link to ="/signup" style={{color:"white"}}>Signup</Link></li>
-  //     </ul>
-  //     <Switch>
-  //       <Route exact path="/" component={Landing}></Route>
-  //       <Route exact path="/login" component={Login}></Route>
-  //       <Route exact path="/signup" component={Signup}></Route>
-  //     </Switch>
-  // </div>
-  // </BrowserRouter>
+  //TO get the search page uncomment the below :
+  // <Api />
+<BrowserRouter>
+  <div className="nav">
+      <ul>
+        <li><Link to ="/" style={{color:"white"}} >Home</Link></li>
+        <li><Link to ="/login" style={{color:"white"}}>Login</Link></li>
+        <li><Link to ="/signup" style={{color:"white"}}>Signup</Link></li>
+      </ul>
+      <Switch>
+        <Route exact path="/" component={Landing}></Route>
+        <Route exact path="/login" component={Login}></Route>
+        <Route exact path="/signup" component={Signup}></Route>
+      </Switch>
+  </div>
+  </BrowserRouter>
   ,
   document.getElementById('root')
 );
