@@ -43,7 +43,7 @@ function Result({selected, closePopup}){
   }
   return (
   <div className="popup">
-    <div className="Inner"  style={{backgroundImage:`url(${backdropIMG})`}}>
+    <div className="Inner">
       <div className="poster">
         <img id="poster" className='poster' src={require('./tmdb.svg')} alt="LOGO"/>
         <button onClick={closePopup} className="button">close</button>
