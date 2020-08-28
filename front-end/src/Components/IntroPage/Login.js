@@ -20,6 +20,10 @@ class Login extends React.Component {
     }
 
     handleOnClick = () => {
+        if(!navigator.onLine){
+            alert("Network not available")
+          }
+      
         //OnClick handler for  the submit button
 
     }
@@ -31,10 +35,13 @@ class Login extends React.Component {
                 {console.log(this.state.password)} */}
                 <p style={{margin : '30px'}}>Login to your Account</p>
                     <div className="inputBox-login">
-                        <p>Username or E-mail</p>
-                        <input type="text" onChange={this.handleInput} label="username"/>
-                        <p>Password</p>
-                        <input type="password" onChange={this.handleInputPassword} label="password"/>
+                        <p style={{fontWeight:"500",fontSize:"12px"}}>Username or E-mail</p>
+                        <input type="text" onChange={this.handleInput} label="username" 
+                        style={{fontWeight:"500",textIndent:"0.1in"}}/>
+                        <p 
+                        style={{fontWeight:"500",fontSize:"12px"}}>Password</p>
+                        <input type="password" onChange={this.handleInputPassword} label="password" 
+                        style={{fontWeight:"500",textIndent:"0.1in"}}/>
                 </div>
                 <div className="buttons">
 

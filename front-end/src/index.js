@@ -1,18 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import * as serviceWorker from './serviceWorker';
+import './index.css'
 import Login from './Components/IntroPage/Login'
 import Signup from './Components/IntroPage/Signup'
 import Landing from './Components/IntroPage/Landing'
-import './index.css'
 import { BrowserRouter, Link ,Switch , Route} from 'react-router-dom';
-// eslint-disable-next-line
-import Api from './Components/SearchPage/Api'
 
 ReactDOM.render(
-  //TO get the search page uncomment the below :
-  // <Api />
-<BrowserRouter>
+ <BrowserRouter>
   <div className="nav">
       <ul>
         <li><Link to ="/" style={{color:"white"}} >Home</Link></li>

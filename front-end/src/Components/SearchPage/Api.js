@@ -19,21 +19,30 @@ class Api extends React.Component {
   
 
   keyHandle = (e) => {
+    if(!navigator.onLine){
+      alert("Network not available")
+    }
     if(e.key === "Enter"){
       axios(`https://api.themoviedb.org/3/search/movie?query=${this.state.value}&api_key=dbc0a6d62448554c27b6167ef7dabb1b`)
       .then((data) =>{
         let m = data.data.results
         let  n = JSON
+        try{
         for (let i=0;i<10;i++){
           n[i]= data.data.results[i].original_title;
+        }}catch {
+          // document.write("Cant able to find the movie")
         }
-        console.log(n)
+        // console.log(n)
 
         // console.log(m)
         this.setState(prev => {
           return {...prev , movies : m , titles : n}
         })
-      })
+      
+      }).catch = (e) => {
+          console.log("Refresh the page Or else try later")
+      }
     }
   }
 
@@ -52,7 +61,6 @@ class Api extends React.Component {
       this.setState(prev => {return{
         ...prev, selected : m,
       }})
-
      })
   }
 
@@ -64,6 +72,9 @@ class Api extends React.Component {
 
 
   render() {
+
+    let suggest = this.state.titles
+    console.log(suggest)
     return (
       <div>
         <div className="search-bar">
@@ -82,8 +93,9 @@ class Api extends React.Component {
           onChange={this.handleInput}
           placeholder="Type something to search"
         />
+      <option value={suggest} />
       </div>
-{console.log(this.state.title)}
+      {/* {console.log(this.state.title)} */}
       <Movies  list={this.state.movies} openPopup={this.openPopup}/>
       {(typeof this.state.selected.original_title !== "undefined") ? <Result selected={this.state.selected}  closePopup={this.closePopup} /> : false}
 

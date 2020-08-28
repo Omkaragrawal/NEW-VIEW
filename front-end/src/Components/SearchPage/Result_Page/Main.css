@@ -1,17 +1,16 @@
 .popup {
-	position: fixed;
-	top: 2px;
-	left: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
-  height: 99.4vh;
-	background-color: #000000;
-	/* overflow-y: scroll; */
+  height: 99vh;
+  background-color: rgba(0, 0, 0, 0.335);
 }
+
 .Inner {
-  width: 80%;
+  width: 80%; 
   height: 690px;
   top: 7px;
-  /* overflow-y: scroll; */
   left: 150px;
   position: fixed;
   /* background-color: rgba(122, 52, 52, 0); */
@@ -35,10 +34,12 @@
   margin-left: 10px;
 }
 .popup .Inner .data-container {
-  width: 70%;
+  width: 72%;
+  overflow: hidden;
+  overflow-y: scroll;
   float: right;
-  background-color: rgba(0, 0, 0, 0);
-  height: 600px;
+  background-color: rgba(0, 0, 0, 0.657);
+  height: 500px;
 }
 .popup .data-container{
   color: #01d277;
@@ -68,9 +69,29 @@
   line-height: 1.1em;
 }
 
-
 .popopup .Inner .poster .button:hover,
 .popopup .Inner .poster .button:focus {
     background-color: #000000;
     background-image: linear-gradient(#000000, #02081b);
   }
+
+.head .head2 {
+  margin-left: 60px;
+  margin-top: 40px;
+}
+.head .head4{
+  margin-left: 60px;
+  margin-top: 20px;  
+}
+
+
+.head .head1{
+  float: right;
+  margin-right: 225px;
+}
+
+.head .head3 {
+  float: right;
+  margin-top: 20px;
+  margin-right: 200px;
+}

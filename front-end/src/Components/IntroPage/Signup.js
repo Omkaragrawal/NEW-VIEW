@@ -14,6 +14,9 @@ class Signup extends React.Component {
         }
     }
     handleOnClick = () => {
+        if(!navigator.onLine){
+            alert("Network not available")
+          }      
         //Cutomize your  onClick method 
     }
     render(){

@@ -1,11 +1,14 @@
 import React from 'react'
 import './Main.css'
+import './tmdb.svg'
 import numeral from 'numeral'
 
 function Result({selected, closePopup}){
   let data = selected;
   // console.log(data)
-    
+  if(!navigator.onLine){
+    alert("Network not available")
+  }
   let posterIMG = 'https://image.tmdb.org/t/p/w500' + data.poster_path,
   overview = data.overview,
   title = data.original_title,
@@ -21,14 +24,20 @@ function Result({selected, closePopup}){
   productionList = nestedDataToString(production),
   noData = '-',
   genresList = nestedDataToString(genres),
-  backdropIMG = 'https://image.tmdb.org/t/p/original' + data.backdrop;
+  backdropIMG = 'https://image.tmdb.org/t/p/original' + data.backdrop_path;
 
 
-  if (vote_average === 'undefined' || vote_average === 0) {
-    vote_average = noData
+  if (vote_average === 'undefined' || vote_average === 0 || imdb_id === 'undefined' || imdb_id === "null" || runtime === 'undefined' || runtime === "null" || runtime < 0 || runtime === "-") {
+    vote_average = noData;
+    imdb_id = "-"
+    runtime = "-"
   } else {
     vote_average = data.vote_average + ' / 10'
   };
+
+  if(production === 'undefined' || production === "null"){
+    productionList = ""
+  }
   if (totalRevenue === 'undefined' || totalRevenue === 0 || budget === "undefined"|| budget === 0) {
     totalRevenue =noData
     budget = noData
@@ -41,33 +50,40 @@ function Result({selected, closePopup}){
     posterIMG = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSols5HZxlQWyS9JY5d3_L9imbk0LiziHiyDtMZLHt_UNzoYUXs2g';
     backdropIMG = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSols5HZxlQWyS9JY5d3_L9imbk0LiziHiyDtMZLHt_UNzoYUXs2g';  
   }
+  
   return (
-  <div className="popup">
-    <div className="Inner">
-      <div className="poster">
-        <img id="poster" className='poster' src={require('./tmdb.svg')} alt="LOGO"/>
-        <button onClick={closePopup} className="button">close</button>
-      </div>
-      <img src={posterIMG} alt="posterImg"/>
-      <div className="data-container">
-        <h1>{`${title}    `}<span>IMDB ID : {imdb_id}</span></h1>
-        <span className="tagline">{tagline}</span>
-        <p>{overview}</p>
-        <div className="additional-details">
-          <p style={{color:"white"}}>Genre:</p>
-          <span className="genre-list" style={{color:"#01d277"}}>{genresList}</span>
-          <p style={{color:"white"}}>Production  :</p>
-          <span className="production-list" style={{color:"#01d277"}}>{productionList}</span>
-          <div className="col-xs-6" style={{marginTop:"50px",float:"right",marginRight:'150px',color:"white"}}> Vote Average :<br/><span style={{color:"#01d277",marginTop:'10px',float:"right"}}  className="meta-data">{`${vote_average}`}</span></div>
-          <br/>
-          <div className="col-xs-6" style={{float:"left",color:"white",marginTop:"30px",marginLeft:"20px"}}> Running Time :<br/><span  style={{color:"#01d277",marginTop:'10px',float:"right"}}  className="meta-data">{`${runtime} mins`} </span> </div>
-          <div className="row nopadding release-details" style={{color:"white"}}>
-          <div className="col-xs-6" style={{marginTop: "30px",marginLeft:"240px"}} > Original Release: <br/><span style={{color:"#01d277",marginTop:'10px'}} className="meta-data">{release_date}</span></div>
-          <div className="col-xs-6" style={{marginTop:'16px',marginLeft:"20px",float:"left"}}> Box Office:    <br/><span style={{color:"#01d277",marginTop:'10px',float:"right"}} className="meta-data">{`${totalRevenue}`}</span><br></br></div>
-          </div>
+  <div className="popup" 
+          style={{position:"fixed",
+          width:"100%",
+          background : `${(backdropIMG)}`,
+          height:"99.5vh",
+          backgroundColor:"black"
+  }}>
+  <div className="Inner">
+    <div className="poster">
+      <img id="poster" className='poster' src={require('./tmdb.svg')} alt="LOGO"/>
+      <button onClick={closePopup} className="button">close</button>
+    </div>
+    <img src={posterIMG} alt="posterImg"/>
+    <div className="data-container">
+      <h1>{`${title} `}<span>IMDB ID : {imdb_id}</span></h1>
+      <span className="tagline">{tagline}</span>
+      <p>{overview}</p>
+    
+
+    <div className="additional-details">
+        <p style={{color:"white",fontSize:"32px"}}>Genre:</p>
+        <span className="genre-list" style={{color:"#01d277",fontSize:"24px"}}>{genresList}</span><p style={{color:"white",fontSize:"20px"}}>Production  :</p>
+        <span className="production-list" style={{color:"#01d277",marginLeft:"30px"}}>{productionList}</span>
+        <div className="head">
+        <div className="head1"> Vote Average :    <br/>  <span style={{margin:"0px 12px"}} className="cont">{`${vote_average}`}</span></div>
+        <div className="head2"> Running Time :    <br/>  <span style={{margin:"0px 12px"}} className="cont">{`${runtime} mins`} </span> </div>
+        <div className="head3"> Original Release :<br/>  <span style={{margin:"0px 12px"}} className="cont">{release_date}</span></div>
+        <div className="head4"> Box Office :      <br/>  <span style={{margin:"0px 12px"}} className="cont">{`${totalRevenue}`}</span><br></br></div>
+        </div>
         </div>
       </div>
-    </div>
+  </div>
   </div>
   )
 }
