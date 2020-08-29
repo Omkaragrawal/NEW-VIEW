@@ -1,7 +1,7 @@
 /*LANDING PAGE*/
 
 body{
-  background-color: rgba(0, 0, 0, 0.678);
+  background-color: rgb(0, 0, 0);
 }
 
 .Header{
@@ -26,14 +26,14 @@ body{
 }
 .Header button {
     color: greenyellow;
-    background: black;
+    background: rgb(255, 102, 0);
     padding: 12px 32px;
     border: none;
     border-radius: 20px;
 }
 
 .Header a {
-    color: #01d277;
+    color: #ffffff;
 }
 
 @media (max-width: 610px){
@@ -148,6 +148,9 @@ body{
     border-top-right-radius: 10px;
     height: 30px;
     width: 250px;
+}
+.inputBox-login  input:hover {
+  background-color: rgb(190, 190, 243);
 }
 .buttons button {
   background-color: rgb(187, 180, 180);
