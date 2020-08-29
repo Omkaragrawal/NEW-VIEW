@@ -24,18 +24,18 @@ class Signup extends React.Component {
             <div className="Signup">
                 <h1>Create your Account</h1>
                 <div className="inputBox">
-                    <p>First name</p>
-                    <input type="text" label="firstname"/>
-                    <p>Last name</p>
-                    <input type="text" label="lastname"/>
-                    <p>Email</p>
-                    <input type="text" label="Email"/>
-                    <p>Mobile Number</p>
-                    <input type="text" label="mobilenumber"/>
-                    <p>Password</p>
-                    <input type="text" label="password"/>
-                    <p>Conform your Password</p>
-                    <input type="text" label="cpassword"/>
+                    <p>First name <span style={{color:"red"}}>*</span></p>
+                    <input type="text" label="firstname" placeholder="First name"/>
+                    <p>Last name <span style={{color:"red"}}>*</span></p>
+                    <input type="text" label="lastname"  placeholder="Last name"/>
+                    <p>Email <span style={{color:"red"}}>*</span></p>
+                    <input type="text" label="Email"  placeholder="Email"/>
+                    <p>Mobile Number <span style={{color:"red"}}>*</span></p>
+                    <input type="text" label="mobilenumber"  placeholder="Mobile Number"/>
+                    <p>Password <span style={{color:"red"}}>*</span></p>
+                    <input type="text" label="password" placeholder="Password"/>
+                    <p>Conform your Password <span style={{color:"red"}}>*</span></p>
+                    <input type="text" label="cpassword" placeholder="Conform your Password"/>
                 </div>
                 <div className="buttons">
                     <button type="button" onClick={this.handleOnClick}>SUBMIT</button>
