@@ -16,14 +16,13 @@ class Api extends React.Component {
     };
   }
 
-  
-
   keyHandle = (e) => {
     if(!navigator.onLine){
       alert("Network not available")
     }
     if(e.key === "Enter"){
-      axios(`https://api.themoviedb.org/3/search/movie?query=${this.state.value}&api_key=dbc0a6d62448554c27b6167ef7dabb1b`)
+      //Enter api key to search further
+      axios(`https://api.themoviedb.org/3/search/movie?query=${this.state.value}&api_key=%API_KEY`)
       .then((data) =>{
         let m = data.data.results
         let  n = JSON
@@ -31,7 +30,7 @@ class Api extends React.Component {
         for (let i=0;i<10;i++){
           n[i]= data.data.results[i].original_title;
         }}catch {
-          // document.write("Cant able to find the movie")
+          console.log("Cant able to find the movie")
         }
         // console.log(n)
 
@@ -80,7 +79,7 @@ class Api extends React.Component {
         <div className="search-bar">
         <input 
         type="text" 
-        className=".typehead"
+        className="typehead"
         onKeyPress = {this.keyHandle}
         style={{background : 'transparant',
         border:'none',  

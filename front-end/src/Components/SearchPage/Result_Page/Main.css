@@ -1,10 +1,14 @@
+body{
+  background-color: black;
+}
+
 .popup {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 99vh;
-  background-color: rgba(0, 0, 0, 0.335);
+  background-color: rgba(0, 0, 0, 0);
 }
 
 .Inner {
@@ -29,10 +33,15 @@
 .Inner .poster button  {
   float: right;
   height: 30px;
+  width: 90px;
+  background-color: black;
+  color: #01d277;
+  border : 1px solid #eee;
   margin-top: 10px;
   margin-right: 10px;
   margin-left: 10px;
 }
+
 .popup .Inner .data-container {
   width: 72%;
   overflow: hidden;

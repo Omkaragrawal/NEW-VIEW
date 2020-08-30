@@ -35,7 +35,7 @@ function Result({selected, closePopup}){
     vote_average = data.vote_average + ' / 10'
   };
 
-  if(production === 'undefined' || production === "null"){
+  if(production === 'undefined' || production === "null" || production === ""){
     productionList = ""
   }
   if (totalRevenue === 'undefined' || totalRevenue === 0 || budget === "undefined"|| budget === 0) {
@@ -57,7 +57,7 @@ function Result({selected, closePopup}){
           width:"100%",
           background : `${(backdropIMG)}`,
           height:"99.5vh",
-          backgroundColor:"black"
+          // backgroundColor:"black"
   }}>
   <div className="Inner">
     <div className="poster">
@@ -66,14 +66,15 @@ function Result({selected, closePopup}){
     </div>
     <img src={posterIMG} alt="posterImg"/>
     <div className="data-container">
-      <h1>{`${title} `}<span>IMDB ID : {imdb_id}</span></h1>
+      <h1 style={{marginTop:"5px"}}>{`${title} `}</h1>
       <span className="tagline">{tagline}</span>
       <p>{overview}</p>
     
 
-    <div className="additional-details">
+    <div className="additional-details" style={{margin:"0"}}>
         <p style={{color:"white",fontSize:"32px"}}>Genre:</p>
-        <span className="genre-list" style={{color:"#01d277",fontSize:"24px"}}>{genresList}</span><p style={{color:"white",fontSize:"20px"}}>Production  :</p>
+        <span className="genre-list" style={{color:"#01d277",fontSize:"24px"}}>{genresList}</span>
+        <p style={{color:"white",fontSize:"20px"}}>Production  :</p>
         <span className="production-list" style={{color:"#01d277",marginLeft:"30px"}}>{productionList}</span>
         <div className="head">
         <div className="head1"> Vote Average :    <br/>  <span style={{margin:"0px 12px"}} className="cont">{`${vote_average}`}</span></div>
