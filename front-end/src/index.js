@@ -1,12 +1,29 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
 import * as serviceWorker from './serviceWorker';
+import './index.css'
+import Login from './Components/IntroPage/Login'
+import Signup from './Components/IntroPage/Signup'
+import Landing from './Components/IntroPage/Landing'
+import { BrowserRouter, Link ,Switch , Route} from 'react-router-dom';
+import Api from './Components/SearchPage/Api'
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+//  <BrowserRouter>
+//   <div className="nav">
+//       <ul>
+//         <li><Link to ="/" style={{color:"white"}} >Home</Link></li>
+//         <li><Link to ="/login" style={{color:"white"}}>Login</Link></li>
+//         <li><Link to ="/signup" style={{color:"white"}}>Signup</Link></li>
+//       </ul>
+//       <Switch>
+//         <Route exact path="/" component={Landing}></Route>
+//         <Route exact path="/login" component={Login}></Route>
+//         <Route exact path="/signup" component={Signup}></Route>
+//       </Switch>
+//   </div>
+//   </BrowserRouter>
+<Api />  ,
   document.getElementById('root')
 );
 

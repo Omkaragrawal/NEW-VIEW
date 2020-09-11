@@ -1,0 +1,17 @@
+.search-bar input{
+    position: absolute;
+    left: 400px;
+    padding: 5px;
+    font-size: 20px;
+    height: 20px;
+    width: 500px;
+    box-shadow:0px 0px 20000px 200px rgba(0, 255, 170, 0.794);
+    text-indent: 0.25in;
+    font-weight: lighter;
+    color: rgb(255, 255, 255);
+    background: transparent;
+}
+
+body {
+    background: grey;
+}

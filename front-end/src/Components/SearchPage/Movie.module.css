@@ -16,7 +16,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: #696969;
+    color: #ffffff;
     z-index: 20;
     transition: all 0.2s;
     font-weight: 500;
@@ -46,7 +46,7 @@
   
   .Container:hover,
   .Container:focus {
-    box-shadow: 0 13px 33px -7px rgb(0, 255, 149);
+    box-shadow: 0 13px 33px -7px rgba(42, 78, 241, 0.773);
     transform: translateY(-10px);
   }
   
@@ -55,7 +55,7 @@
   .Container:hover::after,
   .Container:focus::after {
     visibility: visible;
-    opacity: 0.5;
+    opacity: 1;
   }
   
   .Container:hover .VoteContainer,
