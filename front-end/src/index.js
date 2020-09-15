@@ -1,40 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import * as serviceWorker from "./serviceWorker";
 import "./index.css";
-import Login from "./Components/IntroPage/Login";
-import Signup from "./Components/IntroPage/Signup";
-import Landing from "./Components/IntroPage/Landing";
-import { BrowserRouter, Link, Switch, Route } from "react-router-dom";
-import Api from "./Components/SearchPage/Api";
+import App from "./App";
+import * as serviceWorker from "./serviceWorker";
 
 ReactDOM.render(
-  <BrowserRouter>
-    <div className="nav">
-      <ul>
-        <li>
-          <Link to="/" style={{ color: "white", textDecoration: "none" }}>
-            Home
-          </Link>
-        </li>
-        <li>
-          <Link to="/login" style={{ color: "white", textDecoration: "none" }}>
-            Login
-          </Link>
-        </li>
-        <li>
-          <Link to="/signup" style={{ color: "white", textDecoration: "none" }}>
-            Signup
-          </Link>
-        </li>
-      </ul>
-      <Switch>
-        <Route exact path="/" component={Landing}></Route>
-        <Route exact path="/login" component={Login}></Route>
-        <Route exact path="/signup" component={Signup}></Route>
-      </Switch>
-    </div>
-  </BrowserRouter>,
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
   document.getElementById("root")
 );
 
