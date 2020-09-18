@@ -20,7 +20,7 @@ function Nav({ input_val, keyHand }) {
             type="text"
             className={clicked ? "search-bar-true" : "search-bar-false"}
             onKeyPress={keyHand}
-            label={"search"}
+            label="search"
             onChange={input_val}
             placeholder="Type something to search"
           />
