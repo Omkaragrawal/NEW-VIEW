@@ -22,13 +22,12 @@
   font-size: 30px;
   margin-top: 10px;
   font-style: bold;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
   text-align: center;
 }
 
 .register__content {
-  padding: 20px;
-  margin-left: 25px;
+  margin-left: 65px;
   display: flex;
 }
 

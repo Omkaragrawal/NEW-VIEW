@@ -1,112 +1,89 @@
-import React from "react";
-import "./Style.css";
-import "./Result_Page/Main.css";
+import React, { useState } from "react";
 import axios from "./axios";
-import Row from "./Row.js";
 import Movies from "./Movies";
 import Result from "./Result_Page/Result";
+import Nav from "./Nav";
+import "./Style.css";
+
 class Api extends React.Component {
   constructor() {
     super();
     this.state = {
-      movies: "",
-      value: "",
-      title: null,
-      selected: {},
+      movies: [],
+      value: [],
+      show: false,
+      selectedd: {},
+      pages: 1,
+      total_page: 0,
+      e: { key: "Enter" },
     };
   }
+  openPopup = (id) => {
+    // https://api.themoviedb.org/3
+    axios
+      .get(`/movie/${id}?&api_key=cfe422613b250f702980a3bbf9e90716`)
+      .then((data) => {
+        let m = data.data;
+        this.setState({ selected: m });
+      });
+  };
 
+  //on enter is pressed
   keyHandle = (e) => {
-    if (!navigator.onLine) {
-      alert("Network not available");
-    }
     if (e.key === "Enter") {
+      this.setState({ show: true });
       //Enter api key to search further
       axios
         .get(
-          `/search/movie?query=${this.state.value}&api_key=dbc0a6d62448554c27b6167ef7dabb1b`
+          `/search/movie?query=${this.state.value}&api_key=dbc0a6d62448554c27b6167ef7dabb1b&page=${this.state.pages}`
         )
         .then((data) => {
           let m = data.data.results;
-          let n = JSON;
-          try {
-            for (let i = 0; i < 10; i++) {
-              n[i] = data.data.results[i].original_title;
-            }
-          } catch {
-            console.log("Cant able to find the movie");
-          }
-          // console.log(n)
-
-          // console.log(m)
-          this.setState((prev) => {
-            return { ...prev, movies: m, titles: n };
-          });
+          this.setState({ movies: m });
+          this.setState({ total_page: data.data.total_pages });
         }).catch = (e) => {
         console.log("Refresh the page Or else try later");
       };
     }
   };
 
-  handleInput = (e) => {
-    const s = e.target.value;
-    this.setState((prev) => {
-      return { ...prev, value: s };
-    });
+  input_value = (e) => {
+    // console.log(e.target.value);
+    this.setState({ value: e.target.value });
   };
-
-  openPopup = (id) => {
-    axios(
-      `https://api.themoviedb.org/3/movie/${id}?&api_key=cfe422613b250f702980a3bbf9e90716`
-    ).then((data) => {
-      let m = data.data;
-      // let t = titles
-      this.setState((prev) => {
-        return {
-          ...prev,
-          selected: m,
-        };
-      });
-    });
-  };
-
   closePopup = () => {
-    this.setState((prev) => {
-      return { ...prev, selected: {} };
-    });
+    this.setState({ selected: {} });
   };
-
+  previous = () => {
+    if (this.state.pages > 1) {
+      this.setState({ pages: this.state.pages - 1 });
+    }
+    this.keyHandle(this.state.e);
+  };
+  next = () => {
+    if (this.state.pages <= this.state.total_page) {
+      this.setState({ pages: this.state.pages + 1 });
+    }
+    this.keyHandle(this.state.e);
+  };
   render() {
-    let suggest = this.state.titles;
-    console.log(suggest);
     return (
       <div>
-        <div className="search-bar">
-          <input
-            type="text"
-            className="typehead"
-            onKeyPress={this.keyHandle}
-            style={{
-              background: "transparant",
-              border: "none",
-              borderBottom: "2px solid yellowgreen",
-              paddingBottom: "10px",
-            }}
-            label="searchBar"
-            value={this.state.value}
-            onChange={this.handleInput}
-            placeholder="Type something to search"
-          />
-          <option value={suggest} />
-        </div>
-        {/* {console.log(this.state.title)} */}
+        <Nav input_val={this.input_value} keyHand={this.keyHandle} />
         <Movies list={this.state.movies} openPopup={this.openPopup} />
-        {typeof this.state.selected.original_title !== "undefined" ? (
+        {typeof this.state.selected !== "undefined" ? (
           <Result selected={this.state.selected} closePopup={this.closePopup} />
         ) : (
           false
         )}
-        <Row />
+        <div className="more__button">
+          {this.state.show && (
+            <footer>
+              <button onClick={this.next}>Next</button>
+              <button onClick={this.previous}>Back</button>
+            </footer>
+          )}
+        </div>
       </div>
     );
   }

@@ -91,7 +91,7 @@ function Login() {
 
               <Link to="/register">
                 <div className="login__registerlink">
-                  <p>Don't have an account Register now !!</p>
+                  <p>Don't you have an account Register now !!</p>
                 </div>
               </Link>
             </div>
