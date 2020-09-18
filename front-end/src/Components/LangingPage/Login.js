@@ -45,11 +45,13 @@ function Login() {
               className="login__input"
               placeholder="Email or Username"
               onChange={getUsername}
+              label="email"
               value={username}
             />
             <p className="login__line2">Password</p>
             <input
               value={password}
+              label="password"
               type="password"
               className="login__input"
               placeholder="Password"

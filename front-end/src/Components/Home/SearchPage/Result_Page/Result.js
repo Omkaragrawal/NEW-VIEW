@@ -1,7 +1,6 @@
 import React from "react";
 import "./Main.css";
 import "./tmdb.svg";
-import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import numeral from "numeral";
 export default function Result({ selected, closePopup }) {
   let data = selected;
@@ -97,7 +96,7 @@ export default function Result({ selected, closePopup }) {
         <div className="data-container">
           <h1 style={{ marginTop: "5px", color: "white" }}>{`${title} `}</h1>
           <span className="tagline">{tagline}</span>
-          <p>{overview}</p>
+          <p>{truncStr(overview, 150)}</p>
 
           <div className="additional-details" style={{ margin: "0" }}>
             <p style={{ color: "white", fontSize: "32px" }}>Genre:</p>
@@ -153,13 +152,6 @@ export default function Result({ selected, closePopup }) {
     </div>
   );
 }
-
-//If no image use this to show
-// posterIMG =
-// "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSols5HZxlQWyS9JY5d3_L9imbk0LiziHiyDtMZLHt_UNzoYUXs2g";
-// backdropIMG =
-// "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSols5HZxlQWyS9JY5d3_L9imbk0LiziHiyDtMZLHt_UNzoYUXs2g"
-//Pass array to deconstruct it
 
 //This  function is to replace the array objects to string
 function nestedDataToString(nestedData) {
