@@ -1,0 +1,6 @@
+.more__button > footer :nth-child(1):hover {
+  background-color: aquamarine;
+}
+.more__button > footer :hover {
+  background-color: aquamarine;
+}

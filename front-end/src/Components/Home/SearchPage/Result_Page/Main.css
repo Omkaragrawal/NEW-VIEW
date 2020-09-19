@@ -1,18 +1,15 @@
-body{
-  background-color: black;
-}
-
 .popup {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 99vh;
+  margin-bottom: 10px;
   background-color: rgba(0, 0, 0, 0);
 }
 
 .Inner {
-  width: 80%; 
+  width: 80%;
   height: 690px;
   top: 7px;
   left: 150px;
@@ -24,19 +21,19 @@ body{
   width: 300px;
   height: 500px;
 }
-.Inner .poster img  {
+.Inner .poster img {
   width: 90px;
   height: 50px;
   border-radius: 3px 0 0 3px;
   margin-left: 10px;
 }
-.Inner .poster button  {
+.Inner .poster button {
   float: right;
   height: 30px;
   width: 90px;
   background-color: black;
   color: #01d277;
-  border : 1px solid #eee;
+  border: 1px solid #eee;
   margin-top: 10px;
   margin-right: 10px;
   margin-left: 10px;
@@ -50,25 +47,26 @@ body{
   background-color: rgba(0, 0, 0, 0.657);
   height: 500px;
 }
-.popup .data-container{
+.popup .data-container {
   color: #01d277;
 }
-.popup .data-container h1{
+.popup .data-container h1 {
   margin-left: 20px;
   font-weight: 300;
   font-size: 35px;
 }
-.popup .data-container span{
+.popup .data-container span {
   font-size: 14px;
   margin-top: 0;
   color: white;
   margin-left: 20px;
-}.popup .data-container p{
+}
+.popup .data-container p {
   font-size: 16px;
   margin-left: 20px;
 }
 
-.release-details div :nth-child(n+3){
+.release-details div :nth-child(n + 3) {
   margin-top: 15px;
 }
 .meta-data {
@@ -80,21 +78,20 @@ body{
 
 .popopup .Inner .poster .button:hover,
 .popopup .Inner .poster .button:focus {
-    background-color: #000000;
-    background-image: linear-gradient(#000000, #02081b);
-  }
+  background-color: #000000;
+  background-image: linear-gradient(#000000, #02081b);
+}
 
 .head .head2 {
   margin-left: 60px;
   margin-top: 40px;
 }
-.head .head4{
+.head .head4 {
   margin-left: 60px;
-  margin-top: 20px;  
+  margin-top: 20px;
 }
 
-
-.head .head1{
+.head .head1 {
   float: right;
   margin-right: 225px;
 }

@@ -1,0 +1,60 @@
+.trending {
+  display: flex;
+  flex-direction: column;
+  background-color: burlywood;
+}
+.trending > header {
+  width: 100%;
+  height: 40px;
+  position: fixed;
+  background-color: tomato;
+}
+
+.trending > header > p {
+  float: right;
+  padding: 10px;
+}
+
+.trending__button {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 45%;
+  left: 37%;
+}
+.trending__button > button {
+  background-color: transparent;
+  color: rgb(0, 0, 0);
+  border: none;
+  font-size: 30px;
+}
+
+.trending__button > button:hover {
+  border-bottom: 1px solid rgb(211, 198, 223);
+}
+
+.more__button {
+  display: flex;
+  position: sticky;
+  justify-content: center;
+}
+.more__button > footer > button {
+  background-color: transparent;
+  color: rgb(0, 0, 0);
+  border: none;
+  font-size: 20px;
+  margin-left: 40px;
+}
+
+.trending__movies > img {
+  width: 200px;
+  height: 300px;
+  padding: 10px;
+  border-radius: 20px;
+  margin-top: 40px;
+  margin-left: 2px;
+  transition: transform 150ms;
+}
+.trending__movies > img:hover {
+  transform: scale(1.08);
+}
