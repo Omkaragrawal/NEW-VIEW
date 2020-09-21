@@ -9,14 +9,14 @@ import Popular from "./Components/Home/SearchPage/Components/Popular/Popular";
 import Toprated from "./Components/Home/SearchPage/Components/Toprated/Toprated";
 import Upcoming from "./Components/Home/SearchPage/Components/UPcoming/Upcoming";
 import Trending from "./Components/Home/SearchPage/Components/Nowplaying/Trending";
-
+import NoMatch from "./Components/NoMatch";
 import Api from "./Components/Home/SearchPage/Api";
 function App() {
   return (
     <Router>
       <div className="app">
         <Switch>
-          <Route exact path="/home">
+          <Route exact path="/">
             <LandingPage />
           </Route>
           <Route exact path="/login">
@@ -39,6 +39,9 @@ function App() {
           </Route>
           <Route exact path="/upcoming">
             <Upcoming />
+          </Route>
+          <Route exact path="">
+            <NoMatch />
           </Route>
         </Switch>
       </div>
