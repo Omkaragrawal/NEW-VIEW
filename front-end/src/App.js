@@ -3,8 +3,6 @@ import LandingPage from "./Components/LangingPage/LandingPage";
 import Login from "./Components/LangingPage/Login";
 import Register from "./Components/LangingPage/Register";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-// import Liked from "./MainPage/Components/Liked";
-// import Fav from "./MainPage/Components/Fav";
 import Popular from "./Components/Home/SearchPage/Components/Popular/Popular";
 import Toprated from "./Components/Home/SearchPage/Components/Toprated/Toprated";
 import Upcoming from "./Components/Home/SearchPage/Components/UPcoming/Upcoming";
