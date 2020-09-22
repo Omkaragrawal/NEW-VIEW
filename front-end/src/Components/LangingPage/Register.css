@@ -12,6 +12,8 @@
   width: 30%;
   border: 1px solid #111111;
   height: 72vh;
+  overflow-y: scroll;
+  overflow-x: scroll;
   background-color: #ffffffc5;
   margin-top: 90px;
   box-shadow: 10px -10px 10px 1px #111;
@@ -35,9 +37,12 @@
   .register__content > form {
     margin-left: -25px;
   }
+  .register__space {
+    width: 340px;
+  }
 }
 .register__header {
-  font-size: 30px;
+  font-size: 40px;
   margin-top: 10px;
   font-style: bold;
   margin-bottom: 5px;
@@ -100,6 +105,7 @@
   text-align: center;
   margin-left: 70px;
   margin-top: 30px;
+  margin-bottom: 20px;
 }
 .register__loginLink:hover {
   transform: scale(1.28);

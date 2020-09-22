@@ -9,42 +9,58 @@ import Upcoming from "./Components/Home/SearchPage/Components/UPcoming/Upcoming"
 import Trending from "./Components/Home/SearchPage/Components/Nowplaying/Trending";
 import NoMatch from "./Components/NoMatch";
 import Api from "./Components/Home/SearchPage/Api";
-function App() {
-  return (
-    <Router>
-      <div className="app">
-        <Switch>
-          <Route exact path="/">
-            <LandingPage />
-          </Route>
-          <Route exact path="/login">
-            <Login />
-          </Route>
-          <Route exact path="/register">
-            <Register />
-          </Route>
-          <Route exact path="/search">
-            <Api />
-          </Route>
-          <Route exact path="/top-rated">
-            <Toprated />
-          </Route>
-          <Route exact path="/popular">
-            <Popular />
-          </Route>
-          <Route exact path="/trending">
-            <Trending />
-          </Route>
-          <Route exact path="/upcoming">
-            <Upcoming />
-          </Route>
-          <Route exact path="">
-            <NoMatch />
-          </Route>
-        </Switch>
-      </div>
-    </Router>
-  );
+class App extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      apiResponse: "",
+    };
+  }
+  callApi() {
+    fetch("http://localhost:8081/users")
+      .then((res) => res.text())
+      .then((res) => this.setState({ apiResponse: res }));
+  }
+  componentWillMount() {
+    this.callApi();
+  }
+  render() {
+    return (
+      <Router>
+        <div className="app">
+          <Switch>
+            <Route exact path="/">
+              <LandingPage />
+            </Route>
+            <Route exact path="/login">
+              <Login />
+            </Route>
+            <Route exact path="/register">
+              <Register />
+            </Route>
+            <Route exact path="/search">
+              <Api />
+            </Route>
+            <Route exact path="/top-rated">
+              <Toprated />
+            </Route>
+            <Route exact path="/popular">
+              <Popular />
+            </Route>
+            <Route exact path="/trending">
+              <Trending />
+            </Route>
+            <Route exact path="/upcoming">
+              <Upcoming />
+            </Route>
+            <Route exact path="">
+              <NoMatch />
+            </Route>
+          </Switch>
+        </div>
+      </Router>
+    );
+  }
 }
 
 export default App;

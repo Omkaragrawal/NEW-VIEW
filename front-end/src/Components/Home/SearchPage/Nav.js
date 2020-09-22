@@ -25,7 +25,10 @@ function Nav({ input_val, keyHand }) {
             placeholder="Type something to search"
           />
         </div>
-        <SearchIcon onClick={() => setClick(true)} style={{ color: "white" }} />
+        <SearchIcon
+          onClick={() => setClick(true)}
+          style={{ color: "white", marginRight: "10px" }}
+        />
         <ul className="nav__content">
           <Link to="popular">
             <li>Popular</li>

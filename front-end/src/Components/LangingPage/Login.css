@@ -34,6 +34,7 @@
   .login__space {
     overflow-y: hidden;
     overflow: scroll;
+    width: 350px;
   }
 }
 .login__header {
