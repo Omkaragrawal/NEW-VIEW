@@ -8,9 +8,9 @@
   background-color: #3c3939af;
 }
 
-.nav__barShow {
+/* .nav__barShow {
   background-color: none;
-}
+} */
 
 .nav__logo {
   width: 60px;
@@ -19,15 +19,27 @@
   margin-left: 20px;
   padding: 4px;
 }
-
+@media (max-width: 720px) {
+  .nav__bar {
+    background-color: rgba(165, 42, 42, 0.521);
+  }
+}
 .nav__login {
   background-color: #5ec6e3;
   border: 2px solid #5ec6e3;
   text-decoration: none;
   padding: 1px 20px;
   margin-right: 10px;
+  height: 30px;
+  margin-top: 10px;
+  transition: transform 150ms;
   box-shadow: 0 0 5px 1px #5ec6e3;
   border-style: hidden;
+}
+.nav__login :hover {
+  cursor: pointer;
+  transform: scale(1.08);
+  color: aliceblue;
 }
 .nav__loginLine {
   border: none;

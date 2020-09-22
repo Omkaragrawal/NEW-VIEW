@@ -17,7 +17,25 @@
   box-shadow: 10px -10px 10px 1px #111;
   align-self: center;
 }
-
+@media (max-width: 720px) {
+  .register {
+    background-color: brown;
+  }
+  .register__space {
+    width: 70%;
+    overflow-y: hidden;
+    overflow: scroll;
+  }
+}
+@media (max-width: 1200px) {
+  .register__space {
+    overflow-y: hidden;
+    overflow: scroll;
+  }
+  .register__content > form {
+    margin-left: -25px;
+  }
+}
 .register__header {
   font-size: 30px;
   margin-top: 10px;
@@ -44,23 +62,26 @@
   height: 30px;
   margin-bottom: 15px;
   border: none;
+  transition: transform 350ms;
   border-radius: 10px;
   text-indent: 10px;
   background-color: none;
   border-bottom: 1px solid rgba(0, 0, 0, 0.487);
 }
 
-.register__input:hover {
+.register__input:hover,
+.register__button:hover {
   background-color: #000000c5;
   font-weight: 600;
+  transform: scale(1.08);
   color: aliceblue;
 }
 
 .register__button {
   margin-left: 70px;
   margin-top: 10px;
+  transition: transform 150ms;
 }
-
 .register__submit {
   width: 150px;
   text-align: center;
@@ -75,10 +96,11 @@
   margin-top: 20px;
   text-decoration: none;
   color: black;
-}
-
-.register__loginLink {
+  transition: transform 150ms;
   text-align: center;
   margin-left: 70px;
   margin-top: 30px;
+}
+.register__loginLink:hover {
+  transform: scale(1.28);
 }

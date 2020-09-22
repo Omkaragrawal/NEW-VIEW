@@ -17,7 +17,25 @@
   box-shadow: 10px -10px 10px 1px #111;
   align-self: center;
 }
-
+@media (max-width: 720px) {
+  .login {
+    background-color: brown;
+  }
+  .login__space {
+    width: 70%;
+    overflow-y: hidden;
+    overflow: scroll;
+  }
+  .login__components {
+    margin-left: -25%;
+  }
+}
+@media (max-width: 1200px) {
+  .login__space {
+    overflow-y: hidden;
+    overflow: scroll;
+  }
+}
 .login__header {
   font-size: 30px;
   margin-top: 10px;
@@ -47,13 +65,14 @@
   border: none;
   border-radius: 10px;
   text-indent: 10px;
+  transition: transform 450ms;
   background-color: none;
   border-bottom: 1px solid rgba(0, 0, 0, 0.487);
 }
 .login__input:hover {
+  transform: scale(1.08);
   background-color: #000000c5;
   box-shadow: 0 0 10px 1px #4864b1;
-
   font-weight: 600;
   color: aliceblue;
 }
@@ -61,6 +80,7 @@
 .login__submit {
   width: 150px;
   border: none;
+  transition: transform 150ms;
   border-style: hidden;
   box-shadow: 0 0 1px 1px #00b2df;
   background-color: #00ff95ec;
@@ -68,6 +88,7 @@
 }
 
 .login__submit:hover {
+  transform: scale(1.08);
   box-shadow: 0 0 10px 1px #4864b1;
 }
 

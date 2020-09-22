@@ -26,6 +26,9 @@
   text-shadow: 1px 1px;
   font-size: 14px;
 }
+.landing__intro p:hover {
+  color: blue;
+}
 
 .landing__button {
   margin-top: 20px;
@@ -35,4 +38,9 @@
   border-radius: 10px;
   width: 150px;
   box-shadow: 0 0 10px 10px rgb(211, 211, 211);
+  transition: transform 150ms;
+}
+.landing__button:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 10px 2px #bbaacc;
 }

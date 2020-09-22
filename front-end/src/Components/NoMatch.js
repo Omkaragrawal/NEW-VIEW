@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useLocation } from "react";
 
 function NoMatch() {
-  let location = useLocation();
+  const location = useLocation();
   return (
     <div>
       <h3>
