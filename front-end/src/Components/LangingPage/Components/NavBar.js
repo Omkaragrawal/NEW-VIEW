@@ -12,9 +12,7 @@ function NavBar() {
         />
       </Link>
       <Link className="nav__link" to="/login">
-        <button className="nav__login">
-          <p className="nav__loginLine">Sign In</p>
-        </button>
+        <button className="nav__login">Sign In</button>
       </Link>
     </div>
   );

@@ -213,8 +213,15 @@
   color: #0098f0;
   text-decoration: none;
   margin-top: 38px;
+  transition: transform 900ms;
 }
 
 .login__registerlink > p {
   text-decoration: none;
+}
+.login__registerlink:hover {
+  color: #000000;
+  text-decoration: none;
+  text-align: center;
+  transform: scale(1.2);
 }

@@ -5,7 +5,7 @@
   position: fixed;
   top: 0;
   justify-content: space-between;
-  background-color: #3c3939af;
+  background-color: #0e0505e0;
 }
 
 /* .nav__barShow {
@@ -16,35 +16,38 @@
   width: 60px;
   object-fit: contain;
   height: 40px;
+  transition: transform 200ms;
   margin-left: 20px;
   padding: 4px;
 }
+.nav__logo:hover {
+  transform: scale(1.08);
+}
+
 @media (max-width: 720px) {
   .nav__bar {
     background-color: rgba(165, 42, 42, 0.521);
   }
 }
+
 .nav__login {
-  background-color: #5ec6e3;
-  border: 2px solid #5ec6e3;
+  background-color: #ffffff36;
+  border: 10px solid #5ec6e3;
   text-decoration: none;
   padding: 1px 20px;
   margin-right: 10px;
   height: 30px;
+  color: aliceblue;
   margin-top: 10px;
   transition: transform 150ms;
   box-shadow: 0 0 5px 1px #5ec6e3;
   border-style: hidden;
 }
-.nav__login :hover {
+.nav__login:hover {
   cursor: pointer;
   transform: scale(1.08);
-  color: aliceblue;
+  background-color: rgba(255, 255, 255, 0);
 }
-.nav__loginLine {
-  border: none;
-}
-
 .nav__link {
   text-decoration: none;
   color: rgb(0, 0, 0);

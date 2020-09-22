@@ -10,37 +10,46 @@
   margin-left: 5%;
   height: 100vh;
   max-height: 100vh;
-  background-color: rgb(205, 213, 216);
+  background-color: rgba(205, 213, 216, 0.274);
 }
 .landing__intro {
   width: 100%;
   margin: 200px 10px;
   text-align: center;
+  transition: transform 150ms;
 }
 .landing__intro > h1 {
-  text-shadow: 2px 2px #111;
+  text-shadow: 2px 2px rgb(255, 5, 5);
   font-size: 72px;
+  margin-bottom: 20px;
+  transition: transform 150ms;
+}
+.landing__intro:hover,
+.landing__intro > h1:hover,
+.landing__button:hover {
+  transform: scale(1.1);
 }
 .landing__intro > p {
   color: rgb(255, 0, 0);
   text-shadow: 1px 1px;
+  margin-bottom: 20px;
   font-size: 14px;
 }
 .landing__intro p:hover {
-  color: blue;
+  color: rgb(7, 0, 0);
 }
 
 .landing__button {
-  margin-top: 20px;
-  height: 45px;
-  background-color: #5ec6e3;
-  border: 2px solid black;
-  border-radius: 10px;
-  width: 150px;
-  box-shadow: 0 0 10px 10px rgb(211, 211, 211);
-  transition: transform 150ms;
-}
-.landing__button:hover {
   transform: scale(1.08);
-  box-shadow: 0 0 10px 2px #bbaacc;
+  background-color: #ffffff36;
+  border: 10px solid #5ec6e3;
+  text-decoration: none;
+  padding: 1px 20px;
+  margin-right: 10px;
+  height: 30px;
+  color: rgb(0, 136, 255);
+  margin-top: 10px;
+  transition: transform 150ms;
+  box-shadow: 0 0 5px 1px #5ec6e3;
+  border-style: hidden;
 }

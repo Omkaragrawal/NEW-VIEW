@@ -17,8 +17,9 @@ function LandingPage({ Image }) {
             style={{
               color: "#111",
               textShadow: "none",
-              fontSize: "12px",
+              fontSize: "16px",
               marginTop: "10px",
+              color: "white",
             }}
           >
             To register, Click above
