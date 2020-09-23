@@ -14,8 +14,8 @@ function Login() {
     let str = e.target.value;
     setPassword(str);
   };
-  console.log(username);
-  console.log(password);
+  // console.log(username);
+  // console.log(password);
 
   const login = () => {
     // Configure the ONCLICK

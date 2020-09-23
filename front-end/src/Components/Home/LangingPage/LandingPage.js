@@ -19,7 +19,6 @@ function LandingPage({ Image }) {
               textShadow: "none",
               fontSize: "16px",
               marginTop: "10px",
-              color: "white",
             }}
           >
             To register, Click above
