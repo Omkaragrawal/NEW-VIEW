@@ -41,6 +41,7 @@ function Register() {
               className="register__input"
               placeholder="Name"
               onChange={Name}
+              label="name"
             />
 
             <p className="register__line">Email</p>
@@ -49,6 +50,7 @@ function Register() {
               type="text"
               className="register__input"
               placeholder="Email"
+              label="email"
             />
 
             <p className="register__line">Password</p>
@@ -57,6 +59,7 @@ function Register() {
               type="text"
               className="register__input"
               placeholder="Password"
+              label="password"
             />
 
             <p className="register__line">Conform Password</p>
@@ -65,6 +68,7 @@ function Register() {
               type="text"
               className="register__input"
               placeholder="Conform password"
+              label="Conform password"
             />
 
             <div className="register__button">
