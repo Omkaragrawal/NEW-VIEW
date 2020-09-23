@@ -36,4 +36,6 @@ Any web technology can be used but I am thinking about using NodeJS ecosystem.
 * Execute ```npm run pre-commit``` before staging and commiting the front-end changes.
 <hr>
 
+[![Run on Repl.it](https://repl.it/badge/github/ebi10sa22/NEW-VIEW)](https://repl.it/github/ebi10sa22/NEW-VIEW)
+
 ![TMDB is used for API services in this project](TMDB-logo.svg)
