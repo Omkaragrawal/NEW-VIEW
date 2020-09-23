@@ -9,7 +9,6 @@ import Upcoming from "./Components/Home/SearchPage/Components/UPcoming/Upcoming"
 import Trending from "./Components/Home/SearchPage/Components/Nowplaying/Trending";
 import NoMatch from "./Components/NoMatch";
 import Api from "./Components/Home/SearchPage/Api";
-import axios from "axios";
 class App extends React.Component {
   constructor() {
     super();
@@ -18,13 +17,11 @@ class App extends React.Component {
     };
   }
   callApi() {
-    axios("http://localhost:8082/users")
-      .then((res) => {
-        res.text();
-      })
-      .then((res) => this.setState({ apiResponse: res }));
+    fetch("http://localhost:8081/").then((res) => {
+      res && console.log(res.text());
+    });
   }
-  UNSAFE_componentDidMount() {
+  componentDidMount() {
     this.callApi();
   }
   render() {
@@ -60,7 +57,6 @@ class App extends React.Component {
               <NoMatch />
             </Route>
           </Switch>
-          {console.log(this.state.apiResponse)}
         </div>
       </Router>
     );
