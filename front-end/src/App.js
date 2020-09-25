@@ -9,6 +9,7 @@ import Upcoming from "./Components/Home/SearchPage/Components/UPcoming/Upcoming"
 import Trending from "./Components/Home/SearchPage/Components/Nowplaying/Trending";
 import NoMatch from "./Components/NoMatch";
 import Api from "./Components/Home/SearchPage/Api";
+import Result from "./Components/Home/SearchPage/Result_Page/Result";
 class App extends React.Component {
   constructor() {
     super();
@@ -17,7 +18,7 @@ class App extends React.Component {
     };
   }
   callApi() {
-    fetch("http://localhost:8081/").then((res) => {
+    fetch("http://localhost:8080/").then((res) => {
       res && console.log(res.text());
     });
   }
@@ -32,6 +33,7 @@ class App extends React.Component {
             <Route exact path="/">
               <LandingPage />
             </Route>
+
             <Route exact path="/login">
               <Login />
             </Route>

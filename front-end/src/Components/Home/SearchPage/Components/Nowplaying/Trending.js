@@ -34,12 +34,14 @@ export default class Trending extends React.Component {
     this.setState({ show: true });
     this.fetchData();
   };
-  fetchData = () => {
+  fetchData = (page) => {
+    this.setState({ count_pages: page });
+
     axios
       .get(
         requests.now_playing +
           `&api_key=dbc0a6d62448554c27b6167ef7dabb1b` +
-          `&page=${this.state.count_pages}`
+          `&page=${page}`
       )
       .then((data) =>
         this.setState({
@@ -50,13 +52,15 @@ export default class Trending extends React.Component {
   };
   previous = () => {
     if (this.state.count_pages > 1 && this.state.count_pages !== 1) {
-      this.setState({ count_pages: this.state.count_pages - 1 });
-      this.fetchData();
+      let page = this.state.count_pages;
+      this.fetchData(page - 1);
     }
   };
   next = () => {
-    this.setState({ count_pages: this.state.count_pages + 1 });
-    this.fetchData();
+    if (this.state.count_pages <= this.state.pages) {
+      let page = this.state.count_pages;
+      this.fetchData(page + 1);
+    }
   };
   render() {
     return (
@@ -65,6 +69,7 @@ export default class Trending extends React.Component {
           <Link to="/search">
             <ArrowBackIcon style={{ padding: "5px 10px" }} />
           </Link>
+          {this.state.show && <p>You are on : {this.state.count_pages}</p>}
           {this.state.show && <p>Total Pages : {this.state.pages}</p>}
         </header>
         <div className="trending__button">

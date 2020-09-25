@@ -1,20 +1,15 @@
 import React from "react";
 import "./Main.css";
 import "./tmdb.svg";
+import { Link } from "react-router-dom";
+import ArrowBackIcon from "@material-ui/icons/ArrowBack";
+import EventIcon from "@material-ui/icons/Event";
 import numeral from "numeral";
 export default function Result({ selected, closePopup }) {
   let data = selected;
-  // console.log(data)
-  if (!navigator.onLine) {
-    alert("Network not available");
-  }
   let posterIMG = "https://image.tmdb.org/t/p/w500" + data.poster_path,
-    overview = data.overview,
-    title = data.original_title,
-    imdb_id = data.imdb_id,
     release_date = data.release_date,
     runtime = data.runtime,
-    tagline = data.tagline,
     production = data.production_companies,
     genres = data.genres,
     budget = data.budget,
@@ -28,18 +23,16 @@ export default function Result({ selected, closePopup }) {
   if (
     vote_average === "undefined" ||
     vote_average === 0 ||
-    imdb_id === "undefined" ||
-    imdb_id === "null" ||
     runtime === "undefined" ||
     runtime === "null" ||
     runtime < 0 ||
     runtime === "-"
   ) {
     vote_average = noData;
-    imdb_id = "-";
     runtime = "-";
   } else {
     vote_average = data.vote_average + " / 10";
+    runtime = data.runtime + " mins";
   }
 
   if (
@@ -53,7 +46,8 @@ export default function Result({ selected, closePopup }) {
     totalRevenue === "undefined" ||
     totalRevenue === 0 ||
     budget === "undefined" ||
-    budget === 0
+    budget === 0 ||
+    release_date > Date()
   ) {
     totalRevenue = noData;
     budget = noData;
@@ -70,81 +64,63 @@ export default function Result({ selected, closePopup }) {
   }
 
   return (
-    <div
-      className="popup"
-      style={{
-        position: "fixed",
-        width: "100%",
-        background: `${backdropIMG}`,
-        height: "99.5vh",
-        // backgroundColor:"black"
-      }}
-    >
-      <div className="Inner">
-        <div className="poster">
-          <img
-            id="poster"
-            className="poster"
-            src={require("./tmdb.svg")}
-            alt="LOGO"
-          />
-          <button onClick={closePopup} className="button">
-            close
-          </button>
+    <div className="result">
+      <div className="button" onClick={closePopup}>
+        <Link to="/search">
+          <ArrowBackIcon />
+        </Link>
+      </div>
+      <div className="inner__space">
+        <div
+          className="result__image"
+          style={{ backgroundImage: `url(${posterIMG})` }}
+        >
+          {release_date > Date() ? (
+            <div className="button__div">
+              <div className="event">
+                <EventIcon />
+                <p>Add to calender</p>
+              </div>
+              )
+            </div>
+          ) : (
+            false
+          )}
         </div>
-        <img src={posterIMG} alt="posterImg" />
-        <div className="data-container">
-          <h1 style={{ marginTop: "5px", color: "white" }}>{`${title} `}</h1>
-          <span className="tagline">{tagline}</span>
-          <p>{truncStr(overview, 150)}</p>
-
-          <div className="additional-details" style={{ margin: "0" }}>
-            <p style={{ color: "white", fontSize: "32px" }}>Genre:</p>
-            <span
-              className="genre-list"
-              style={{ color: "#01d277", fontSize: "24px" }}
-            >
-              {genresList}
-            </span>
-            <p style={{ color: "white", fontSize: "20px" }}>Production :</p>
-            <span
-              className="production-list"
-              style={{ color: "#01d277", marginLeft: "30px" }}
-            >
-              {productionList}
-            </span>
-            <div className="head">
-              <div className="head1">
-                {" "}
-                Vote Average : <br />{" "}
-                <span
-                  style={{ margin: "0px 12px" }}
-                  className="cont"
-                >{`${vote_average}`}</span>
-              </div>
-              <div className="head2">
-                {" "}
-                Running Time : <br />{" "}
-                <span style={{ margin: "0px 12px" }} className="cont">
-                  {`${runtime} mins`}{" "}
-                </span>{" "}
-              </div>
-              <div className="head3">
-                {" "}
-                Original Release :<br />{" "}
-                <span style={{ margin: "0px 12px" }} className="cont">
-                  {release_date}
-                </span>
-              </div>
-              <div className="head4">
-                {" "}
-                Box Office : <br />{" "}
-                <span
-                  style={{ margin: "0px 12px" }}
-                  className="cont"
-                >{`${totalRevenue}`}</span>
-                <br></br>
-              </div>
+        <div className="result__info">
+          <div className="result__title">
+            <h1>{data.original_title}</h1>
+          </div>
+          {typeof data.overview !== "undefined" ||
+          data.tagline !== "undefined" ? (
+            <div className="result__overview">
+              <p className="tagline">{data.tagline}</p>
+              <p className="sub-title">Overview</p>
+              <p className="res__content">{data.overview}</p>
+            </div>
+          ) : (
+            ""
+          )}
+          <div className="result__genre">
+            <p className="genre">Genre</p>
+            <p className="genre__list">{genresList} </p>
+            <p className="production">Production</p>
+            <p className="production__list">{productionList} </p>
+          </div>
+          <div className="additional__info">
+            <div className="additional__one">
+              <p className="title">Vote</p>
+              <p className="content">{vote_average}</p>
+              <p className="title">Run Time</p>
+              <p className="content">{runtime}</p>
+            </div>
+            <div className="additional__two">
+              <p className="title">Release Date</p>
+              <p className="content">
+                {release_date < Date() ? release_date : "Waiting for movie"}
+              </p>
+              <p className="title">Budget</p>
+              <p className="content">{budget}</p>
             </div>
           </div>
         </div>
@@ -164,13 +140,4 @@ function nestedDataToString(nestedData) {
   }
   resultString = nestedArray.join(", "); // array to string
   return resultString;
-}
-
-function truncStr(string, limit) {
-  return string.length > limit
-    ? string
-        .trim()
-        .substring(0, limit - 3)
-        .trim() + "..."
-    : string;
 }

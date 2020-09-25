@@ -1,6 +1,17 @@
 .more__button > footer :nth-child(1):hover {
   background-color: aquamarine;
+  font-size: 4vh;
 }
 .more__button > footer :hover {
   background-color: aquamarine;
+  font-size: 4vh;
+}
+
+.total {
+  font-size: 5vh;
+  margin-top: 3vh;
+}
+.mypage {
+  font-size: 5vh;
+  color: brown;
 }

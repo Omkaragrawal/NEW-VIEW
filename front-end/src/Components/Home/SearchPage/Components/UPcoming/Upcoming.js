@@ -24,7 +24,6 @@ export default class Upcoming extends React.Component {
       .then((data) => {
         let m = data.data;
         this.setState({ result_data: m });
-        console.log(data.data);
       });
   };
   closePopup = () => {
@@ -34,12 +33,13 @@ export default class Upcoming extends React.Component {
     this.setState({ show: true });
     this.fetchData();
   };
-  fetchData = () => {
+  fetchData = (page) => {
+    this.setState({ count_pages: page });
     axios
       .get(
         requests.upComing +
           `&api_key=dbc0a6d62448554c27b6167ef7dabb1b` +
-          `&page=${this.state.count_pages}`
+          `&page=${page}`
       )
       .then((data) =>
         this.setState({
@@ -50,15 +50,15 @@ export default class Upcoming extends React.Component {
   };
   previous = () => {
     if (this.state.count_pages > 1 && this.state.count_pages !== 1) {
-      this.setState({ count_pages: this.state.count_pages - 1 });
-      this.fetchData();
+      let page = this.state.count_pages;
+      this.fetchData(page - 1);
     }
   };
   next = () => {
     if (this.state.count_pages <= this.state.pages) {
-      this.setState({ count_pages: this.state.count_pages + 1 });
+      let page = this.state.count_pages;
+      this.fetchData(page + 1);
     }
-    this.fetchData();
   };
   render() {
     return (
@@ -68,6 +68,7 @@ export default class Upcoming extends React.Component {
           <Link to="/search">
             <ArrowBackIcon style={{ padding: "5px 10px" }} />
           </Link>
+          {this.state.show && <p>You are on : {this.state.count_pages}</p>}
           {this.state.show && <p>Total Pages : {this.state.pages}</p>}
         </header>
         <div className="upcoming__button">
