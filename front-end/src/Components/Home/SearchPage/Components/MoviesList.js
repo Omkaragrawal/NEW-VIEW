@@ -11,14 +11,14 @@ function MoviesList({ list, openPopup }) {
             "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSols5HZxlQWyS9JY5d3_L9imbk0LiziHiyDtMZLHt_UNzoYUXs2g"),
           (
             <img
-alt={movies.original_title              src={
+              alt={movies.original_title}
+              src={
                 movies.poster_path !== null && movies.poster_path !== undefined
                   ? posterImg + movies.poster_path
                   : img
               }
               key={movies.id}
               onClick={() => openPopup(movies.id)}
-              }
             />
           )
         )
