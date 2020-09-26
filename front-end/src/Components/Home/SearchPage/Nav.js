@@ -3,8 +3,11 @@ import "./Nav.css";
 import { Link } from "react-router-dom";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import SearchIcon from "@material-ui/icons/Search";
-function Nav({ input_val, keyHand }) {
-  const [clicked, setClick] = useState();
+import MenuIcon from "@material-ui/icons/Menu";
+function Nav({ input_val, keyHand, clicked }) {
+  const [count, setCount] = useState(0);
+  const b = count % 2 !== 0 ? true : false;
+  console.log(b);
   return (
     <div className="nav">
       <Link className="nav__link" to="/home">
@@ -18,7 +21,7 @@ function Nav({ input_val, keyHand }) {
         <div className="search-bar">
           <input
             type="text"
-            className={clicked ? "search-bar-true" : "search-bar-false"}
+            className={b ? "search-bar-true" : "search-bar-false"}
             onKeyPress={keyHand}
             label="search"
             onChange={input_val}
@@ -26,26 +29,26 @@ function Nav({ input_val, keyHand }) {
           />
         </div>
         <SearchIcon
-          onClick={() => setClick(true)}
-          style={{ color: "white", marginRight: "10px" }}
+          onClick={() => setCount(count + 1)}
+          style={
+            b
+              ? { color: "white", marginRight: "10px", paddingRight: "30vh" }
+              : { color: "white", marginRight: "10px", paddingRight: "20px" }
+          }
         />
-        <ul className="nav__content">
-          <Link to="popular">
-            <li>Popular</li>
-          </Link>
-          <Link to="top-rated">
-            <li>Top-rated</li>
-          </Link>
-          <Link to="trending">
-            <li>Now playing</li>
-          </Link>
-          <Link to="upcoming">
-            <li>Upcoming</li>
-          </Link>
-        </ul>
-        <Link to="/home">
+        <div className="exit-options">
           <ExitToAppIcon />
-        </Link>
+        </div>
+        <div
+          className="menu-options"
+          style={clicked ? { paddingRight: "0px" } : { paddingRight: "20px" }}
+        >
+          <MenuIcon
+            onClick={() => {
+              clicked(true);
+            }}
+          />
+        </div>
       </div>
     </div>
   );

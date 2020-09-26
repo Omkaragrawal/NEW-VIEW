@@ -6,10 +6,15 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Popular from "./Components/Home/SearchPage/Components/Popular/Popular";
 import Toprated from "./Components/Home/SearchPage/Components/Toprated/Toprated";
 import Upcoming from "./Components/Home/SearchPage/Components/UPcoming/Upcoming";
-import Trending from "./Components/Home/SearchPage/Components/Nowplaying/Trending";
+import NowPlaying from "./Components/Home/SearchPage/Components/Nowplaying/NowPlaying";
 import NoMatch from "./Components/NoMatch";
 import Api from "./Components/Home/SearchPage/Api";
-import Result from "./Components/Home/SearchPage/Result_Page/Result";
+import Action from "./Components/Home/SearchPage/Components/Action/Action";
+import Comedy from "./Components/Home/SearchPage/Components/Comedy/Comedy";
+import Horror from "./Components/Home/SearchPage/Components/Horror/Horror";
+import Documentries from "./Components/Home/SearchPage/Components/Documentries/Documentries";
+import Romance from "./Components/Home/SearchPage/Components/Romance/Romance";
+
 class App extends React.Component {
   constructor() {
     super();
@@ -33,7 +38,6 @@ class App extends React.Component {
             <Route exact path="/">
               <LandingPage />
             </Route>
-
             <Route exact path="/login">
               <Login />
             </Route>
@@ -49,11 +53,26 @@ class App extends React.Component {
             <Route exact path="/popular">
               <Popular />
             </Route>
-            <Route exact path="/trending">
-              <Trending />
+            <Route exact path="/nowplaying">
+              <NowPlaying />
             </Route>
             <Route exact path="/upcoming">
               <Upcoming />
+            </Route>
+            <Route exact path="/action">
+              <Action />
+            </Route>
+            <Route exact path="/comedy">
+              <Comedy />
+            </Route>
+            <Route exact path="/horror">
+              <Horror />
+            </Route>
+            <Route exact path="/documentries">
+              <Documentries />
+            </Route>
+            <Route exact path="/romance">
+              <Romance />
             </Route>
             <Route exact path="">
               <NoMatch />

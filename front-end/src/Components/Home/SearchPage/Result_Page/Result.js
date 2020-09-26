@@ -5,7 +5,12 @@ import { Link } from "react-router-dom";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import EventIcon from "@material-ui/icons/Event";
 import numeral from "numeral";
-export default function Result({ selected, closePopup }) {
+import Rec from "./Recommended/Rec";
+import { useState } from "react";
+
+export default function Result({ selected, closePopup, openPopup }) {
+  const [show, setShow] = useState();
+  const API_URL = `api_key=dbc0a6d62448554c27b6167ef7dabb1b`;
   let data = selected;
   let posterIMG = "https://image.tmdb.org/t/p/w500" + data.poster_path,
     release_date = data.release_date,
@@ -66,9 +71,7 @@ export default function Result({ selected, closePopup }) {
   return (
     <div className="result">
       <div className="button" onClick={closePopup}>
-        <Link to="/search">
-          <ArrowBackIcon />
-        </Link>
+        <ArrowBackIcon />
       </div>
       <div className="inner__space">
         <div
@@ -124,6 +127,23 @@ export default function Result({ selected, closePopup }) {
             </div>
           </div>
         </div>
+      </div>
+      <div>
+        {data.id !== null &&
+          ((
+            <Rec
+              title={"Recommended Movies"}
+              openPopup
+              url={`/movie/${data.id}/recommendations?${API_URL}`}
+            />
+          ),
+          (
+            <Rec
+              openPopup
+              title={"Similar Movies"}
+              url={`/movie/${data.id}/similar?${API_URL}`}
+            />
+          ))}
       </div>
     </div>
   );
