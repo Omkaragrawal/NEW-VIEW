@@ -1,18 +1,18 @@
 import React from "react";
+import "./Action.css";
 import axios from "../../axios";
 import requests from "../../requests-link";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import { Link } from "react-router-dom";
-import "./Trending.css";
 import Result from "../../Result_Page/Result.js";
-export default class Trending extends React.Component {
+export default class Action extends React.Component {
   constructor() {
     super();
     this.state = {
       show: false,
-      pages: 1,
+      pages: 0,
       movies: [],
-      count_pages: 1,
+      count_pages: 0,
       posterImg: "https://image.tmdb.org/t/p/original/",
       result_data: {},
     };
@@ -22,33 +22,25 @@ export default class Trending extends React.Component {
     axios
       .get(`/movie/${id}?&api_key=cfe422613b250f702980a3bbf9e90716`)
       .then((data) => {
-        let m = data.data;
-        this.setState({ result_data: m });
-        console.log(data.data);
+        this.setState({ result_data: data.data });
       });
   };
   closePopup = () => {
     this.setState({ result_data: [] });
   };
+
   clicked = () => {
     this.setState({ show: true });
-    this.fetchData();
+    this.fetchData(this.state.count_pages + 1);
   };
   fetchData = (page) => {
     this.setState({ count_pages: page });
-
-    axios
-      .get(
-        requests.now_playing +
-          `&api_key=dbc0a6d62448554c27b6167ef7dabb1b` +
-          `&page=${page}`
-      )
-      .then((data) =>
-        this.setState({
-          movies: data.data.results,
-          pages: data.data.total_pages,
-        })
-      );
+    axios.get(requests.fetchActionMovies + `&page=${page}`).then((data) =>
+      this.setState({
+        movies: data.data.results,
+        pages: data.data.total_pages,
+      })
+    );
   };
   previous = () => {
     if (this.state.count_pages > 1 && this.state.count_pages !== 1) {
@@ -64,7 +56,7 @@ export default class Trending extends React.Component {
   };
   render() {
     return (
-      <div className="trending">
+      <div className="action">
         <header>
           <Link to="/search">
             <ArrowBackIcon style={{ padding: "5px 10px" }} />
@@ -72,7 +64,7 @@ export default class Trending extends React.Component {
           {this.state.show && <p>You are on : {this.state.count_pages}</p>}
           {this.state.show && <p>Total Pages : {this.state.pages}</p>}
         </header>
-        <div className="trending__button">
+        <div className="action__button">
           <button
             onClick={this.clicked}
             style={{ visibility: `${this.state.show ? "hidden" : false}` }}
@@ -80,19 +72,19 @@ export default class Trending extends React.Component {
             Click here to load movies
           </button>
         </div>
-        {console.log(this.state.movies)}
-        <div className="trending__movies">
+        <div className="action__movies">
           {this.state.movies.map((movie) => (
             <img
               src={`${this.state.posterImg}${movie.poster_path}`}
               key={movie.id}
-              alt="poster"
+              alt={movie.original_title}
               onClick={() => {
                 this.openPopup(movie.id);
               }}
             />
           ))}
         </div>
+
         <div className="more__button">
           {this.state.show && (
             <footer>
