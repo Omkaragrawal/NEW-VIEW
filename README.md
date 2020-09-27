@@ -4,7 +4,7 @@
 
 
 **Project ID: 01**
->## **Project Mentor: Omkar Agarwal, Garima Singh**
+>## **Project Mentor: Omkar Agarwal**
 
 
 >## ✍&nbsp; PROJECT DESCRIPTION

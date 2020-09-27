@@ -1,0 +1,103 @@
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 99vh;
+  margin-bottom: 10px;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.Inner {
+  width: 80%;
+  height: 690px;
+  top: 7px;
+  left: 150px;
+  position: fixed;
+  /* background-color: rgba(122, 52, 52, 0); */
+  float: left;
+}
+.Inner img {
+  width: 300px;
+  height: 500px;
+}
+.Inner .poster img {
+  width: 90px;
+  height: 50px;
+  border-radius: 3px 0 0 3px;
+  margin-left: 10px;
+}
+.Inner .poster button {
+  float: right;
+  height: 30px;
+  width: 90px;
+  background-color: black;
+  color: #01d277;
+  border: 1px solid #eee;
+  margin-top: 10px;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.popup .Inner .data-container {
+  width: 72%;
+  overflow: hidden;
+  overflow-y: scroll;
+  float: right;
+  background-color: rgba(0, 0, 0, 0.657);
+  height: 500px;
+}
+.popup .data-container {
+  color: #01d277;
+}
+.popup .data-container h1 {
+  margin-left: 20px;
+  font-weight: 300;
+  font-size: 35px;
+}
+.popup .data-container span {
+  font-size: 14px;
+  margin-top: 0;
+  color: white;
+  margin-left: 20px;
+}
+.popup .data-container p {
+  font-size: 16px;
+  margin-left: 20px;
+}
+
+.release-details div :nth-child(n + 3) {
+  margin-top: 15px;
+}
+.meta-data {
+  display: block;
+  color: limeGreen;
+  font-size: 1.6em;
+  line-height: 1.1em;
+}
+
+.popopup .Inner .poster .button:hover,
+.popopup .Inner .poster .button:focus {
+  background-color: #000000;
+  background-image: linear-gradient(#000000, #02081b);
+}
+
+.head .head2 {
+  margin-left: 60px;
+  margin-top: 40px;
+}
+.head .head4 {
+  margin-left: 60px;
+  margin-top: 20px;
+}
+
+.head .head1 {
+  float: right;
+  margin-right: 225px;
+}
+
+.head .head3 {
+  float: right;
+  margin-top: 20px;
+  margin-right: 200px;
+}
