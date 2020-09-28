@@ -1,6 +1,6 @@
 const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
-const userdb = require("../models/databases");
+const userdb = require("../models/databases").users;
 var bcrypt = require("bcryptjs");
 
 const customFields = {

@@ -11,7 +11,8 @@ const compression = require("compression");
 const session = require("express-session");
 const SessionStore = require("express-session-sequelize")(session.Store);
 const pg = require("pg");
-const passport = require("./config/passport");
+const passport = require("passport");
+const { v4: uuidv4 } = require("uuid");
 const { check, validationResult, sanitizeBody } = require("express-validator");
 
 pg.defaults.ssl = true;
@@ -31,6 +32,10 @@ app.set("view engine", "ejs");
 
 app.use(
   session({
+    genid: function (req) {
+      return uuidv4(); // use UUIDs for session IDs
+    },
+    name: "auth",
     secret: "NEW-View434343",
     store: new SessionStore({
       db: sequelize.sequelize,
@@ -43,6 +48,9 @@ app.use(
     },
   })
 );
+require("./config/passport");
+app.use(passport.initialize());
+app.use(passport.session());
 app.use(compression());
 app.use(helmet());
 app.use(bodyParser.json());

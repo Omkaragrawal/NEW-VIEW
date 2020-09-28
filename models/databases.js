@@ -4,8 +4,10 @@ const { Sequelize, DataTypes } = require("sequelize");
  */
 
 const sequelize = new Sequelize(
-  "postgres://ccacmgcgatmlhg:3e1f84815fd70e2de50506937587d2b27325e1ea3bbc56bc9a4bb0bde4f73bed@ec2-34-198-103-34.compute-1.amazonaws.com:5432/dgsoeot8uqjgu"
+  "postgres://ccacmgcgatmlhg:3e1f84815fd70e2de50506937587d2b27325e1ea3bbc56bc9a4bb0bde4f73bed@ec2-34-198-103-34.compute-1.amazonaws.com:5432/dgsoeot8uqjgu",
+  { logging: false }
 );
+
 async function ConnectDB() {
   try {
     await sequelize.authenticate();
@@ -18,8 +20,8 @@ async function ConnectDB() {
 ConnectDB();
 
 //*****************************************Databases******************************************************************
-const User = sequelize.define(
-  "User",
+const users = sequelize.define(
+  "users",
   {
     id: {
       type: DataTypes.UUID,
@@ -45,4 +47,39 @@ const User = sequelize.define(
   }
 );
 
-module.exports = { sequelize, User };
+const favourites = sequelize.define(
+  "favourites",
+  {
+    userId: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    movieId: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+  },
+  {
+    // Other model options go here
+  }
+);
+
+const likes = sequelize.define(
+  "likes",
+  {
+    userId: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    movieId: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+  },
+  {
+    // Other model options go here
+  }
+);
+
+sequelize.sync({ force: false });
+module.exports = { sequelize, users, favourites, likes };
