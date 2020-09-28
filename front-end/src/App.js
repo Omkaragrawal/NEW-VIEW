@@ -14,6 +14,7 @@ import Comedy from "./Components/Home/SearchPage/Components/Comedy/Comedy";
 import Horror from "./Components/Home/SearchPage/Components/Horror/Horror";
 import Documentries from "./Components/Home/SearchPage/Components/Documentries/Documentries";
 import Romance from "./Components/Home/SearchPage/Components/Romance/Romance";
+import Trending from "./Components/Home/SearchPage/Components/Trending/Trending";
 
 class App extends React.Component {
   constructor() {
@@ -58,6 +59,9 @@ class App extends React.Component {
             </Route>
             <Route exact path="/upcoming">
               <Upcoming />
+            </Route>
+            <Route exact path="/trending">
+              <Trending />
             </Route>
             <Route exact path="/action">
               <Action />

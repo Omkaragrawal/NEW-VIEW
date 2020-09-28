@@ -3,9 +3,9 @@ import axios from "../../axios";
 import requests from "../../requests-link";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import { Link } from "react-router-dom";
-import "./Popular.css";
+import "./Trending.css";
 import Result from "../../Result_Page/Result.js";
-export default class Popular extends React.Component {
+export default class Trending extends React.Component {
   constructor() {
     super();
     this.state = {
@@ -35,18 +35,12 @@ export default class Popular extends React.Component {
   };
   fetchData = (page) => {
     this.setState({ count_pages: page });
-    axios
-      .get(
-        requests.popular +
-          `&api_key=dbc0a6d62448554c27b6167ef7dabb1b` +
-          `&page=${page}`
-      )
-      .then((data) =>
-        this.setState({
-          movies: data.data.results,
-          pages: data.data.total_pages,
-        })
-      );
+    axios.get(requests.fetchTrendingMovies + `&page=${page}`).then((data) =>
+      this.setState({
+        movies: data.data.results,
+        pages: data.data.total_pages,
+      })
+    );
   };
   previous = () => {
     if (this.state.count_pages > 1 && this.state.count_pages !== 1) {
@@ -62,7 +56,7 @@ export default class Popular extends React.Component {
   };
   render() {
     return (
-      <div className="popular">
+      <div className="trend">
         <header>
           <Link to="/search">
             <ArrowBackIcon style={{ padding: "5px 10px" }} />
@@ -70,7 +64,7 @@ export default class Popular extends React.Component {
           {this.state.show && <p>You are on : {this.state.count_pages}</p>}
           {this.state.show && <p>Total Pages : {this.state.pages}</p>}
         </header>
-        <div className="popular__button">
+        <div className="trend__button">
           <button
             onClick={this.clicked}
             style={{ visibility: `${this.state.show ? "hidden" : false}` }}
@@ -78,7 +72,7 @@ export default class Popular extends React.Component {
             Click here to load movies
           </button>
         </div>
-        <div className="popular__movies">
+        <div className="trend__movies">
           {this.state.movies.map((movie) => (
             <img
               src={`${this.state.posterImg}${movie.poster_path}`}
@@ -94,12 +88,8 @@ export default class Popular extends React.Component {
         <div className="more__button">
           {this.state.show && (
             <footer>
-              <button style={{ color: "black" }} onClick={this.previous}>
-                previous
-              </button>
-              <button style={{ color: "black" }} onClick={this.next}>
-                Next
-              </button>
+              <button onClick={this.previous}>previous</button>
+              <button onClick={this.next}>Next</button>
             </footer>
           )}
         </div>

@@ -19,16 +19,12 @@
   justify-content: flex-end;
   text-decoration: none;
 }
-.nav__options :hover {
-  color: rgb(0, 0, 0);
-  cursor: pointer;
-}
 .search-bar-false {
   visibility: hidden;
+  color: aliceblue;
 }
 .search-bar-true {
   visibility: visible;
-  /* background-color: chartreuse; */
   width: 700px;
   border: none;
   background-color: transparent;

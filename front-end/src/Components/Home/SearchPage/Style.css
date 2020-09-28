@@ -1,15 +1,15 @@
 div ::-webkit-scrollbar {
   display: none;
 }
-.more__button > footer :nth-child(1):hover {
-  background-color: aquamarine;
+/* .more__button > footer :nth-child(1):hover {
   font-size: 4vh;
 }
-.more__button > footer :hover {
-  background-color: aquamarine;
+.more__button > footer :nth-child(2):hover {
   font-size: 4vh;
+} */
+.more__button {
+  margin-top: 30px;
 }
-
 .total {
   font-size: 5vh;
   margin-top: 3vh;
@@ -20,13 +20,18 @@ div ::-webkit-scrollbar {
 }
 .options {
   margin-top: 40px;
-  height: 100vh;
+  height: 90vh;
+  overflow-y: scroll;
   display: flex;
   position: fixed;
-  top: 0px;
-  left: 170vh;
+  top: 5px;
+  box-shadow: 0 0px 19px 10px rgb(83, 80, 80);
+  left: 165vh;
   text-decoration: none;
-  background-color: rgb(28, 31, 31);
+  background-color: rgb(51, 53, 53);
+}
+.options:hover {
+  background: border-box rgb(44, 44, 48);
 }
 .options ul {
   list-style: none;

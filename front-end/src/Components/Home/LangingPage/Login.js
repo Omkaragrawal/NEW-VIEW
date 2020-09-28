@@ -60,9 +60,9 @@ function Login() {
             />
 
             <div className="login__button">
-              <Link to="/login">
-                <button className="login__submit">Login</button>
-              </Link>
+              <button className="login__submit" onClick={login}>
+                Login
+              </button>
               <p>(or)</p>
             </div>
             <div className="login__socialMediaButton">
@@ -91,7 +91,7 @@ function Login() {
                 Github
               </button>
 
-              <Link to="/register">
+              <Link to="/register" style={{ textDecoration: "none" }}>
                 <div className="login__registerlink">
                   <p>Don't you have an account Register now !!</p>
                 </div>

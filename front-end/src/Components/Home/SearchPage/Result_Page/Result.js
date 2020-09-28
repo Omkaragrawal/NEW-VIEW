@@ -1,15 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./Main.css";
 import "./tmdb.svg";
-import { Link } from "react-router-dom";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import EventIcon from "@material-ui/icons/Event";
 import numeral from "numeral";
 import Rec from "./Recommended/Rec";
-import { useState } from "react";
 
 export default function Result({ selected, closePopup, openPopup }) {
-  const [show, setShow] = useState();
   const API_URL = `api_key=dbc0a6d62448554c27b6167ef7dabb1b`;
   let data = selected;
   let posterIMG = "https://image.tmdb.org/t/p/w500" + data.poster_path,
@@ -68,16 +65,19 @@ export default function Result({ selected, closePopup, openPopup }) {
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSols5HZxlQWyS9JY5d3_L9imbk0LiziHiyDtMZLHt_UNzoYUXs2g";
   }
 
+  const sendId = (i) => {
+    if (i !== null || i !== undefined) {
+      console.log(i);
+    }
+  };
   return (
     <div className="result">
-      <div className="button" onClick={closePopup}>
-        <ArrowBackIcon />
-      </div>
       <div className="inner__space">
         <div
           className="result__image"
-          style={{ backgroundImage: `url(${posterIMG})` }}
+          // style={{ backgroundImage: `url(${posterIMG})` }}
         >
+          <img src={posterIMG} alt="" />
           {release_date > Date() ? (
             <div className="button__div">
               <div className="event">
@@ -93,6 +93,8 @@ export default function Result({ selected, closePopup, openPopup }) {
         <div className="result__info">
           <div className="result__title">
             <h1>{data.original_title}</h1>
+
+            <ArrowBackIcon className={"button"} onClick={closePopup} />
           </div>
           {typeof data.overview !== "undefined" ||
           data.tagline !== "undefined" ? (
@@ -128,18 +130,18 @@ export default function Result({ selected, closePopup, openPopup }) {
           </div>
         </div>
       </div>
-      <div>
+      <div className="rec-movies">
         {data.id !== null &&
           ((
             <Rec
+              send={sendId}
               title={"Recommended Movies"}
-              openPopup
               url={`/movie/${data.id}/recommendations?${API_URL}`}
             />
           ),
           (
             <Rec
-              openPopup
+              send={sendId}
               title={"Similar Movies"}
               url={`/movie/${data.id}/similar?${API_URL}`}
             />

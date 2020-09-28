@@ -19,6 +19,9 @@
   box-shadow: 10px -10px 10px 1px #111;
   align-self: center;
 }
+.register__false {
+  visibility: hidden;
+}
 @media (max-width: 720px) {
   .register {
     background-color: brown;

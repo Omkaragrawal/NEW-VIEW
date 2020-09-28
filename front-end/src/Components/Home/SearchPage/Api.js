@@ -5,7 +5,6 @@ import Nav from "./Nav";
 import "./Style.css";
 import MoviesList from "./Components/MoviesList";
 import { Link } from "react-router-dom";
-import Rec from "./Result_Page/Recommended/Rec";
 
 class Api extends React.Component {
   constructor() {
@@ -18,10 +17,24 @@ class Api extends React.Component {
       pages: 1,
       total_page: 0,
       e: { key: "Enter" },
-      show_options: "",
+      show_options: false,
+      nav_show: true,
       count: 0,
       API_URL: `api_key=dbc0a6d62448554c27b6167ef7dabb1b`,
       count_inp: 0,
+    };
+  }
+  componentDidMount() {
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 50) {
+        this.setState({ nav_show: false });
+        if (this.state.show_options === true) {
+          this.setState({ show_options: false });
+        }
+      } else this.setState({ nav_show: true });
+    });
+    return () => {
+      window.removeEventListener("scroll");
     };
   }
   openPopup = (id) => {
@@ -35,7 +48,17 @@ class Api extends React.Component {
   };
   keyHandle = (e, page = 1) => {
     if (e.key === "Enter") {
-      this.setState({ show: true });
+      if (this.state.show_options !== true) {
+        this.setState({ show_options: false });
+      } else this.setState({ show_options: true });
+      if (
+        this.state.value !== undefined ||
+        this.state.value !== null ||
+        this.state.value === ""
+      ) {
+        this.setState({ show: true });
+      } else this.setState({ show: false });
+      // this.setState({ show: true });
       this.setState({ pages: page });
       //Enter api key to search further
       axios
@@ -86,18 +109,20 @@ class Api extends React.Component {
       alert("You have reached the end !!!!");
     }
   };
-  ok = (yes) => {};
+  // ok = (yes) => {};
   render() {
     return (
       <div
         className={this.state.show_options ? "app-true" : "app"}
         style={{ overflowX: "hidden", maxWidth: "100%" }}
       >
-        <Nav
-          input_val={this.input_value}
-          keyHand={this.keyHandle}
-          clicked={this.clicked}
-        />
+        {this.state.nav_show && (
+          <Nav
+            input_val={this.input_value}
+            keyHand={this.keyHandle}
+            clicked={this.clicked}
+          />
+        )}
         <MoviesList list={this.state.movies} openPopup={this.openPopup} />
         {typeof this.state.selected.original_title !== "undefined" ? (
           <Result
@@ -118,6 +143,15 @@ class Api extends React.Component {
               }}
             >
               <ul>
+                <li>
+                  <Link
+                    to="/trending"
+                    style={{ textDecoration: "none", color: "white" }}
+                  >
+                    <span className="link">Trending</span>
+                  </Link>
+                </li>
+                <hr />
                 <li>
                   <Link
                     to="/popular"

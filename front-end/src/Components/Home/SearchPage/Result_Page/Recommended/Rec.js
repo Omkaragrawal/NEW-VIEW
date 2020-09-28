@@ -2,7 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import axios from "../../axios";
 import "./Rec.css";
-function Rec({ title, url, openPopup }) {
+function Rec({ title, url, send }) {
   const [movies, setMovies] = useState([]);
   const posterIMG = "https://image.tmdb.org/t/p/original/";
 
@@ -23,6 +23,7 @@ function Rec({ title, url, openPopup }) {
           {movies.map((movie) => (
             <img
               className={`row__poster`}
+              onClick={console.log(movie.id)}
               key={movie.id}
               src={`${posterIMG}${movie.poster_path}`}
               alt={movie.original_title}
