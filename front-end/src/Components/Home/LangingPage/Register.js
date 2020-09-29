@@ -73,7 +73,7 @@ function Register() {
             <p className="register__line">Password</p>
             <input
               onChange={Password}
-              type="text"
+              type="password"
               className="register__input"
               placeholder="Password"
               label="password"
@@ -85,7 +85,7 @@ function Register() {
             {password.length > 1 && (
               <input
                 onChange={Cpassword}
-                type="text"
+                type="password"
                 className="register__input"
                 placeholder="Conform password"
                 label="Conform password"
