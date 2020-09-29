@@ -1,7 +1,7 @@
 .comedy {
   display: flex;
   flex-direction: column;
-  background-color: burlywood;
+  background-color: rgb(44, 44, 48);
 }
 .comedy > header {
   width: 100%;

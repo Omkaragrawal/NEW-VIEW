@@ -15,7 +15,21 @@ import Horror from "./Components/Home/SearchPage/Components/Horror/Horror";
 import Documentries from "./Components/Home/SearchPage/Components/Documentries/Documentries";
 import Romance from "./Components/Home/SearchPage/Components/Romance/Romance";
 import Trending from "./Components/Home/SearchPage/Components/Trending/Trending";
-
+import Liked from "./Components/Home/SearchPage/Components/Liked__Favourite/Liked/Liked";
+import Fav from "./Components/Home/SearchPage/Components/Liked__Favourite/Favourites/Fav";
+import Animation from "./Components/Home/SearchPage/Components/Animation/Animation";
+import Crime from "././Components/Home/SearchPage/Components/Crime/Crime";
+import Drama from "./Components/Home/SearchPage/Components/Drama/Drama";
+import Family from "./Components/Home/SearchPage/Components/Family/Family";
+import Fantasy from "./Components/Home/SearchPage/Components/Fantasy/Fantasy";
+import History from "./Components/Home/SearchPage/Components/History/History";
+import Music from "./Components/Home/SearchPage/Components/Music/Music";
+import Mystry from "./Components/Home/SearchPage/Components/Mystry/Mystry";
+import Science from "./Components/Home/SearchPage/Components/Science/Science";
+import Tvmovie from "./Components/Home/SearchPage/Components/Tvmovie/Tvmovie";
+import Thriller from "./Components/Home/SearchPage/Components/Thriller/Thriller";
+import War from "./Components/Home/SearchPage/Components/War/War";
+import Western from "./Components/Home/SearchPage/Components/Western/Western";
 class App extends React.Component {
   constructor() {
     super();
@@ -77,6 +91,51 @@ class App extends React.Component {
             </Route>
             <Route exact path="/romance">
               <Romance />
+            </Route>
+            <Route exact path="/liked">
+              <Liked />
+            </Route>
+            <Route exact path="/favourites">
+              <Fav />
+            </Route>
+            <Route exact path="/animation">
+              <Animation />
+            </Route>
+            <Route exact path="/crime">
+              <Crime />
+            </Route>
+            <Route exact path="/drama">
+              <Drama />
+            </Route>
+            <Route exact path="/family">
+              <Family />
+            </Route>
+            <Route exact path="/fantasy">
+              <Fantasy />
+            </Route>
+            <Route exact path="/history">
+              <History />
+            </Route>
+            <Route exact path="/music">
+              <Music />
+            </Route>
+            <Route exact path="/mystry">
+              <Mystry />
+            </Route>
+            <Route exact path="/science">
+              <Science />
+            </Route>
+            <Route exact path="/thriller">
+              <Thriller />
+            </Route>
+            <Route exact path="/tvmovie">
+              <Tvmovie />
+            </Route>
+            <Route exact path="/war">
+              <War />
+            </Route>
+            <Route exact path="/western">
+              <Western />
             </Route>
             <Route exact path="">
               <NoMatch />

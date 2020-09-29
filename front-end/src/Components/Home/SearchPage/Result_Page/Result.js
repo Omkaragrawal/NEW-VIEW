@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import "./Main.css";
 import "./tmdb.svg";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";

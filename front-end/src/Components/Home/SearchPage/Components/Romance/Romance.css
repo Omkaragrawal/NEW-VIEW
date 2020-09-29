@@ -1,7 +1,7 @@
 .romance {
   display: flex;
   flex-direction: column;
-  background-color: burlywood;
+  background-color: rgb(44, 44, 48);
 }
 .romance > header {
   width: 100%;

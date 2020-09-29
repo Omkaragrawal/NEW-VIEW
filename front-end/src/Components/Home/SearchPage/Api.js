@@ -3,7 +3,7 @@ import axios from "./axios";
 import Result from "./Result_Page/Result";
 import Nav from "./Nav";
 import "./Style.css";
-import MoviesList from "./Components/MoviesList";
+import MoviesList from "./Components/MoviesList/MoviesList";
 import { Link } from "react-router-dom";
 
 class Api extends React.Component {
@@ -203,6 +203,15 @@ class Api extends React.Component {
                   <hr />
                   <li>
                     <Link
+                      to="/animation"
+                      style={{ textDecoration: "none", color: "white" }}
+                    >
+                      <span className="link">Animation</span>
+                    </Link>
+                  </li>
+                  <hr />
+                  <li>
+                    <Link
                       to="/comedy"
                       style={{ textDecoration: "none", color: "white" }}
                     >
@@ -212,10 +221,82 @@ class Api extends React.Component {
                   <hr />
                   <li>
                     <Link
+                      to="/crime"
+                      style={{ textDecoration: "none", color: "white" }}
+                    >
+                      <span className="link">Crime</span>
+                    </Link>
+                  </li>
+                  <hr />
+                  <li>
+                    <Link
+                      to="/drama"
+                      style={{ textDecoration: "none", color: "white" }}
+                    >
+                      <span className="link">Drama</span>
+                    </Link>
+                  </li>
+                  <hr />
+                  <li>
+                    <Link
+                      to="/documentries"
+                      style={{ textDecoration: "none", color: "white" }}
+                    >
+                      <span className="link">Documentry</span>
+                    </Link>
+                  </li>
+                  <hr />
+                  <li>
+                    <Link
+                      to="/family"
+                      style={{ textDecoration: "none", color: "white" }}
+                    >
+                      <span className="link">family</span>
+                    </Link>
+                  </li>
+                  <hr />
+                  <li>
+                    <Link
+                      to="/fantasy"
+                      style={{ textDecoration: "none", color: "white" }}
+                    >
+                      <span className="link">Fantasy</span>
+                    </Link>
+                  </li>
+                  <hr />
+                  <li>
+                    <Link
+                      to="/history"
+                      style={{ textDecoration: "none", color: "white" }}
+                    >
+                      <span className="link">History</span>
+                    </Link>
+                  </li>
+                  <hr />
+                  <li>
+                    <Link
                       to="/horror"
                       style={{ textDecoration: "none", color: "white" }}
                     >
                       <span className="link">Horror</span>
+                    </Link>
+                  </li>{" "}
+                  <hr />
+                  <li>
+                    <Link
+                      to="/music"
+                      style={{ textDecoration: "none", color: "white" }}
+                    >
+                      <span className="link">Music</span>
+                    </Link>
+                  </li>
+                  <hr />
+                  <li>
+                    <Link
+                      to="/mystry"
+                      style={{ textDecoration: "none", color: "white" }}
+                    >
+                      <span className="link">Mystry</span>
                     </Link>
                   </li>
                   <hr />
@@ -230,10 +311,46 @@ class Api extends React.Component {
                   <hr />
                   <li>
                     <Link
-                      to="/documentries"
+                      to="/science"
                       style={{ textDecoration: "none", color: "white" }}
                     >
-                      <span className="link">Documentry</span>
+                      <span className="link">Science</span>
+                    </Link>
+                  </li>
+                  <hr />
+                  <li>
+                    <Link
+                      to="/tvmovie"
+                      style={{ textDecoration: "none", color: "white" }}
+                    >
+                      <span className="link">Tv-Movie</span>
+                    </Link>
+                  </li>
+                  <hr />
+                  <li>
+                    <Link
+                      to="/thriller"
+                      style={{ textDecoration: "none", color: "white" }}
+                    >
+                      <span className="link">Thriller</span>
+                    </Link>
+                  </li>
+                  <hr />
+                  <li>
+                    <Link
+                      to="/war"
+                      style={{ textDecoration: "none", color: "white" }}
+                    >
+                      <span className="link">War</span>
+                    </Link>
+                  </li>
+                  <hr />
+                  <li>
+                    <Link
+                      to="/western"
+                      style={{ textDecoration: "none", color: "white" }}
+                    >
+                      <span className="link">Western</span>
                     </Link>
                   </li>
                 </div>

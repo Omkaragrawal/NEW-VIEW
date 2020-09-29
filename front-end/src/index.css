@@ -26,3 +26,6 @@
 *::-webkit-scrollbar {
   display: none;
 }
+body {
+  background-color: rgb(44, 44, 48);
+}

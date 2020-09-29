@@ -1,7 +1,7 @@
 .popular {
   display: flex;
   flex-direction: column;
-  background-color: burlywood;
+  background-color: rgb(44, 44, 48);
 }
 .popular > header {
   width: 100%;

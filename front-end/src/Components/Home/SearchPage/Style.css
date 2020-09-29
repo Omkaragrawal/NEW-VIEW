@@ -1,12 +1,6 @@
 div ::-webkit-scrollbar {
   display: none;
 }
-/* .more__button > footer :nth-child(1):hover {
-  font-size: 4vh;
-}
-.more__button > footer :nth-child(2):hover {
-  font-size: 4vh;
-} */
 .more__button {
   margin-top: 30px;
 }
@@ -19,20 +13,19 @@ div ::-webkit-scrollbar {
   color: brown;
 }
 .options {
-  margin-top: 40px;
-  height: 90vh;
+  margin-top: 7vh;
+  height: 70vh;
   overflow-y: scroll;
   display: flex;
   position: fixed;
-  top: 5px;
-  box-shadow: 0 0px 19px 10px rgb(83, 80, 80);
+  top: 8px;
+  border-left: 2px solid black;
+  border-bottom: 4px solid black;
   left: 165vh;
   text-decoration: none;
-  background-color: rgb(51, 53, 53);
+  background-color: rgb(28, 31, 31);
 }
-.options:hover {
-  background: border-box rgb(44, 44, 48);
-}
+
 .options ul {
   list-style: none;
   margin-top: 10px;

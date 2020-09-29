@@ -2,27 +2,32 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./LandingPage.css";
 import NavBar from "./Components/NavBar";
+import Banner from "./Components/Banner";
 function LandingPage({ Image }) {
   return (
     <div className="landing">
       <NavBar />
-      <div className="landing__background">
-        <div className="landing__intro">
-          <h1>Get Started</h1>
-          <p>To watch and get info about your favourite movies</p>
-          <Link to="/register">
-            <button className="landing__button">Register</button>
-          </Link>
-          <p
+      <Banner />
+      <div className="landing__inner">
+        <div className="landing__info">
+          <h3
             style={{
-              color: "#111",
-              textShadow: "none",
-              fontSize: "16px",
-              marginTop: "10px",
+              fontSize: "6vh",
+              fontStyle: "italic",
+              fontWeight: "800",
+              marginTop: "5vh",
             }}
           >
-            To register, Click above
+            Get Started
+          </h3>
+          <p style={{ fontSize: "8vh" }}>
+            To watch and get info about your favourite movies
           </p>
+          <Link to="/register">
+            <button className="button-btn" style={{ marginTop: "5vh" }}>
+              Register
+            </button>
+          </Link>
         </div>
       </div>
     </div>

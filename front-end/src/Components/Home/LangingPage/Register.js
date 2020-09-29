@@ -13,7 +13,7 @@ function Register() {
   const [password, setpassword] = useState("");
   // eslint-disable-next-line
   const [cpassword, setConPass] = useState("");
-
+  // eslint-disable-next-line
   const [show, setShow] = useState(true);
 
   const FirstName = (e) => {

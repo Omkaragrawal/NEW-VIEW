@@ -1,11 +1,11 @@
 import React from "react";
+import "./War.css";
 import axios from "../../axios";
 import requests from "../../requests-link";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import { Link } from "react-router-dom";
-import "./Trending.css";
 import Result from "../../Result_Page/Result.js";
-export default class Trending extends React.Component {
+export default class War extends React.Component {
   constructor() {
     super();
     this.state = {
@@ -18,6 +18,7 @@ export default class Trending extends React.Component {
     };
   }
   openPopup = (id) => {
+    // https://api.themoviedb.org/3
     axios
       .get(`/movie/${id}?&api_key=cfe422613b250f702980a3bbf9e90716`)
       .then((data) => {
@@ -34,7 +35,7 @@ export default class Trending extends React.Component {
   };
   fetchData = (page) => {
     this.setState({ count_pages: page });
-    axios.get(requests.fetchTrendingMovies + `&page=${page}`).then((data) =>
+    axios.get(requests.fetchwar + `&page=${page}`).then((data) =>
       this.setState({
         movies: data.data.results,
         pages: data.data.total_pages,
@@ -55,7 +56,7 @@ export default class Trending extends React.Component {
   };
   render() {
     return (
-      <div className="trend">
+      <div className="action">
         <header>
           <Link to="/search">
             <ArrowBackIcon style={{ padding: "5px 10px" }} />
@@ -63,7 +64,7 @@ export default class Trending extends React.Component {
           {this.state.show && <p>You are on : {this.state.count_pages}</p>}
           {this.state.show && <p>Total Pages : {this.state.pages}</p>}
         </header>
-        <div className="trend__button">
+        <div className="action__button">
           <button
             onClick={this.clicked}
             style={{ visibility: `${this.state.show ? "hidden" : false}` }}
@@ -71,7 +72,7 @@ export default class Trending extends React.Component {
             Click here to load movies
           </button>
         </div>
-        <div className="trend__movies">
+        <div className="action__movies">
           {this.state.movies.map((movie) => (
             <img
               src={`${this.state.posterImg}${movie.poster_path}`}

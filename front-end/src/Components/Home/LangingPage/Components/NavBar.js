@@ -1,9 +1,22 @@
 import React from "react";
+import { useEffect } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import "./NavBar.css";
 function NavBar() {
+  const [clName, setClass] = useState([]);
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 100) {
+        setClass(false);
+      } else {
+        setClass(true);
+      }
+      return () => window.removeEventListener("scroll");
+    });
+  }, []);
   return (
-    <div className="nav__bar">
+    <div className={clName ? "nav__bar" : "nav_bar_false"}>
       <Link className="nav__link" to="/">
         <img
           className="nav__logo"
@@ -11,8 +24,12 @@ function NavBar() {
           alt="logo"
         />
       </Link>
+
       <Link className="nav__link" to="/login">
         <button className="nav__login">Sign In</button>
+      </Link>
+      <Link className="nav__link" to="/register">
+        <button className="nav__register">Register</button>
       </Link>
     </div>
   );
