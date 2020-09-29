@@ -25,6 +25,9 @@ class Api extends React.Component {
     };
   }
   componentDidMount() {
+    const a = axios.get("http://localhost:8080/users/like").then((da) => {
+      console.log(da);
+    });
     window.addEventListener("scroll", () => {
       if (window.scrollY > 50) {
         this.setState({ nav_show: false });

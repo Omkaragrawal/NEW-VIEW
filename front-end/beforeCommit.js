@@ -9,7 +9,7 @@ const build = ora({
 }).start("Building the UI");
 const args = process.argv;
 
-exec("npm run build", {env: {"SKIP_PREFLIGHT_CHECK": "true"}}, (error, stdout, stderr) => {
+exec("npm run build", (error, stdout, stderr) => {
     if (error) {
         build.fail('Build failed');
         console.log(`error: ${error.message}`);
