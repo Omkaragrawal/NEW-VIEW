@@ -4,15 +4,16 @@ import requests from "../../requests-link";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import { Link } from "react-router-dom";
 import "./Popular.css";
+import Movies from "./Movies";
 import Result from "../../Result_Page/Result.js";
 export default class Popular extends React.Component {
   constructor() {
     super();
     this.state = {
       show: false,
-      pages: 1,
+      pages: 0,
       movies: [],
-      count_pages: 1,
+      count_pages: 0,
       posterImg: "https://image.tmdb.org/t/p/original/",
       result_data: {},
     };
@@ -22,9 +23,7 @@ export default class Popular extends React.Component {
     axios
       .get(`/movie/${id}?&api_key=cfe422613b250f702980a3bbf9e90716`)
       .then((data) => {
-        let m = data.data;
-        this.setState({ result_data: m });
-        console.log(data.data);
+        this.setState({ result_data: data.data });
       });
   };
   closePopup = () => {
@@ -33,14 +32,15 @@ export default class Popular extends React.Component {
 
   clicked = () => {
     this.setState({ show: true });
-    this.fetchData();
+    this.fetchData(this.state.count_pages + 1);
   };
-  fetchData = () => {
+  fetchData = (page) => {
+    this.setState({ count_pages: page });
     axios
       .get(
         requests.popular +
           `&api_key=dbc0a6d62448554c27b6167ef7dabb1b` +
-          `&page=${this.state.count_pages}`
+          `&page=${page}`
       )
       .then((data) =>
         this.setState({
@@ -51,15 +51,15 @@ export default class Popular extends React.Component {
   };
   previous = () => {
     if (this.state.count_pages > 1 && this.state.count_pages !== 1) {
-      this.setState({ count_pages: this.state.count_pages - 1 });
-      this.fetchData();
+      let page = this.state.count_pages;
+      this.fetchData(page - 1);
     }
   };
   next = () => {
     if (this.state.count_pages <= this.state.pages) {
-      this.setState({ count_pages: this.state.count_pages + 1 });
+      let page = this.state.count_pages;
+      this.fetchData(page + 1);
     }
-    this.fetchData();
   };
   render() {
     return (
@@ -68,6 +68,7 @@ export default class Popular extends React.Component {
           <Link to="/search">
             <ArrowBackIcon style={{ padding: "5px 10px" }} />
           </Link>
+          {this.state.show && <p>You are on : {this.state.count_pages}</p>}
           {this.state.show && <p>Total Pages : {this.state.pages}</p>}
         </header>
         <div className="popular__button">
@@ -78,16 +79,13 @@ export default class Popular extends React.Component {
             Click here to load movies
           </button>
         </div>
-        {console.log(this.state.movies)}
         <div className="popular__movies">
           {this.state.movies.map((movie) => (
-            <img
-              src={`${this.state.posterImg}${movie.poster_path}`}
-              key={movie.id}
-              alt={movie.original_title}
-              onClick={() => {
-                this.openPopup(movie.id);
-              }}
+            <Movies
+              title={movie.original_title}
+              poster={movie.poster_path}
+              id={movie.id}
+              openPopup={this.openPopup}
             />
           ))}
         </div>
@@ -95,8 +93,12 @@ export default class Popular extends React.Component {
         <div className="more__button">
           {this.state.show && (
             <footer>
-              <button onClick={this.previous}>previous</button>
-              <button onClick={this.next}>Next</button>
+              <button style={{ color: "black" }} onClick={this.previous}>
+                previous
+              </button>
+              <button style={{ color: "black" }} onClick={this.next}>
+                Next
+              </button>
             </footer>
           )}
         </div>

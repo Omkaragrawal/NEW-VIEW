@@ -1,0 +1,9 @@
+.banner {
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+.banner > img {
+  width: 100%;
+  height: auto;
+}

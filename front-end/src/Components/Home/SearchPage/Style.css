@@ -1,6 +1,72 @@
-.more__button > footer :nth-child(1):hover {
-  background-color: aquamarine;
+div ::-webkit-scrollbar {
+  display: none;
 }
-.more__button > footer :hover {
-  background-color: aquamarine;
+.more__button {
+  margin-top: 30px;
+}
+.total {
+  font-size: 5vh;
+  margin-top: 3vh;
+}
+.mypage {
+  font-size: 5vh;
+  color: brown;
+}
+.options {
+  margin-top: 7vh;
+  height: 70vh;
+  overflow-y: scroll;
+  display: flex;
+  position: fixed;
+  top: 8px;
+  border-left: 2px solid black;
+  border-bottom: 4px solid black;
+  left: 165vh;
+  text-decoration: none;
+  background-color: rgb(28, 31, 31);
+}
+
+.options ul {
+  list-style: none;
+  margin-top: 10px;
+  float: left;
+  text-decoration: none;
+}
+.options li:hover {
+  background-color: rgb(63, 63, 62);
+  cursor: pointer;
+  transform: scale(1.08);
+}
+.options > ul > li {
+  width: 100%;
+  transition: transform 150ms;
+  padding: 20px;
+}
+.options .link:hover,
+.genres-avail > li:hover {
+  color: aqua;
+}
+.genres-avail > li {
+  width: 100%;
+  color: white;
+  transition: transform 150ms;
+  padding: 20px;
+}
+@media (max-width: 720px) {
+  .options {
+    top: 5px;
+    left: 50vh;
+  }
+}
+
+@media (max-width: 1200) {
+  .options {
+    left: 50vh;
+  }
+}
+.app {
+  max-width: 100%;
+}
+.app-true {
+  width: 80%;
 }

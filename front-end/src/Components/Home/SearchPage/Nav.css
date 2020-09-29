@@ -1,36 +1,109 @@
 .nav {
   width: 100%;
-  height: 45px;
+  height: 60px;
   display: flex;
+  position: fixed;
+  top: 0;
   background-color: rgb(28, 31, 31);
   justify-content: space-between;
 }
-
 .logo {
   width: 100px;
   height: 50px;
 }
-
 .nav__options {
   display: flex;
-  margin: 10px;
+  margin-top: 10px;
+  color: aliceblue;
+  margin-right: 10px;
   justify-content: flex-end;
   text-decoration: none;
 }
+.nav__options .liked:hover {
+  transform: scale(1.08);
+  color: blue;
+}
+.nav__options .liked {
+  margin-right: 20px;
+  transition: transform 150ms;
+}
+.nav__options .liked p {
+  font-size: 14px;
+}
+.nav__options .favourites {
+  margin-right: 20px;
+  transition: transform 150ms;
+  text-align: center;
+}
+.nav__options .favourites:hover {
+  transform: scale(1.08);
+  color: blue;
+}
+.nav__options .favourites p {
+  font-size: 14px;
+  text-align: center;
+}
+.nav__options .exit-options {
+  margin-right: 20px;
+  text-align: center;
+  transition: transform 150ms;
+}
+.nav__options .exit-options:hover {
+  color: blue;
+  transform: scale(1.08);
+}
+.nav__options .exit-options p {
+  font-size: 14px;
+}
+.nav__options .more-options {
+  text-align: center;
+  margin-right: 20px;
+  transition: transform 150ms;
+}
+.nav__options .more-options:hover {
+  transform: scale(1.08);
+  color: aqua;
+}
 
+.nav__options .more-options p {
+  font-size: 14px;
+}
+.search {
+  margin-top: 10px;
+}
 .search-bar-false {
   visibility: hidden;
+  color: aliceblue;
 }
 .search-bar-true {
   visibility: visible;
-  /* background-color: chartreuse; */
-  width: 500px;
+  width: 80vh;
   border: none;
   background-color: transparent;
   border-bottom: 1px solid turquoise;
   text-indent: 10px;
   padding: 4px;
+  margin-top: 10px;
   color: azure;
   font-size: 16px;
   transition: ease-in;
+}
+.link {
+  color: white;
+}
+.link :hover {
+  color: aquamarine;
+}
+@media (max-width: 720px) {
+  .nav {
+    background-color: rgb(28, 31, 31);
+    /* height: 100px; */
+  }
+  .nav__content {
+    position: fixed;
+    top: 60px;
+  }
+  .search-bar-true {
+    width: 300px;
+  }
 }

@@ -8,6 +8,7 @@ const path = require("path");
 const cookieParser = require("cookie-parser");
 const logger = require("morgan");
 const compression = require("compression");
+const cors = require("cors");
 const session = require("express-session");
 const SessionStore = require("express-session-sequelize")(session.Store);
 const pg = require("pg");
@@ -64,6 +65,8 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
 
+app.use("/", indexRouter);
+app.use("/users", usersRouter);
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
   next(createError(404));

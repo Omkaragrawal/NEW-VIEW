@@ -1,103 +1,153 @@
-.popup {
-  position: fixed;
-  top: 0;
-  left: 0;
+.result {
   width: 100%;
-  height: 99vh;
-  margin-bottom: 10px;
-  background-color: rgba(0, 0, 0, 0);
-}
-
-.Inner {
-  width: 80%;
-  height: 690px;
-  top: 7px;
-  left: 150px;
-  position: fixed;
-  /* background-color: rgba(122, 52, 52, 0); */
-  float: left;
-}
-.Inner img {
-  width: 300px;
-  height: 500px;
-}
-.Inner .poster img {
-  width: 90px;
-  height: 50px;
-  border-radius: 3px 0 0 3px;
-  margin-left: 10px;
-}
-.Inner .poster button {
-  float: right;
-  height: 30px;
-  width: 90px;
-  background-color: black;
-  color: #01d277;
-  border: 1px solid #eee;
-  margin-top: 10px;
-  margin-right: 10px;
-  margin-left: 10px;
-}
-
-.popup .Inner .data-container {
-  width: 72%;
-  overflow: hidden;
+  height: 100vh;
+  display: flex;
+  /* padding: 40px; */
   overflow-y: scroll;
-  float: right;
-  background-color: rgba(0, 0, 0, 0.657);
-  height: 500px;
-}
-.popup .data-container {
-  color: #01d277;
-}
-.popup .data-container h1 {
-  margin-left: 20px;
-  font-weight: 300;
-  font-size: 35px;
-}
-.popup .data-container span {
-  font-size: 14px;
-  margin-top: 0;
+  overflow-x: hidden;
+  position: fixed;
   color: white;
-  margin-left: 20px;
+  top: 0px;
+  flex-direction: column;
+  background-color: rgba(0, 0, 0, 0.856);
 }
-.popup .data-container p {
-  font-size: 16px;
-  margin-left: 20px;
+.button {
+  width: auto;
+  padding: 15px;
+  height: auto;
+  color: rgb(255, 255, 255);
+  background-color: rgba(24, 23, 23, 0.781);
 }
-
-.release-details div :nth-child(n + 3) {
-  margin-top: 15px;
+.button:hover {
+  cursor: pointer;
+  color: blue;
+  background-color: rgb(29, 25, 29);
 }
-.meta-data {
-  display: block;
-  color: limeGreen;
-  font-size: 1.6em;
-  line-height: 1.1em;
-}
-
-.popopup .Inner .poster .button:hover,
-.popopup .Inner .poster .button:focus {
-  background-color: #000000;
-  background-image: linear-gradient(#000000, #02081b);
-}
-
-.head .head2 {
-  margin-left: 60px;
+.inner__space {
+  width: 192vh;
+  max-width: 100%;
+  margin-left: 70px;
   margin-top: 40px;
+  height: 90vh;
+  display: flex;
+  background-color: rgba(0, 0, 0, 0.445);
 }
-.head .head4 {
-  margin-left: 60px;
-  margin-top: 20px;
+.result__image {
+  width: 90vh;
+  height: 90vh;
+  object-fit: contain;
+}
+.result__image > img {
+  width: 60vh;
+  height: 90vh;
+}
+.button__div {
+  width: auto;
+  height: 10vh;
+  background-color: rgba(0, 0, 0, 0.397);
+  margin-top: 70vh;
+}
+.button__div > .event {
+  width: 20vh;
+  padding: 12px;
+  margin-left: 15vh;
+  text-align: center;
+}
+.event:hover {
+  cursor: pointer;
+}
+.result__info {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  height: 90vh;
+  background-color: rgb(0, 0, 0);
+  overflow-y: scroll;
 }
 
-.head .head1 {
-  float: right;
-  margin-right: 225px;
+.result__title {
+  width: auto;
+  margin-left: 2vh;
+  margin-bottom: 2vh;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  font-size: 4vh;
+  color: rgb(0, 255, 98);
+  font-family: sans-serif;
+}
+.result__overview {
+  margin-left: 2vh;
+}
+.tagline {
+  font-size: 3vh;
+  margin-bottom: 2vh;
+}
+.sub-title {
+  font-size: 4vh;
+  color: rgb(0, 255, 115);
+  margin-bottom: 2vh;
+}
+.res__content {
+  text-indent: 2vh;
+  font-size: 3vh;
+  margin-bottom: 2vh;
+}
+.result__genre {
+  width: auto;
+  height: auto;
+  margin-left: 2vh;
+}
+.genre {
+  font-size: 4vh;
+  margin-bottom: 2vh;
+  color: rgb(0, 255, 115);
+}
+.genre__list {
+  text-indent: 2vh;
+  font-size: 3vh;
+  margin-bottom: 2vh;
+}
+.production {
+  font-size: 4vh;
+  margin-bottom: 2vh;
+  color: rgb(0, 255, 115);
+}
+.production__list {
+  text-indent: 2vh;
+  font-size: 3vh;
+  margin-bottom: 2vh;
 }
 
-.head .head3 {
-  float: right;
-  margin-top: 20px;
-  margin-right: 200px;
+.additional__info {
+  width: auto;
+  display: flex;
+  flex-direction: row;
+  margin-left: 2vh;
+}
+
+.additional__one {
+  width: 100%;
+  max-height: 30vh;
+  overflow-y: scroll;
+}
+.additional__two {
+  width: 100%;
+  height: 30vh;
+  overflow-y: scroll;
+}
+.title {
+  font-size: 4vh;
+  margin-bottom: 2vh;
+
+  color: rgb(0, 255, 115);
+}
+.content {
+  font-size: 3vh;
+  margin-bottom: 2vh;
+  text-indent: 2vh;
+}
+.rec-movies {
+  margin: 40px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }

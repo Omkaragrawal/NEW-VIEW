@@ -1,0 +1,112 @@
+.western {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(44, 44, 48);
+}
+.western > header {
+  width: 100%;
+  height: 40px;
+  position: fixed;
+  background-color: tomato;
+}
+
+.western > header > p {
+  float: right;
+  padding: 10px;
+}
+
+.western__button {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 45%;
+  left: 37%;
+}
+.western__button > button {
+  background-color: transparent;
+  color: rgb(0, 0, 0);
+  border: none;
+  font-size: 30px;
+}
+
+.western__button > button:hover {
+  border-bottom: 1px solid rgb(107, 30, 180);
+}
+
+.more__button {
+  display: flex;
+  position: sticky;
+  margin-bottom: 20px;
+  justify-content: center;
+}
+.more__button > footer > button {
+  /* background-color: transparent; */
+  color: rgb(0, 0, 0);
+  border: none;
+  width: auto;
+  font-size: 20px;
+  margin-left: 40px;
+  transition: transform 150ms;
+}
+.western__movies {
+  display: flex;
+  flex-wrap: wrap;
+  width: 90%;
+  margin-left: 5%;
+  background-color: rgba(0, 0, 0, 0.568);
+  justify-content: center;
+  margin-top: 40px;
+}
+.more__button > footer :hover {
+  transform: scale(1.18);
+}
+
+.western__movies .list-item {
+  width: 18%;
+  width: 200px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+.western__movies .list-item img {
+  display: block;
+  height: 270px;
+  width: 100%;
+  transition: transform 200ms;
+}
+.western__movies .list-item img:hover {
+  transform: scale(1.08);
+  border-radius: 20px;
+  box-shadow: 1px 1px 10px 1px #eeeeee;
+}
+.western__movies .list-item div {
+  width: 100%;
+  display: flex;
+  height: 50px;
+  background-color: rgb(0, 0, 0);
+}
+.western__movies .list-item h3 {
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 600;
+  overflow-x: scroll;
+  padding: 10px;
+  flex: 1 1 100%;
+  transition: 0.4 ease-out;
+}
+
+.western__movies .list-item h3:hover {
+  background-color: #fff;
+  color: #223323;
+}
+.western__movies .list-item .liked {
+  margin-left: 20px;
+  background-color: none;
+}
+.western__movies .list-item .liked:hover {
+  color: aqua;
+}
+.western__movies .list-item .liked :nth-child(1):hover {
+  color: red;
+}
