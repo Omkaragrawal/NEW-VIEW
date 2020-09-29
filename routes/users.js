@@ -1,8 +1,4 @@
 const express = require("express");
-<<<<<<< HEAD
-
-=======
->>>>>>> 56654c47ff144715739413ed4b9fcf9ebbf68116
 const router = express.Router();
 const isAuth = require("../lib/authMiddleware").isAuth;
 var userdb = require("../models/databases").users;
@@ -14,8 +10,6 @@ const bcrypt = require("bcryptjs");
 /* GET users listing. */
 router.get("/", (req, res) => {
   res.send("respond with a resource");
-<<<<<<< HEAD
-=======
 });
 
 router.post(
@@ -124,7 +118,6 @@ router.post("/like", isAuth, async (req, res) => {
   } else {
     res.json({ status: false, message: "Already Added to Liked List" });
   }
->>>>>>> 56654c47ff144715739413ed4b9fcf9ebbf68116
 });
 
 module.exports = router;
