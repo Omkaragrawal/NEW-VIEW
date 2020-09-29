@@ -5,6 +5,7 @@ import requests from "../../requests-link";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import { Link } from "react-router-dom";
 import Result from "../../Result_Page/Result.js";
+import Movies from "./Movies";
 export default class Animation extends React.Component {
   constructor() {
     super();
@@ -56,7 +57,7 @@ export default class Animation extends React.Component {
   };
   render() {
     return (
-      <div className="action">
+      <div className="anime">
         <header>
           <Link to="/search">
             <ArrowBackIcon style={{ padding: "5px 10px" }} />
@@ -64,7 +65,7 @@ export default class Animation extends React.Component {
           {this.state.show && <p>You are on : {this.state.count_pages}</p>}
           {this.state.show && <p>Total Pages : {this.state.pages}</p>}
         </header>
-        <div className="action__button">
+        <div className="anime__button">
           <button
             onClick={this.clicked}
             style={{ visibility: `${this.state.show ? "hidden" : false}` }}
@@ -72,15 +73,13 @@ export default class Animation extends React.Component {
             Click here to load movies
           </button>
         </div>
-        <div className="action__movies">
+        <div className="anime__movies">
           {this.state.movies.map((movie) => (
-            <img
-              src={`${this.state.posterImg}${movie.poster_path}`}
-              key={movie.id}
-              alt={movie.original_title}
-              onClick={() => {
-                this.openPopup(movie.id);
-              }}
+            <Movies
+              title={movie.original_title}
+              poster={movie.poster_path}
+              id={movie.id}
+              openPopup={this.openPopup}
             />
           ))}
         </div>

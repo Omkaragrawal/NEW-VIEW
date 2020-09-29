@@ -4,6 +4,7 @@ import axios from "../../axios";
 import requests from "../../requests-link";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import { Link } from "react-router-dom";
+import Movies from "./Movies";
 import Result from "../../Result_Page/Result.js";
 export default class Horror extends React.Component {
   constructor() {
@@ -74,13 +75,11 @@ export default class Horror extends React.Component {
         </div>
         <div className="horror__movies">
           {this.state.movies.map((movie) => (
-            <img
-              src={`${this.state.posterImg}${movie.poster_path}`}
-              key={movie.id}
-              alt={movie.original_title}
-              onClick={() => {
-                this.openPopup(movie.id);
-              }}
+            <Movies
+              title={movie.original_title}
+              poster={movie.poster_path}
+              id={movie.id}
+              openPopup={this.openPopup}
             />
           ))}
         </div>

@@ -5,6 +5,8 @@ import requests from "../../requests-link";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import { Link } from "react-router-dom";
 import Result from "../../Result_Page/Result.js";
+import Movies from "./Movies";
+
 export default class Romance extends React.Component {
   constructor() {
     super();
@@ -74,13 +76,11 @@ export default class Romance extends React.Component {
         </div>
         <div className="romance__movies">
           {this.state.movies.map((movie) => (
-            <img
-              src={`${this.state.posterImg}${movie.poster_path}`}
-              key={movie.id}
-              alt={movie.original_title}
-              onClick={() => {
-                this.openPopup(movie.id);
-              }}
+            <Movies
+              title={movie.original_title}
+              poster={movie.poster_path}
+              id={movie.id}
+              openPopup={this.openPopup}
             />
           ))}
         </div>

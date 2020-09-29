@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Login.css";
-
+import axios from "axios";
 function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+
+  const a = axios.get("http://localhost:8081/users/like");
+  console.log(a.Promise);
 
   const getUsername = (e) => {
     let str = e.target.value;

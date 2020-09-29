@@ -9,7 +9,6 @@ function Movies({ title, poster, id, openPopup }) {
   const truncate = (str, n) => {
     return str?.length > n ? str.substr(0, n - 1) + "..." : str;
   };
-
   return (
     <div className="list-item">
       <img
@@ -19,7 +18,7 @@ function Movies({ title, poster, id, openPopup }) {
         onClick={() => openPopup(id)}
       />
       <div className="title">
-        <h3>{truncate(title, 5)}</h3>
+        <h3>{truncate(title, 10)}</h3>
         <div className="liked">
           <FavoriteIcon
             style={{ color: "white", marginTop: "10px", marginRigth: "10px" }}

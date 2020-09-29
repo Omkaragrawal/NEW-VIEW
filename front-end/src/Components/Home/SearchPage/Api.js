@@ -25,6 +25,7 @@ class Api extends React.Component {
     };
   }
   componentDidMount() {
+    // eslint-disable-next-line
     const a = axios.get("http://localhost:8080/users/like").then((da) => {
       console.log(da);
     });

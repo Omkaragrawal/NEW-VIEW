@@ -4,6 +4,7 @@ import requests from "../../requests-link";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import { Link } from "react-router-dom";
 import "./Upcoming.css";
+import Movies from "./Movies";
 import Result from "../../Result_Page/Result.js";
 export default class Upcoming extends React.Component {
   constructor() {
@@ -82,13 +83,11 @@ export default class Upcoming extends React.Component {
         {/* {console.log(this.state.movies)} */}
         <div className="upcoming__movies">
           {this.state.movies.map((movie) => (
-            <img
-              src={`${this.state.posterImg}${movie.poster_path}`}
-              key={movie.id}
-              alt={movie.original_title}
-              onClick={() => {
-                this.openPopup(movie.id);
-              }}
+            <Movies
+              title={movie.original_title}
+              poster={movie.poster_path}
+              id={movie.id}
+              openPopup={this.openPopup}
             />
           ))}
         </div>

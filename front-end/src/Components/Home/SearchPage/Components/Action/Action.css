@@ -40,26 +40,73 @@
   justify-content: center;
 }
 .more__button > footer > button {
-  background-color: transparent;
+  /* background-color: transparent; */
   color: rgb(0, 0, 0);
   border: none;
+  width: auto;
   font-size: 20px;
   margin-left: 40px;
   transition: transform 150ms;
 }
-.action__movies > img {
-  width: 200px;
-  height: 300px;
-  padding: 10px;
-  border-radius: 20px;
+.action__movies {
+  display: flex;
+  flex-wrap: wrap;
+  width: 90%;
+  margin-left: 5%;
+  background-color: rgba(0, 0, 0, 0.568);
+  justify-content: center;
   margin-top: 40px;
-  margin-left: 2px;
-  transition: transform 150ms;
 }
-.action__movies > img:hover {
-  transform: scale(1.08);
-}
-
 .more__button > footer :hover {
   transform: scale(1.18);
+}
+
+.action__movies .list-item {
+  width: 18%;
+  width: 200px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+.action__movies .list-item img {
+  display: block;
+  height: 270px;
+  width: 100%;
+  transition: transform 200ms;
+}
+.action__movies .list-item img:hover {
+  transform: scale(1.08);
+  border-radius: 20px;
+  box-shadow: 1px 1px 10px 1px #eeeeee;
+}
+.action__movies .list-item div {
+  width: 100%;
+  display: flex;
+  height: 50px;
+  background-color: rgb(0, 0, 0);
+}
+.action__movies .list-item h3 {
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 600;
+  overflow-x: scroll;
+  padding: 10px;
+  flex: 1 1 100%;
+  transition: 0.4 ease-out;
+}
+
+.action__movies .list-item h3:hover {
+  background-color: #fff;
+  color: #223323;
+}
+.action__movies .list-item .liked {
+  margin-left: 20px;
+  background-color: none;
+}
+.action__movies .list-item .liked:hover {
+  color: aqua;
+}
+.action__movies .list-item .liked :nth-child(1):hover {
+  color: red;
 }
