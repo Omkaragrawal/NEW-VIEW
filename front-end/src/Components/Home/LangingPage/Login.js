@@ -6,9 +6,6 @@ function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  const a = axios.get("http://localhost:8081/users/like");
-  console.log(a.Promise);
-
   const getUsername = (e) => {
     let str = e.target.value;
     setUsername(str);
@@ -17,11 +14,15 @@ function Login() {
     let str = e.target.value;
     setPassword(str);
   };
-  // console.log(username);
-  // console.log(password);
-
   const login = () => {
-    // Configure the ONCLICK
+    const data = JSON.stringify({
+      username: username,
+      password: password,
+    });
+    axios
+      .post("http://localhost:8081/users/like", { data: data })
+      .then((res) => {})
+      .catch((err) => console.log(err));
   };
 
   const login__facebook = () => {

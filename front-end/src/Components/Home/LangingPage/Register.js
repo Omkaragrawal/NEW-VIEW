@@ -2,11 +2,14 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Register.css";
+import axios from "axios";
+import LandingPage from "./LandingPage";
+import { useEffect } from "react";
 function Register() {
   // eslint-disable-next-line
-  const [firstname, setFirstName] = useState("");
+  const [name, setName] = useState("");
   // eslint-disable-next-line
-  const [lastname, setLastName] = useState("");
+  const [username, setUserName] = useState("");
   // eslint-disable-next-line
   const [email, setemail] = useState([""]);
   // eslint-disable-next-line
@@ -16,13 +19,14 @@ function Register() {
   // eslint-disable-next-line
   const [show, setShow] = useState(true);
 
-  const FirstName = (e) => {
+  //Getting Input
+  const Name = (e) => {
     let str = e.target.value;
-    setFirstName(str);
+    setName(str);
   };
-  const LastName = (e) => {
+  const UserName = (e) => {
     let str = e.target.value;
-    setLastName(str);
+    setUserName(str);
   };
   const Email = (e) => {
     let str = e.target.value;
@@ -36,8 +40,23 @@ function Register() {
     let str = e.target.value;
     setConPass(str);
   };
-  const register = () => {
-    //OnClick for Register button
+  const Register = () => {
+    if (password.length > 1) {
+      if (password === cpassword) {
+        const body = JSON.stringify({
+          name: name,
+          email: email,
+          username: username,
+          password: password,
+        });
+        axios
+          .post("http://localhost:8081/users/register", {
+            data: body,
+          })
+          .then((res) => console.log(res))
+          .catch((err) => console.log(err));
+      }
+    }
   };
   return (
     <div className="register">
@@ -50,16 +69,16 @@ function Register() {
               type="text"
               className="register__input"
               placeholder="Name"
-              onChange={FirstName}
+              onChange={Name}
               label="name"
             />
 
-            <p className="register__line">Last Name</p>
+            <p className="register__line">Username</p>
             <input
               type="text"
               className="register__input"
               placeholder="Name"
-              onChange={LastName}
+              onChange={UserName}
               label="name"
             />
             <p className="register__line">Email</p>
@@ -92,7 +111,11 @@ function Register() {
               />
             )}
             <div className="register__button">
-              <button className={"register__submit"} onClick={register}>
+              <button
+                className={"register__submit"}
+                onClick={Register}
+                disabled={password === cpassword && false}
+              >
                 Register
               </button>
             </div>

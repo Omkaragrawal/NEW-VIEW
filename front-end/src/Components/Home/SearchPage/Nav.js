@@ -9,7 +9,6 @@ import ThumbsUp from "@material-ui/icons/ThumbUp";
 function Nav({ input_val, keyHand, clicked }) {
   const [count, setCount] = useState(0);
   const b = count % 2 !== 0 ? true : false;
-  console.log(b);
   return (
     <div className="nav">
       <Link className="nav__link" to="/search">

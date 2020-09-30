@@ -37,14 +37,6 @@ class App extends React.Component {
       apiResponse: "",
     };
   }
-  // callApi() {
-  //   fetch("http://localhost:8080/").then((res) => {
-  //     res && console.log(res.text());
-  //   });
-  // }
-  // componentDidMount() {
-  //   this.callApi();
-  // }
   render() {
     return (
       <Router>

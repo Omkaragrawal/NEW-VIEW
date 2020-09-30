@@ -14,7 +14,6 @@ function Rec({ title, url, send }) {
     }
     fetchData();
   }, [url]);
-  console.log(movies);
   return (
     <div className="row">
       {movies.length > 1 && <h3>{title}</h3>}
@@ -24,7 +23,6 @@ function Rec({ title, url, send }) {
             <img
               className={`row__poster`}
               onClick={console.log(movie.id)}
-              key={movie.id}
               src={`${posterIMG}${movie.poster_path}`}
               alt={movie.original_title}
             />
