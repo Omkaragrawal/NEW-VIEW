@@ -6,9 +6,12 @@ import SearchIcon from "@material-ui/icons/Search";
 import MenuIcon from "@material-ui/icons/Menu";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import ThumbsUp from "@material-ui/icons/ThumbUp";
+import { Redirect } from "react-router-dom";
 function Nav({ input_val, keyHand, clicked }) {
   const [count, setCount] = useState(0);
+  const [show, setShow] = useState();
   const b = count % 2 !== 0 ? true : false;
+
   return (
     <div className="nav">
       <Link className="nav__link" to="/search">
@@ -60,7 +63,11 @@ function Nav({ input_val, keyHand, clicked }) {
           </Link>
         </div>
         <div className="exit-options">
-          <ExitToAppIcon />
+          <ExitToAppIcon
+            onClick={() => {
+              setShow(true);
+            }}
+          />
           <p>Signout</p>
         </div>
         <div
@@ -78,6 +85,7 @@ function Nav({ input_val, keyHand, clicked }) {
           <p style={{ fontSize: "14px", color: "white" }}>Menu</p>
         </div>
       </div>
+      {show === true && <Redirect to="/login" />}
     </div>
   );
 }

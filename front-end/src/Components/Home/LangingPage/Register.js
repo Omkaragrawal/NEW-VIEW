@@ -1,23 +1,22 @@
 // eslint-disable
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import "./Register.css";
 import axios from "axios";
-import LandingPage from "./LandingPage";
-import { useEffect } from "react";
+
 function Register() {
   // eslint-disable-next-line
   const [name, setName] = useState("");
   // eslint-disable-next-line
   const [username, setUserName] = useState("");
   // eslint-disable-next-line
-  const [email, setemail] = useState([""]);
+  const [email, setemail] = useState("");
   // eslint-disable-next-line
   const [password, setpassword] = useState("");
   // eslint-disable-next-line
   const [cpassword, setConPass] = useState("");
   // eslint-disable-next-line
-  const [show, setShow] = useState(true);
+  const [redirect, setRedirect] = useState();
 
   //Getting Input
   const Name = (e) => {
@@ -40,21 +39,34 @@ function Register() {
     let str = e.target.value;
     setConPass(str);
   };
+  //Onclick
   const Register = () => {
-    if (password.length > 1) {
-      if (password === cpassword) {
-        const body = JSON.stringify({
-          name: name,
-          email: email,
-          username: username,
-          password: password,
-        });
-        axios
-          .post("http://localhost:8081/users/register", {
-            data: body,
-          })
-          .then((res) => console.log(res))
-          .catch((err) => console.log(err));
+    if (name.length > 4) {
+      if (username.length > 3) {
+        if (password.length > 4) {
+          if (password === cpassword) {
+            const body = {
+              name: name,
+              email: email,
+              username: username,
+              password: password,
+            };
+            //We were passisng the variable "body" in the request where the variable which contains the data will be passed
+            axios
+              .post("http://localhost:8081/users/register", {
+                body,
+              })
+              .then(
+                (res) => (
+                  console.log(res.data.status),
+                  typeof res !== undefined && res.data.status
+                    ? setRedirect(true)
+                    : setRedirect(false)
+                )
+              )
+              .catch((err) => console.log("ERR"));
+          }
+        }
       }
     }
   };
@@ -63,7 +75,7 @@ function Register() {
       <div className="register__space">
         <p className="register__header">Register</p>
         <div className="register__content">
-          <form>
+          <div>
             <p className="register__line">First Name</p>
             <input
               type="text"
@@ -114,7 +126,7 @@ function Register() {
               <button
                 className={"register__submit"}
                 onClick={Register}
-                disabled={password === cpassword && false}
+                disabled={cpassword === password ? false : true}
               >
                 Register
               </button>
@@ -124,9 +136,10 @@ function Register() {
                 <p>To login, click here</p>
               </Link>
             </div>
-          </form>
+          </div>
         </div>
       </div>
+      {redirect === true ? <Redirect to="/login" /> : ""}
     </div>
   );
 }

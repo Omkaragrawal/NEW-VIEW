@@ -4,7 +4,7 @@ import "./LandingPage.css";
 import ArrowDownward from "@material-ui/icons/ArrowDownward";
 import NavBar from "./Components/NavBar";
 import Banner from "./Components/Banner";
-function LandingPage({ Image }) {
+function LandingPage() {
   return (
     <div className="landing">
       <NavBar />
@@ -28,7 +28,6 @@ function LandingPage({ Image }) {
           <div className="Down">
             <ArrowDownward style={{ fontSize: "10vh" }} />
           </div>
-
           <Link to="/register">
             <button className="button-btn" style={{ marginTop: "5vh" }}>
               Register

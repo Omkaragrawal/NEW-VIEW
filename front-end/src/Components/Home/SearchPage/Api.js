@@ -25,10 +25,6 @@ class Api extends React.Component {
     };
   }
   componentDidMount() {
-    // eslint-disable-next-line
-    const a = axios.get("http://localhost:8080/users/like").then((da) => {
-      console.log(da);
-    });
     window.addEventListener("scroll", () => {
       if (window.scrollY > 50) {
         this.setState({ nav_show: false });
@@ -113,7 +109,6 @@ class Api extends React.Component {
       alert("You have reached the end !!!!");
     }
   };
-  // ok = (yes) => {};
   render() {
     return (
       <div
