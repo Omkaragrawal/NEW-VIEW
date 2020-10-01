@@ -31,12 +31,6 @@ import Thriller from "./Components/Home/SearchPage/Components/Thriller/Thriller"
 import War from "./Components/Home/SearchPage/Components/War/War";
 import Western from "./Components/Home/SearchPage/Components/Western/Western";
 class App extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      apiResponse: "",
-    };
-  }
   render() {
     return (
       <Router>
