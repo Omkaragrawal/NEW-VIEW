@@ -31,6 +31,8 @@ const app = express();
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 
+app.use(cookieParser());
+
 app.use(
   session({
     genid: function (req) {
@@ -38,9 +40,9 @@ app.use(
     },
     name: "auth",
     secret: "NEW-View434343",
-    store: new SessionStore({
-      db: sequelize.sequelize,
-    }),
+    // store: new SessionStore({
+    //   db: sequelize.sequelize,
+    // }),
     resave: false,
     saveUninitialized: true,
     cookie: {
@@ -59,12 +61,16 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(logger("combined"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(cors());
-app.use(express.static(path.join(__dirname, "public")));
 
-// app.use("/", indexRouter);
-// app.use("/users", usersRouter);
+app.use(
+  cors({
+    origin: "http://localhost:8082", // reqexp will match all prefixes
+    methods: "GET,HEAD,POST,PATCH,DELETE,OPTIONS",
+    credentials: true, // required to pass
+    allowedHeaders: "Content-Type, Authorization, X-Requested-With",
+  })
+);
+app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", indexRouter);
 app.use("/users", usersRouter);

@@ -15,8 +15,8 @@ router.get("/", (req, res) => {
 router.post(
   "/login",
   passport.authenticate("local", {
-    failureRedirect: "/login-failure",
-    successRedirect: "login-success",
+    failureRedirect: "/users/login-failure",
+    successRedirect: "/users/login-success",
   })
 );
 
@@ -29,7 +29,8 @@ router.get("/login-failure", (req, res, next) => {
 });
 
 router.post("/register", async (req, res) => {
-  let { name, email, username, password } = req.body;
+  let { name, username, email, password } = await req.body.body;
+  console.log(req.body.body);
   var salt = await bcrypt.genSalt(10);
   var hash = await bcrypt.hash(password, salt);
   var newUser = await userdb.create({
