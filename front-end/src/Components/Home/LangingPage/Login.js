@@ -78,7 +78,7 @@ function Login() {
               )}
             </p>
             <input
-              type="email"
+              type="text"
               className="login__input"
               placeholder="Email or Username"
               onChange={getUsername}
