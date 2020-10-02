@@ -31,20 +31,6 @@ import Thriller from "./Components/Home/SearchPage/Components/Thriller/Thriller"
 import War from "./Components/Home/SearchPage/Components/War/War";
 import Western from "./Components/Home/SearchPage/Components/Western/Western";
 class App extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      apiResponse: "",
-    };
-  }
-  // callApi() {
-  //   fetch("http://localhost:8080/").then((res) => {
-  //     res && console.log(res.text());
-  //   });
-  // }
-  // componentDidMount() {
-  //   this.callApi();
-  // }
   render() {
     return (
       <Router>

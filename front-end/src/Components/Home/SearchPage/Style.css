@@ -1,16 +1,45 @@
-div ::-webkit-scrollbar {
-  display: none;
-}
-.more__button {
-  margin-top: 30px;
-}
 .total {
   font-size: 5vh;
   margin-top: 3vh;
 }
-.mypage {
-  font-size: 5vh;
-  color: brown;
+.more__buttons {
+  margin-top: 30px;
+  width: 100%;
+  display: flex;
+  position: static;
+  flex-direction: column;
+}
+.bottom_button {
+  margin-left: 85vh;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+.bottom_button > button {
+  margin-right: 30px;
+  color: rgb(0, 0, 0);
+  border: none;
+  border-bottom-left-radius: 10px;
+  border-top-right-radius: 10px;
+  padding: 10px 40px;
+  font-weight: 700;
+  background-color: rgb(255, 255, 255);
+  transition: transform 250ms;
+}
+.bottom_button > button:hover {
+  transform: scale(1.08);
+  font-size: 16px;
+  font-weight: 800;
+}
+.bottom_button .mypage {
+  margin-left: 65px;
+  font-size: 20px;
+  margin-top: 10px;
+  font-weight: 600;
+}
+.bottom_button .total {
+  margin-left: 20px;
+  margin-top: 5px;
+  font-weight: 600;
 }
 .options {
   margin-top: 7vh;

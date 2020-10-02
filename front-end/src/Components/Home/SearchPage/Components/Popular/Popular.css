@@ -84,11 +84,11 @@
 }
 .popular__movies .list-item h3 {
   color: #ffffff;
-  font-size: 20px;
   font-weight: 600;
   overflow-x: scroll;
   padding: 10px;
   flex: 1 1 100%;
+  font-size: 14px;
   transition: 0.4 ease-out;
 }
 .popular__movies .list-item h3:hover {
@@ -96,8 +96,10 @@
   color: #223323;
 }
 .popular__movies .list-item .liked {
-  margin-left: 20px;
   background-color: none;
+  padding: 15px;
+  justify-content: space-around;
+  height: 10px;
 }
 .popular__movies .list-item .liked:hover {
   color: aqua;

@@ -29,17 +29,17 @@ const users = sequelize.define(
       primaryKey: true,
     },
     name: {
-      type: DataTypes.STRING,
+      type: DataTypes.STRING(100),
       allowNull: false,
     },
     username: {
-      type: DataTypes.STRING,
+      type: DataTypes.STRING(100),
     },
     email: {
-      type: DataTypes.STRING,
+      type: DataTypes.STRING(100),
     },
     password: {
-      type: DataTypes.STRING,
+      type: DataTypes.STRING(100),
     },
   },
   {

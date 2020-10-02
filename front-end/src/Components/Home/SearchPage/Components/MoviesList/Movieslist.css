@@ -4,8 +4,11 @@
   width: 85%;
   margin: 0px -15px;
   margin-top: 40px;
+  margin-top: 70px;
+  border-radius: 20px;
+  box-shadow: 0 0 100px 10px rgb(211, 218, 211);
   margin-left: 14vh;
-  background-color: rgb(255, 255, 255);
+  background-color: rgba(75, 88, 83, 0.774);
 }
 .list .list-item {
   width: 18%;
@@ -19,6 +22,7 @@
   display: block;
   height: 270px;
   width: 100%;
+  margin-top: 10px;
 }
 .list .list-item div {
   width: 100%;
@@ -33,20 +37,31 @@
   overflow-x: scroll;
   padding: 10px;
   flex: 1 1 100%;
-  transition: 0.4 ease-out;
+  transition: 0.4 ease-in-out;
 }
 
-.list .list-item h3:hover {
-  background-color: #fff;
-  color: #223323;
+.list .list-item .title {
+  flex-direction: row;
+  display: flex;
+  width: 100%;
+}
+.list .list-item .title h3 {
+  font-size: 14px;
+  transition: transform 200ms;
 }
 .list .list-item .liked {
-  margin-left: 20px;
+  margin-left: 10px;
+  height: 10px;
   background-color: none;
+  justify-content: space-around;
+  margin-top: 10px;
+}
+.list .list-item .title :hover {
+  transform: scale(1.001);
 }
 .list .list-item .liked:hover {
   color: aqua;
 }
 .list .list-item .liked :nth-child(1):hover {
-  color: red;
+  transform: scale(1);
 }

@@ -1,14 +1,12 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import "./Login.css";
 import axios from "axios";
+
 function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-
-  const a = axios.get("http://localhost:8081/users/like");
-  console.log(a.Promise);
-
+  const [redirect, setRedirect] = useState();
   const getUsername = (e) => {
     let str = e.target.value;
     setUsername(str);
@@ -17,11 +15,25 @@ function Login() {
     let str = e.target.value;
     setPassword(str);
   };
-  // console.log(username);
-  // console.log(password);
-
   const login = () => {
-    // Configure the ONCLICK
+    axios
+      .post(
+        "http://localhost:8081/users/login",
+        {
+          username: username,
+          password: password,
+        },
+        { withCredentials: true }
+      )
+      .then(
+        (res) => (
+          console.log(res),
+          typeof res !== undefined && res.data.status === true
+            ? setRedirect(true)
+            : setRedirect(false)
+        )
+      )
+      .catch((err) => console.log("Err"));
   };
 
   const login__facebook = () => {
@@ -42,7 +54,29 @@ function Login() {
         <p className="login__header">Login</p>
         <div className="login__components">
           <form>
-            <p className="login__line1">Username or Email</p>
+            {redirect === false && (
+              <span
+                style={{
+                  marginBottom: "40px",
+                  color: "red",
+                }}
+              >
+                Wrong username or password
+              </span>
+            )}
+            <p className="login__line1">
+              Username or Email{" "}
+              {redirect === false && (
+                <span
+                  style={{
+                    marginBottom: "40px",
+                    color: "red",
+                  }}
+                >
+                  *
+                </span>
+              )}
+            </p>
             <input
               type="email"
               className="login__input"
@@ -51,7 +85,19 @@ function Login() {
               label="email"
               value={username}
             />
-            <p className="login__line2">Password</p>
+            <p className="login__line2">
+              Password{" "}
+              {redirect === false && (
+                <span
+                  style={{
+                    marginBottom: "40px",
+                    color: "red",
+                  }}
+                >
+                  *
+                </span>
+              )}
+            </p>
             <input
               value={password}
               label="password"
@@ -63,7 +109,15 @@ function Login() {
             />
 
             <div className="login__button">
-              <button className="login__submit" onClick={login}>
+              <button
+                className="login__submit"
+                style={
+                  redirect === false
+                    ? { backgroundColor: "red" }
+                    : { color: "black" }
+                }
+                onClick={login}
+              >
                 Login
               </button>
               <p>(or)</p>
@@ -103,6 +157,7 @@ function Login() {
           </form>
         </div>
       </div>
+      {redirect === true ? <Redirect to="/search" /> : ""}
     </div>
   );
 }

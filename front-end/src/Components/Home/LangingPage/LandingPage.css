@@ -1,14 +1,22 @@
 .landing__inner {
   position: fixed;
   top: 0;
-  margin: 20vh;
-  margin-left: 25vh;
+  padding: 20vh;
+  margin-left: 12vh;
   width: 150vh;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
   height: 60vh;
   background-color: rgba(0, 0, 0, 0.76);
 }
+.landing__inner .Down {
+  width: auto;
+  height: auto;
+  color: rgb(0, 252, 130);
+}
 .landing__info {
-  color: #5ec6e3;
+  color: #00f7ff;
   font-size: 4vh;
   text-align: center;
 }

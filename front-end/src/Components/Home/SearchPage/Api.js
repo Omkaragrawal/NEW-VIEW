@@ -24,23 +24,6 @@ class Api extends React.Component {
       count_inp: 0,
     };
   }
-  componentDidMount() {
-    // eslint-disable-next-line
-    const a = axios.get("http://localhost:8080/users/like").then((da) => {
-      console.log(da);
-    });
-    window.addEventListener("scroll", () => {
-      if (window.scrollY > 50) {
-        this.setState({ nav_show: false });
-        if (this.state.show_options === true) {
-          this.setState({ show_options: false });
-        }
-      } else this.setState({ nav_show: true });
-    });
-    return () => {
-      window.removeEventListener("scroll");
-    };
-  }
   openPopup = (id) => {
     this.setState({ show: false });
     axios
@@ -81,7 +64,6 @@ class Api extends React.Component {
   clicked = (yes) => {
     let s = this.state.count + 1;
     this.setState({ count: s });
-    console.log(s);
     if (s % 2 !== 0) {
       this.setState({ show_options: yes });
     } else {
@@ -90,7 +72,6 @@ class Api extends React.Component {
   };
   //on enter is pressed
   input_value = (e) => {
-    // console.log(e.target.value);
     this.setState({ value: e.target.value });
   };
   closePopup = () => {
@@ -101,7 +82,6 @@ class Api extends React.Component {
       let m = this.state.pages;
       this.keyHandle(this.state.e, m + 1);
     } else {
-      console.log("End");
       alert("You have reached the end !!!!");
     }
   };
@@ -113,20 +93,17 @@ class Api extends React.Component {
       alert("You have reached the end !!!!");
     }
   };
-  // ok = (yes) => {};
   render() {
     return (
       <div
         className={this.state.show_options ? "app-true" : "app"}
         style={{ overflowX: "hidden", maxWidth: "100%" }}
       >
-        {this.state.nav_show && (
-          <Nav
-            input_val={this.input_value}
-            keyHand={this.keyHandle}
-            clicked={this.clicked}
-          />
-        )}
+        <Nav
+          input_val={this.input_value}
+          keyHand={this.keyHandle}
+          clicked={this.clicked}
+        />
         <MoviesList list={this.state.movies} openPopup={this.openPopup} />
         {typeof this.state.selected.original_title !== "undefined" ? (
           <Result
@@ -362,16 +339,16 @@ class Api extends React.Component {
             </div>
           </div>
         )}
-        <div className="more__button">
-          {this.state.show && (
-            <footer>
+        {this.state.show && (
+          <div className="more__buttons">
+            <footer className="bottom_button">
               <button onClick={this.next}>Next</button>
               <button onClick={this.previous}>Back</button>
-              <p className="total">Total pages : {this.state.total_page}</p>
               <p className="mypage">You are on : {this.state.pages}</p>
+              <p className="total">Total pages : {this.state.total_page}</p>
             </footer>
-          )}
-        </div>
+          </div>
+        )}
       </div>
     );
   }
