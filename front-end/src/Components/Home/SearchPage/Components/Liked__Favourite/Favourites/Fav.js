@@ -39,7 +39,7 @@ export default class Fav extends React.Component {
             style={{ color: "white", padding: "10px" }}
             onClick={() => this.setState({ show: true })}
           />
-          <p>FAVOURITES</p>
+          <p>FAVOURITES MOVIES</p>
         </header>
         <div className="fav">
           {this.state.movieId.map((err, amt) => (

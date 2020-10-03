@@ -1,72 +1,99 @@
 import React from "react";
 import "./Popular.css";
-import FavoriteIcon from "@material-ui/icons/Favorite";
-import ThumbsUp from "@material-ui/icons/ThumbUp";
-import axios from "axios";
-import { useState } from "react";
-export default function Movies({ title, poster, id, openPopup }) {
-  const [clicked, setClicked] = useState(0);
-  const [clickedfav, setClickfav] = useState(0);
-  const liked = (id) => {
-    const movieid = JSON.stringify(id);
-    console.log(movieid);
+import axios from "../../axios";
+import requests from "../../requests-link";
+import ArrowBackIcon from "@material-ui/icons/ArrowBack";
+import { Link } from "react-router-dom";
+import Result from "../../Result_Page/Result.js";
+import Movies from "./Movies";
+export default class Popular extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      show: false,
+      pages: 0,
+      movies: [],
+      count_pages: 0,
+      posterImg: "https://image.tmdb.org/t/p/original/",
+      result_data: {},
+    };
+  }
+  openPopup = (id) => {
+    // https://api.themoviedb.org/3
     axios
-      .post(
-        "http://localhost:8081/users/like",
-        {
-          movieid,
-        },
-        { withCredentials: true }
-      )
-      .then((res) => {
-        console.log(res);
-      })
-      .catch((err) => console.log(err));
+      .get(`/movie/${id}?&api_key=cfe422613b250f702980a3bbf9e90716`)
+      .then((data) => {
+        this.setState({ result_data: data.data });
+      });
   };
-  const favourite = (id) => {
-    const movieid = JSON.stringify(id);
-    console.log(movieid);
-    axios
-      .post(
-        "http://localhost:8081/users/favourites",
-        { movieid },
-        { withCredentials: true }
-      )
-      .then((res) => {
-        console.log(res);
-      })
-      .catch((err) => console.log(err));
-  };
-  const posterImg = "https://image.tmdb.org/t/p/original/";
-  let img =
-    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSols5HZxlQWyS9JY5d3_L9imbk0LiziHiyDtMZLHt_UNzoYUXs2g";
-  const truncate = (str, n) => {
-    return str?.length > n ? str.substr(0, n - 1) + "..." : str;
+  closePopup = () => {
+    this.setState({ result_data: [] });
   };
 
-  return (
-    <div className="list-item">
-      <img
-        alt={title}
-        src={poster !== null && poster !== undefined ? posterImg + poster : img}
-        key={id}
-        onClick={() => openPopup(id)}
-      />
-      <div className="title">
-        <h3>{truncate(title, 19)}</h3>
-        <div className="liked">
-          <FavoriteIcon
-            onClick={() => (setClickfav(clickedfav + 1), favourite(id))}
-            style={
-              clickedfav % 2 === 0 ? { color: "white" } : { color: "aqua" }
-            }
-          />
-          <ThumbsUp
-            onClick={() => (setClicked(clicked + 1), liked(id))}
-            style={clicked % 2 === 0 ? { color: "white" } : { color: "red" }}
-          />
+  clicked = () => {
+    this.setState({ show: true });
+    this.fetchData(this.state.count_pages + 1);
+  };
+  componentDidMount() {
+    this.fetchData(1);
+  }
+  fetchData = (page) => {
+    this.setState({ count_pages: page });
+    axios.get(requests.popular + `&page=${page}`).then((data) =>
+      this.setState({
+        movies: data.data.results,
+        pages: data.data.total_pages,
+      })
+    );
+  };
+  previous = () => {
+    if (this.state.count_pages > 1 && this.state.count_pages !== 1) {
+      let page = this.state.count_pages;
+      this.fetchData(page - 1);
+    }
+  };
+  next = () => {
+    if (this.state.count_pages <= this.state.pages) {
+      let page = this.state.count_pages;
+      this.fetchData(page + 1);
+    }
+  };
+  render() {
+    return (
+      <div className="popular">
+        <header>
+          <Link to="/search">
+            <ArrowBackIcon style={{ padding: "5px 10px" }} />
+          </Link>
+          <p>You are on : {this.state.count_pages}</p>
+          <p>Total Pages : {this.state.pages}</p>
+        </header>
+        <div className="popular__movies">
+          {this.state.movies.map((movie) => (
+            <Movies
+              title={movie.original_title}
+              poster={movie.poster_path}
+              id={movie.id}
+              openPopup={this.openPopup}
+            />
+          ))}
         </div>
+
+        <div className="more__button">
+          <footer>
+            <button onClick={this.previous}>previous</button>
+            <button onClick={this.next}>Next</button>
+          </footer>
+        </div>
+        {typeof this.state.result_data.original_title !== "undefined" ? (
+          <Result
+            selected={this.state.result_data}
+            closePopup={this.closePopup}
+          />
+        ) : (
+          false
+        )}
       </div>
-    </div>
-  );
+    );
+  }
 }

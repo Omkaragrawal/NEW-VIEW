@@ -34,6 +34,9 @@ export default class Thriller extends React.Component {
     this.setState({ show: true });
     this.fetchData(this.state.count_pages + 1);
   };
+  componentDidMount() {
+    this.fetchData(1);
+  }
   fetchData = (page) => {
     this.setState({ count_pages: page });
     axios.get(requests.fetchthriller + `&page=${page}`).then((data) =>
@@ -62,17 +65,9 @@ export default class Thriller extends React.Component {
           <Link to="/search">
             <ArrowBackIcon style={{ padding: "5px 10px" }} />
           </Link>
-          {this.state.show && <p>You are on : {this.state.count_pages}</p>}
-          {this.state.show && <p>Total Pages : {this.state.pages}</p>}
+          <p>You are on : {this.state.count_pages}</p>
+          <p>Total Pages : {this.state.pages}</p>
         </header>
-        <div className="thriller__button">
-          <button
-            onClick={this.clicked}
-            style={{ visibility: `${this.state.show ? "hidden" : false}` }}
-          >
-            Click here to load movies
-          </button>
-        </div>
         <div className="thriller__movies">
           {this.state.movies.map((movie) => (
             <Movies
@@ -85,12 +80,10 @@ export default class Thriller extends React.Component {
         </div>
 
         <div className="more__button">
-          {this.state.show && (
-            <footer>
-              <button onClick={this.previous}>previous</button>
-              <button onClick={this.next}>Next</button>
-            </footer>
-          )}
+          <footer>
+            <button onClick={this.previous}>previous</button>
+            <button onClick={this.next}>Next</button>
+          </footer>
         </div>
         {typeof this.state.result_data.original_title !== "undefined" ? (
           <Result
