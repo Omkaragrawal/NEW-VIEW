@@ -125,10 +125,7 @@ class Api extends React.Component {
             >
               <ul>
                 <li>
-                  <Link
-                    onClick={() => <Redirect to="/trending" />}
-                    style={{ textDecoration: "none", color: "white" }}
-                  >
+                  <Link style={{ textDecoration: "none", color: "white" }}>
                     <span className="link">Trending</span>
                   </Link>
                 </li>
