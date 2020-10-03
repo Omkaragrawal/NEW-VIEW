@@ -4,7 +4,7 @@ import Result from "./Result_Page/Result";
 import Nav from "./Nav";
 import "./Style.css";
 import MoviesList from "./Components/MoviesList/MoviesList";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 
 class Api extends React.Component {
   constructor() {
@@ -126,7 +126,7 @@ class Api extends React.Component {
               <ul>
                 <li>
                   <Link
-                    to="/trending"
+                    onClick={() => <Redirect to="/trending" />}
                     style={{ textDecoration: "none", color: "white" }}
                   >
                     <span className="link">Trending</span>
