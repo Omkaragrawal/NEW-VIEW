@@ -1,0 +1,48 @@
+.row {
+  border-radius: 20px;
+  color: #eee;
+}
+.row > h3 {
+  color: black;
+}
+.row > h3:hover {
+  color: darkgrey;
+  cursor: pointer;
+}
+.row > span {
+  color: blue;
+  font-size: 12px;
+  font-weight: 700;
+}
+.row__posters {
+  border-radius: 20px;
+  display: flex;
+  overflow-y: hidden;
+  background-image: linear-gradient(
+    to right,
+    rgb(59, 59, 59),
+    rgba(97, 212, 187, 0.753),
+    rgba(0, 255, 255, 0.548),
+    rgba(114, 245, 245, 0.247),
+    rgba(114, 245, 245, 0.034)
+  );
+  overflow-x: scroll;
+}
+.row__posters:hover {
+  box-shadow: 0 0 50px 10px rgba(0, 0, 0, 0.281);
+}
+.row__poster {
+  border-radius: 20px;
+  width: 100%;
+  object-fit: contain;
+  max-height: 200px;
+  transition: transform 150ms;
+}
+.row__posters::-webkit-scrollbar {
+  display: none;
+}
+.row__poster:hover {
+  box-shadow: 0 0 50px 10px rgb(203, 186, 214);
+  cursor: pointer;
+  transform: scale(1.09);
+}

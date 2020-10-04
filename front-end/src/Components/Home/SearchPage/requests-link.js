@@ -4,6 +4,19 @@ const requests = {
   now_playing: "/movie/now_playing?",
   popular: "/movie/popular?",
   upComing: "/movie/upcoming?",
+  //Tv ids
+  netflix: `/discover/tv?api_key=${API_KEY}&with_networks=213`,
+  amazon: `/discover/tv?api_key=${API_KEY}&with_networks=1024`,
+  disney_hostar: `/discover/tv?api_key=${API_KEY}&with_networks=2739`,
+  sonyLiv: `/discover/tv?api_key=${API_KEY}&with_networks=2646`,
+  eros: `/discover/tv?api_key=${API_KEY}&with_networks=2716`,
+  bbc_one: `/discover/tv?api_key=${API_KEY}&with_networks=4`,
+  appletv: `/discover/tv?api_key=${API_KEY}&with_networks=2552`,
+  mx_player: `/discover/tv?api_key=${API_KEY}&with_networks=2964`,
+  voot: `/discover/tv?api_key=${API_KEY}&with_networks=2532`,
+  cinemax: `/discover/tv?api_key=${API_KEY}&with_networks=359`,
+
+  //movies
   fetchActionMovies: `/discover/movie?api_key=${API_KEY}&with_genres=28`,
   fetchcrime: `/discover/movie?api_key=${API_KEY}&with_genres=80`,
   fetchanimation: `/discover/movie?api_key=${API_KEY}&with_genres=16`,

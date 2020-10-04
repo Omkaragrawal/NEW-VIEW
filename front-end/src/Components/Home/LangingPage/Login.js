@@ -65,7 +65,7 @@ function Login() {
               </span>
             )}
             <p className="login__line1">
-              Username or Email{" "}
+              Username or Email
               {redirect === false && (
                 <span
                   style={{

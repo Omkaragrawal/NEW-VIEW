@@ -11,7 +11,6 @@ import axios from "axios";
 function Nav({ input_val, keyHand, clicked }) {
   const [count, setCount] = useState(0);
   const [show, setShow] = useState();
-  const b = count % 2 !== 0 ? true : false;
   const logout = () => {
     axios.get("http://localhost:8081/users/logout", { withCredentials: true });
   };
@@ -28,7 +27,7 @@ function Nav({ input_val, keyHand, clicked }) {
         <div className="search-bar">
           <input
             type="text"
-            className={b ? "search-bar-true" : "search-bar-false"}
+            className="search-bar"
             onKeyPress={keyHand}
             label="search"
             onChange={input_val}
@@ -36,14 +35,7 @@ function Nav({ input_val, keyHand, clicked }) {
           />
         </div>
         <div className="search">
-          <SearchIcon
-            onClick={() => setCount(count + 1)}
-            style={
-              b
-                ? { color: "white", marginRight: "10px", paddingRight: "30vh" }
-                : { color: "white", marginRight: "10px", paddingRight: "20px" }
-            }
-          />
+          <button onClick={() => keyHand}>Search</button>
         </div>
         <div className="liked">
           <Link

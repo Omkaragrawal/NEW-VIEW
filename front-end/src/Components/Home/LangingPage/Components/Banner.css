@@ -1,9 +1,12 @@
 .banner {
   width: auto;
   height: auto;
+  display: flex;
+  flex-direction: column;
   object-fit: contain;
 }
 .banner > img {
-  width: 100%;
-  height: auto;
+  width: 190vh;
+  height: 100vh;
+  margin-left: 8vh;
 }

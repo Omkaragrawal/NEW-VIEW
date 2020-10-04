@@ -75,7 +75,7 @@ function Register() {
       <div className="register__space">
         <p className="register__header">Register</p>
         <div className="register__content">
-          <div>
+          <form>
             <p className="register__line">First Name</p>
             <input
               type="text"
@@ -136,7 +136,7 @@ function Register() {
                 <p>To login, click here</p>
               </Link>
             </div>
-          </div>
+          </form>
         </div>
       </div>
       {redirect === true ? <Redirect to="/login" /> : ""}
