@@ -33,3 +33,12 @@
   background-color: black;
   color: "white";
 }
+.header > p {
+  width: 100%;
+  position: fixed;
+  top: 10px;
+  color: aquamarine;
+  margin-left: 90vh;
+  font-size: 4vh;
+  text-decoration: blanchedalmond;
+}

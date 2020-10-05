@@ -30,6 +30,17 @@ import Tvmovie from "./Components/Home/SearchPage/Components/Tvmovie/Tvmovie";
 import Thriller from "./Components/Home/SearchPage/Components/Thriller/Thriller";
 import War from "./Components/Home/SearchPage/Components/War/War";
 import Western from "./Components/Home/SearchPage/Components/Western/Western";
+import Netflix from "./Components/Home/SearchPage/Streams/Netflix/Netflix";
+import Amazon from "./Components/Home/SearchPage/Streams/Amazon/Amazon";
+import Bbcone from "./Components/Home/SearchPage/Streams/Bbcone/Bbc";
+import Cinemax from "./Components/Home/SearchPage/Streams/Cinemax/Cinemax";
+import Eros from "./Components/Home/SearchPage/Streams/Eros/Eros";
+import Hotstar from "./Components/Home/SearchPage/Streams/Hotstar/Hotstart";
+import Mxplayer from "./Components/Home/SearchPage/Streams/Mxplayer/Mxplayer";
+import Sony from "./Components/Home/SearchPage/Streams/Sony/Sony";
+import Voot from "./Components/Home/SearchPage/Streams/Voot/Voot";
+import Apple from "./Components/Home/SearchPage/Streams/Appletv/Apple";
+
 class App extends React.Component {
   render() {
     return (
@@ -122,6 +133,36 @@ class App extends React.Component {
             </Route>
             <Route exact path="/western">
               <Western />
+            </Route>
+            <Route exact path="/netflix">
+              <Netflix />
+            </Route>
+            <Route exact path="/amazon">
+              <Amazon />
+            </Route>
+            <Route exact path="/apple">
+              <Apple />
+            </Route>
+            <Route exact path="/bbc">
+              <Bbcone />
+            </Route>
+            <Route exact path="/cinemax">
+              <Cinemax />
+            </Route>
+            <Route exact path="/eros">
+              <Eros />
+            </Route>
+            <Route exact path="/hotstar">
+              <Hotstar />
+            </Route>
+            <Route exact path="/mxplayer">
+              <Mxplayer />
+            </Route>
+            <Route exact path="/sony">
+              <Sony />
+            </Route>
+            <Route exact path="/voot">
+              <Voot />
             </Route>
             <Route exact path="">
               <NoMatch />

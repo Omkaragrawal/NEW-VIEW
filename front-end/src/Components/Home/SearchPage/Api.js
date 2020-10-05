@@ -4,8 +4,9 @@ import Result from "./Result_Page/Result";
 import Nav from "./Nav";
 import "./Style.css";
 import MoviesList from "./Components/MoviesList/MoviesList";
-import { Link } from "react-router-dom";
-
+import { Redirect } from "react-router-dom";
+import Row from "./Streams/Row";
+import requests from "./requests-link";
 class Api extends React.Component {
   constructor() {
     super();
@@ -22,6 +23,31 @@ class Api extends React.Component {
       count: 0,
       API_URL: `api_key=dbc0a6d62448554c27b6167ef7dabb1b`,
       count_inp: 0,
+      Popular: "",
+      Toprated: "",
+      Upcoming: "",
+      NowPlaying: "",
+      Action: "",
+      Comedy: "",
+      Horror: "",
+      Documentries: "",
+      Romance: "",
+      Trending: "",
+      Liked: "",
+      Fav: "",
+      Animation: "",
+      Crime: "",
+      Drama: "",
+      Family: "",
+      Fantasy: "",
+      History: "",
+      Music: "",
+      Mystry: "",
+      Science: "",
+      Tvmovie: "",
+      Thriller: "",
+      War: "",
+      Western: "",
     };
   }
   openPopup = (id) => {
@@ -99,20 +125,44 @@ class Api extends React.Component {
         className={this.state.show_options ? "app-true" : "app"}
         style={{ overflowX: "hidden", maxWidth: "100%" }}
       >
+        {this.state.Western && <Redirect to="/western" />}
+        {this.state.War && <Redirect to="/war" />}
+        {this.state.Action && <Redirect to="/action" />}
+        {this.state.Animation && <Redirect to="/animation" />}
+        {this.state.Comedy && <Redirect to="/comedy" />}
+        {this.state.Crime && <Redirect to="/crime" />}
+        {this.state.Drama && <Redirect to="/drama" />}
+        {this.state.Documentries && <Redirect to="/documentry" />}
+        {this.state.Family && <Redirect to="/family" />}
+        {this.state.Fantasy && <Redirect to="/fantasy" />}
+        {this.state.History && <Redirect to="/history" />}
+        {this.state.Horror && <Redirect to="/horror" />}
+        {this.state.Music && <Redirect to="/music" />}
+        {this.state.Mystry && <Redirect to="/mystry" />}
+        {this.state.Romance && <Redirect to="/romance" />}
+        {this.state.Science && <Redirect to="/science" />}
+        {this.state.Tvmovie && <Redirect to="/tvmovie" />}
+        {this.state.Thriller && <Redirect to="/thriller" />}
+        {this.state.Upcoming && <Redirect to="/upcoming" />}
+        {this.state.Popular && <Redirect to="/popular" />}
+        {this.state.Trending && <Redirect to="/trending" />}
+        {this.state.NowPlaying && <Redirect to="/nowplaying" />}
         <Nav
           input_val={this.input_value}
           keyHand={this.keyHandle}
           clicked={this.clicked}
         />
-        <MoviesList list={this.state.movies} openPopup={this.openPopup} />
-        {typeof this.state.selected.original_title !== "undefined" ? (
+        {this.state.movies !== undefined || this.state.total_page !== 0 ? (
+          <MoviesList list={this.state.movies} openPopup={this.openPopup} />
+        ) : (
+          this.setState({ show: false })
+        )}
+        {typeof this.state.selected.original_title !== "undefined" && (
           <Result
             selected={this.state.selected}
             closePopup={this.closePopup}
             openPopup={this.openPopup}
           />
-        ) : (
-          false
         )}
         {this.state.show_options && (
           <div className="opt">
@@ -124,219 +174,155 @@ class Api extends React.Component {
               }}
             >
               <ul>
-                <li>
-                  <Link
-                    to="/trending"
-                    style={{ textDecoration: "none", color: "white" }}
-                  >
-                    <span className="link">Trending</span>
-                  </Link>
+                <li onClick={() => this.setState({ Trending: true })}>
+                  <span className="link">Trending</span>
                 </li>
                 <hr />
-                <li>
-                  <Link
-                    to="/popular"
-                    style={{ textDecoration: "none", color: "white" }}
-                  >
-                    <span className="link">Popular</span>
-                  </Link>
+                <li onClick={() => this.setState({ Popular: true })}>
+                  <span className="link">Popular</span>
                 </li>
                 <hr />
-                <li>
-                  <Link
-                    to="/top-rated"
-                    style={{ textDecoration: "none", color: "white" }}
-                  >
-                    <span className="link">Top-Rated</span>
-                  </Link>
+                <li onClick={() => this.setState({ Toprated: true })}>
+                  <span className="link">Top-Rated</span>
                 </li>
                 <hr />
-                <li>
-                  <Link
-                    to="/nowplaying"
-                    style={{ textDecoration: "none", color: "white" }}
-                  >
-                    <span className="link">Now Playing</span>
-                  </Link>
+                <li onClick={() => this.setState({ NowPlaying: true })}>
+                  <span className="link">Now Playing</span>
                 </li>
                 <hr />
-                <li>
-                  <Link
-                    to="/upcoming"
-                    style={{ textDecoration: "none", color: "white" }}
-                  >
-                    <span className="link">Upcoming</span>
-                  </Link>
+                <li onClick={() => this.setState({ Upcoming: true })}>
+                  <span className="link">Upcoming</span>
                 </li>
                 <hr />
                 <p style={{ color: "aqua", marginTop: "4vh", fontSize: "4vh" }}>
                   Genres Available
                 </p>
                 <div className="genres-avail">
-                  <li>
-                    <Link
-                      to="/action"
-                      style={{ textDecoration: "none", color: "white" }}
-                    >
-                      <span className="link">Action</span>
-                    </Link>
+                  <li onClick={() => this.setState({ Action: true })}>
+                    <span className="link">Action</span>
                   </li>
                   <hr />
-                  <li>
-                    <Link
-                      to="/animation"
-                      style={{ textDecoration: "none", color: "white" }}
-                    >
-                      <span className="link">Animation</span>
-                    </Link>
+                  <li onClick={() => this.setState({ Animation: true })}>
+                    <span className="link">Animation</span>
                   </li>
                   <hr />
-                  <li>
-                    <Link
-                      to="/comedy"
-                      style={{ textDecoration: "none", color: "white" }}
-                    >
-                      <span className="link">Comedy</span>
-                    </Link>
+                  <li onClick={() => this.setState({ Comedy: true })}>
+                    <span className="link">Comedy</span>
                   </li>
                   <hr />
-                  <li>
-                    <Link
-                      to="/crime"
-                      style={{ textDecoration: "none", color: "white" }}
-                    >
-                      <span className="link">Crime</span>
-                    </Link>
+                  <li onClick={() => this.setState({ Crime: true })}>
+                    <span className="link">Crime</span>
                   </li>
                   <hr />
-                  <li>
-                    <Link
-                      to="/drama"
-                      style={{ textDecoration: "none", color: "white" }}
-                    >
-                      <span className="link">Drama</span>
-                    </Link>
+                  <li onClick={() => this.setState({ Drama: true })}>
+                    <span className="link">Drama</span>
                   </li>
                   <hr />
-                  <li>
-                    <Link
-                      to="/documentries"
-                      style={{ textDecoration: "none", color: "white" }}
-                    >
-                      <span className="link">Documentry</span>
-                    </Link>
+                  <li onClick={() => this.setState({ Documentries: true })}>
+                    <span className="link">Documentry</span>
                   </li>
                   <hr />
-                  <li>
-                    <Link
-                      to="/family"
-                      style={{ textDecoration: "none", color: "white" }}
-                    >
-                      <span className="link">family</span>
-                    </Link>
+                  <li onClick={() => this.setState({ Family: true })}>
+                    <span className="link">family</span>
                   </li>
                   <hr />
-                  <li>
-                    <Link
-                      to="/fantasy"
-                      style={{ textDecoration: "none", color: "white" }}
-                    >
-                      <span className="link">Fantasy</span>
-                    </Link>
+                  <li onClick={() => this.setState({ Trending: true })}>
+                    <span className="link">Fantasy</span>
                   </li>
                   <hr />
-                  <li>
-                    <Link
-                      to="/history"
-                      style={{ textDecoration: "none", color: "white" }}
-                    >
-                      <span className="link">History</span>
-                    </Link>
+                  <li onClick={() => this.setState({ Fantasy: true })}>
+                    <span className="link">History</span>
                   </li>
                   <hr />
-                  <li>
-                    <Link
-                      to="/horror"
-                      style={{ textDecoration: "none", color: "white" }}
-                    >
-                      <span className="link">Horror</span>
-                    </Link>
-                  </li>{" "}
-                  <hr />
-                  <li>
-                    <Link
-                      to="/music"
-                      style={{ textDecoration: "none", color: "white" }}
-                    >
-                      <span className="link">Music</span>
-                    </Link>
+                  <li onClick={() => this.setState({ Horror: true })}>
+                    <span className="link">Horror</span>
                   </li>
                   <hr />
-                  <li>
-                    <Link
-                      to="/mystry"
-                      style={{ textDecoration: "none", color: "white" }}
-                    >
-                      <span className="link">Mystry</span>
-                    </Link>
+                  <li onClick={() => this.setState({ Trending: true })}>
+                    <span className="link">Music</span>
                   </li>
                   <hr />
-                  <li>
-                    <Link
-                      to="/romance"
-                      style={{ textDecoration: "none", color: "white" }}
-                    >
-                      <span className="link">Romance</span>
-                    </Link>
+                  <li onClick={() => this.setState({ Mystry: true })}>
+                    <span className="link">Mystry</span>
                   </li>
                   <hr />
-                  <li>
-                    <Link
-                      to="/science"
-                      style={{ textDecoration: "none", color: "white" }}
-                    >
-                      <span className="link">Science</span>
-                    </Link>
+                  <li onClick={() => this.setState({ Romance: true })}>
+                    <span className="link">Romance</span>
                   </li>
                   <hr />
-                  <li>
-                    <Link
-                      to="/tvmovie"
-                      style={{ textDecoration: "none", color: "white" }}
-                    >
-                      <span className="link">Tv-Movie</span>
-                    </Link>
+                  <li onClick={() => this.setState({ Trending: true })}>
+                    <span className="link">Science</span>
                   </li>
                   <hr />
-                  <li>
-                    <Link
-                      to="/thriller"
-                      style={{ textDecoration: "none", color: "white" }}
-                    >
-                      <span className="link">Thriller</span>
-                    </Link>
+                  <li onClick={() => this.setState({ Trending: true })}>
+                    <span className="link">Tv-Movie</span>
                   </li>
                   <hr />
-                  <li>
-                    <Link
-                      to="/war"
-                      style={{ textDecoration: "none", color: "white" }}
-                    >
-                      <span className="link">War</span>
-                    </Link>
+                  <li onClick={() => this.setState({ Thriller: true })}>
+                    <span className="link">Thriller</span>
                   </li>
                   <hr />
-                  <li>
-                    <Link
-                      to="/western"
-                      style={{ textDecoration: "none", color: "white" }}
-                    >
-                      <span className="link">Western</span>
-                    </Link>
+                  <li onClick={() => this.setState({ War: true })}>
+                    <span className="link">War</span>
+                  </li>
+                  <hr />
+                  <li onClick={() => this.setState({ Western: true })}>
+                    <span className="link">Western</span>
                   </li>
                 </div>
               </ul>
             </div>
+          </div>
+        )}
+        {this.state.total_page === 0 && (
+          <div className="row">
+            <Row
+              openPopup={this.openPopup}
+              title="Netflix"
+              urls={requests.netflix}
+            />
+            <Row
+              openPopup={this.openPopup}
+              title="Disney Hotstar"
+              urls={requests.disney_hostar}
+            />
+            <Row
+              openPopup={this.openPopup}
+              title="Amazon Prime"
+              urls={requests.amazon}
+            />
+            <Row
+              openPopup={this.openPopup}
+              title="Apple Tv"
+              urls={requests.appletv}
+            />
+            <Row
+              openPopup={this.openPopup}
+              title="BBC One"
+              urls={requests.bbc_one}
+            />
+            <Row
+              openPopup={this.openPopup}
+              title="Cinemax"
+              urls={requests.cinemax}
+            />
+            <Row
+              openPopup={this.openPopup}
+              title="Sony Live"
+              urls={requests.sonyLiv}
+            />
+            <Row
+              openPopup={this.openPopup}
+              title="Eros Cinemas"
+              urls={requests.eros}
+            />
+            <Row
+              openPopup={this.openPopup}
+              title="Mx Player"
+              urls={requests.mx_player}
+            />
+
+            <Row openPopup={this.openPopup} title="Voot" urls={requests.voot} />
           </div>
         )}
         {this.state.show && (

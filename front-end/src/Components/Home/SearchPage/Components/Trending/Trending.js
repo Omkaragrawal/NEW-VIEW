@@ -1,12 +1,11 @@
 import React from "react";
+import "./Trending.css";
 import axios from "../../axios";
 import requests from "../../requests-link";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import { Link } from "react-router-dom";
-import "./Trending.css";
 import Result from "../../Result_Page/Result.js";
 import Movies from "./Movies";
-
 export default class Trending extends React.Component {
   constructor() {
     super();
@@ -20,6 +19,7 @@ export default class Trending extends React.Component {
     };
   }
   openPopup = (id) => {
+    // https://api.themoviedb.org/3
     axios
       .get(`/movie/${id}?&api_key=cfe422613b250f702980a3bbf9e90716`)
       .then((data) => {
@@ -34,6 +34,9 @@ export default class Trending extends React.Component {
     this.setState({ show: true });
     this.fetchData(this.state.count_pages + 1);
   };
+  componentDidMount() {
+    this.fetchData(1);
+  }
   fetchData = (page) => {
     this.setState({ count_pages: page });
     axios.get(requests.fetchTrendingMovies + `&page=${page}`).then((data) =>
@@ -62,17 +65,9 @@ export default class Trending extends React.Component {
           <Link to="/search">
             <ArrowBackIcon style={{ padding: "5px 10px" }} />
           </Link>
-          {this.state.show && <p>You are on : {this.state.count_pages}</p>}
-          {this.state.show && <p>Total Pages : {this.state.pages}</p>}
+          <p>You are on : {this.state.count_pages}</p>
+          <p>Total Pages : {this.state.pages}</p>
         </header>
-        <div className="trend__button">
-          <button
-            onClick={this.clicked}
-            style={{ visibility: `${this.state.show ? "hidden" : false}` }}
-          >
-            Click here to load movies
-          </button>
-        </div>
         <div className="trend__movies">
           {this.state.movies.map((movie) => (
             <Movies
@@ -85,12 +80,10 @@ export default class Trending extends React.Component {
         </div>
 
         <div className="more__button">
-          {this.state.show && (
-            <footer>
-              <button onClick={this.previous}>previous</button>
-              <button onClick={this.next}>Next</button>
-            </footer>
-          )}
+          <footer>
+            <button onClick={this.previous}>previous</button>
+            <button onClick={this.next}>Next</button>
+          </footer>
         </div>
         {typeof this.state.result_data.original_title !== "undefined" ? (
           <Result

@@ -43,6 +43,9 @@ export default class Animation extends React.Component {
       })
     );
   };
+  componentDidMount() {
+    this.fetchData(1);
+  }
   previous = () => {
     if (this.state.count_pages > 1 && this.state.count_pages !== 1) {
       let page = this.state.count_pages;
@@ -62,8 +65,8 @@ export default class Animation extends React.Component {
           <Link to="/search">
             <ArrowBackIcon style={{ padding: "5px 10px" }} />
           </Link>
-          {this.state.show && <p>You are on : {this.state.count_pages}</p>}
-          {this.state.show && <p>Total Pages : {this.state.pages}</p>}
+          <p>You are on : {this.state.count_pages}</p>
+          <p>Total Pages : {this.state.pages}</p>
         </header>
         <div className="anime__button">
           <button
@@ -85,12 +88,10 @@ export default class Animation extends React.Component {
         </div>
 
         <div className="more__button">
-          {this.state.show && (
-            <footer>
-              <button onClick={this.previous}>previous</button>
-              <button onClick={this.next}>Next</button>
-            </footer>
-          )}
+          <footer>
+            <button onClick={this.previous}>previous</button>
+            <button onClick={this.next}>Next</button>
+          </footer>
         </div>
         {typeof this.state.result_data.original_title !== "undefined" ? (
           <Result

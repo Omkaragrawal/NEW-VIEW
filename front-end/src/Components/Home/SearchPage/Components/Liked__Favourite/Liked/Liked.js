@@ -40,6 +40,7 @@ export default class Fav extends React.Component {
             style={{ color: "white", padding: "10px" }}
             onClick={() => this.setState({ show: true })}
           />
+          <p>LIKED MOVIES</p>
         </header>
         <div className="like">
           {this.state.movieId.map((err) => (
