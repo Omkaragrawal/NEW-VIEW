@@ -29,8 +29,8 @@ router.get("/login-failure", (req, res, next) => {
 });
 
 router.post("/register", async (req, res) => {
-  let { name, username, email, password } = await req.body.body;
-  console.log(req.body.body);
+  let { name, username, email, password } = await req.body;
+  console.log(req.body);
   var salt = await bcrypt.genSalt(10);
   var hash = await bcrypt.hash(password, salt);
   var newUser = await userdb.create({

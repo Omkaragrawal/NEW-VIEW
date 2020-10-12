@@ -53,7 +53,7 @@ function Login() {
       <div className="login__space">
         <p className="login__header">Login</p>
         <div className="login__components">
-          <form>
+          <div>
             {redirect === false && (
               <span
                 style={{
@@ -154,7 +154,7 @@ function Login() {
                 </div>
               </Link>
             </div>
-          </form>
+          </div>
         </div>
       </div>
       {redirect === true ? <Redirect to="/search" /> : ""}

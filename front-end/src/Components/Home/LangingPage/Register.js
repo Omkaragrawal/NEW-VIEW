@@ -41,20 +41,17 @@ function Register() {
   };
   //Onclick
   const Register = () => {
-    if (name.length > 4) {
-      if (username.length > 3) {
-        if (password.length > 4) {
+    if (name.length > 1) {
+      if (username.length > 1) {
+        if (password.length > 1) {
           if (password === cpassword) {
-            const body = {
-              name: name,
-              email: email,
-              username: username,
-              password: password,
-            };
             //We were passisng the variable "body" in the request where the variable which contains the data will be passed
             axios
               .post("http://localhost:8081/users/register", {
-                body,
+                name,
+                email,
+                username,
+                password,
               })
               .then(
                 (res) => (
@@ -75,7 +72,7 @@ function Register() {
       <div className="register__space">
         <p className="register__header">Register</p>
         <div className="register__content">
-          <form>
+          <div>
             <p className="register__line">First Name</p>
             <input
               type="text"
@@ -136,7 +133,7 @@ function Register() {
                 <p>To login, click here</p>
               </Link>
             </div>
-          </form>
+          </div>
         </div>
       </div>
       {redirect === true ? <Redirect to="/login" /> : ""}
