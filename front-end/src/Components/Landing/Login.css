@@ -1,0 +1,123 @@
+.login {
+  width: 100%;
+  transition: 250ms ease-in;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: rgb(132,222,67);
+}
+
+.login__nav {
+  width: auto;
+  height: 7vh;
+  background-color: blue;
+}
+.login__nav .MuiSvgIcon-root {
+  width: 5vh;
+  height: 5vh;
+  padding: 5px;
+}
+.login__nav .MuiSvgIcon-root:hover {
+  color: white;
+}
+.login__components {
+  flex: .8;
+  margin-left:70vh;
+  margin-top: 10vh;
+  width: 30%;
+  height: 80vh;
+  padding: 40px;
+  justify-content: center;
+  background-color: white;
+}
+.login__inner {
+  padding:10px;
+}
+.login__inner .login__title {
+  text-align: center;
+  margin-top: -5vh;
+  font-size: 4vw;
+  font-style: "cursive";
+  margin-bottom: 10px;
+}
+.login__label {
+  font-size: 18px;
+  font-weight: 500;
+}
+.login__inner input {
+  width: 400px;
+  height: 30px;
+  margin-left: 10px;
+  outline-width: 0px;
+  text-indent: 15px;
+  border: none;
+  height: 40px;
+  border-radius: 30px;
+  background-color: rgb(230,200,221);
+}
+
+.login__button {
+  display: flex;
+  justify-content: center;
+  padding: 30px;
+}
+.login__button button {
+  width: 150px;
+  padding: 10px;
+  height: 50px;
+  border-radius: 20px;
+  border: none;
+  background-color: rgb(65,87,46);
+}
+
+@media  all and (max-width : 780px) {
+  .login__components {
+    flex: .8;
+    margin-left:10vh;
+    margin-top: 10vh;
+    width: 60%;
+    height: 80vh;
+    padding: 40px;
+    background-color: white;
+  }
+  .login__inner {
+    padding:10px;
+  }
+  .login__inner .login__title {
+    text-align: center;
+    margin-top: -5vh;
+    font-size: 8vw;
+    font-style: "cursive";
+    margin-bottom: 10px;
+  }
+  .login__label {
+    font-size: 18px;
+    font-weight: 500;
+  }
+  .login__inner input {
+    width: 200px;
+    height: 30px;
+    outline-width: 0px;
+    text-indent: 15px;
+    border: none;
+    border-radius: 30px;
+    background-color: rgb(230,200,221);
+  }
+
+  .login__button {
+    display: flex;
+    justify-content: center;
+    padding: 30px;
+  }
+  .login__button button {
+    width: 150px;
+    padding: 10px;
+    height: 50px;
+    border-radius: 20px;
+    border: none;
+    background-color: rgb(65,87,46);
+  }
+}

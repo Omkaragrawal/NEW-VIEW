@@ -1,0 +1,80 @@
+.register {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background-color: rgb(132, 222, 67);
+}
+.reigster__nav {
+  height: 7vh;
+  width: 100%;
+  background-color: blue;
+}
+.reigster__nav > .register__back {
+  width: 5vh;
+  height: 5vh;
+  padding: 5px;
+}
+.reigster__nav > .register__back:hover {
+  color: #ffffff;
+}
+.register__components {
+  margin-left: 75vh;
+  margin-top: 6px;
+  width: 30%;
+  height: 90vh;
+  border: 1px solid blue;
+  box-shadow: 0 0 10px 1px rgb(157, 255, 0);
+  background-color: turquoise;
+}
+
+.register__inner {
+  padding: 20px;
+  margin-top: -10px;
+}
+
+.register__inner .register__title {
+  text-align: center;
+  font-size: 40px;
+  margin-top: -10px;
+}
+
+.register__label {
+  margin-left: 20px;
+  font-size: 18px;
+}
+.register__inner .register__i {
+  margin-top: -10px;
+}
+.register__inner .register__i input {
+  margin-left: 30px;
+  outline-width: 0px;
+  border: none;
+  width: 300px;
+  height: 40px;
+  border-radius: 20px;
+  text-indent: 20px;
+}
+.register__inner .register__i input:hover {
+  box-shadow: -1px -1px 10px 1px salmon;
+}
+
+.register__button {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+.register__button button {
+  width: 200px;
+  height: 5vh;
+  outline-width: 0px;
+  border: none;
+  border-radius: 10px;
+}
+.register__button button:hover {
+  box-shadow: 0 0 50px 10px rgb(235, 230, 230);
+}

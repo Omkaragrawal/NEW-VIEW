@@ -1,0 +1,51 @@
+.movies {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 10vh;
+  padding: 20px;
+  width: 80%;
+  border-radius: 30px;
+  margin-left: 18vh;
+  margin-bottom: 30px;
+  background-color: rgba(0, 0, 0, 0.521);
+}
+
+.movie__space {
+  width: 240px;
+  background-color: rgba(0, 0, 0, 0.795);
+  margin-bottom: 20px;
+  height: 350px;
+  border-radius: 20px;
+  margin-left: 50px;
+}
+.poster__titleSpace {
+  width: 70%;
+  margin-left: 35px;
+  margin-top: -25px;
+  border-radius: 20px;
+  text-align: center;
+}
+.movie__poster {
+  width: 200px;
+  height: 300px;
+  border-top-right-radius: 30px;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  object-fit: contain;
+  margin-bottom: 50px;
+  margin-left: 5px;
+  margin-top: -20px;
+  transition: transform 150ms;
+}
+.poster__title {
+  color: aliceblue;
+  font-size: 12px;
+  padding: 10px;
+}
+.radius {
+  width: 40px;
+  height: 40px;
+  margin-top: -20px;
+  margin-left: 200px;
+}
