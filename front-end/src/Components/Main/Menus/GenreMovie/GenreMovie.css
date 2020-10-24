@@ -1,0 +1,115 @@
+.genre {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0px;
+  background-color: white;
+}
+.genre__header {
+  width: 100%;
+  height: 7vh;
+  background-color: rgb(3, 14, 61);
+}
+.genre__back {
+  padding: 15px;
+  color: white;
+  transition: transform 450ms;
+}
+.genre__back:hover {
+  color: aqua;
+  transform: scale(1.1);
+}
+.genre__inside {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 10px;
+  box-shadow: 0 0 10px 10px rgb(50, 45, 49);
+  padding: 20px;
+  width: 80%;
+  height: auto;
+  overflow-y: scroll;
+  border-radius: 30px;
+  margin-left: 18vh;
+  margin-bottom: 10px;
+  background-color: rgba(0, 0, 0, 0.521);
+}
+
+.movie__space {
+  width: 240px;
+  background-color: rgba(0, 0, 0, 0.795);
+  margin-bottom: 20px;
+  height: 350px;
+  border-radius: 20px;
+  margin-left: 50px;
+}
+.poster__titleSpace {
+  width: 70%;
+  margin-left: 35px;
+  margin-top: -25px;
+  border-radius: 20px;
+  text-align: center;
+}
+.movie__poster {
+  width: 200px;
+  height: 300px;
+  border-top-right-radius: 30px;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  object-fit: contain;
+  margin-bottom: 40px;
+  margin-left: 22px;
+  margin-top: -30px;
+  transition: transform 150ms;
+}
+.movie__poster:hover {
+  transform: scale(1.04);
+}
+.poster__title {
+  color: aliceblue;
+  font-size: 12px;
+  padding: 10px;
+}
+.radius {
+  width: 40px;
+  height: 40px;
+  margin-top: -20px;
+  margin-left: 200px;
+}
+.more__vert {
+  padding-left: 20px;
+  background-color: white;
+  margin-top: -80vh;
+  margin-left: 220px;
+  font-weight: 900;
+  width: 1px;
+  transform: rotate(-90deg);
+  background-color: rgba(57, 57, 65, 0.336);
+  height: 1px;
+  color: black;
+}
+.genre__morebutton {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin-top: 10px;
+  width: 100%;
+}
+.genre__morebutton li {
+  list-style-type: none;
+  width: 30vh;
+  text-align: center;
+  height: 20px;
+  align-content: center;
+  padding: 20px;
+  margin-top: 10px;
+  border-radius: 20px;
+  cursor: pointer;
+  color: white;
+  background-color: rgb(77, 68, 68);
+}
+.genre__morebutton li:hover {
+  background-color: rgb(5, 5, 5);
+}

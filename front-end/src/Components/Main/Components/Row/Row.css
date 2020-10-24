@@ -1,0 +1,104 @@
+.row {
+  margin-top: 8vh;
+  height: fit-content;
+  overflow-y: scroll visible;
+  border-radius: 20px;
+  padding: 20px;
+  justify-content: center;
+  margin-left: 30px;
+  outline-width: 0px;
+  justify-content: center;
+  background-color: rgba(37, 37, 41, 0.144);
+}
+.row > h3 {
+  color: rgb(0, 0, 0);
+  position: sticky;
+  font-size: 24px;
+  border-radius: 10px;
+  margin-top: -10px;
+  text-align: center;
+  background-color: rgba(57, 57, 65, 0.336);
+}
+.row > h3:hover {
+  background-color: white;
+  cursor: pointer;
+}
+.row__poster {
+  width: 200px;
+  height: 300px;
+  border-top-right-radius: 30px;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  object-fit: contain;
+  margin-bottom: 50px;
+  margin-left: 20px;
+  cursor: pointer;
+  margin-top: -15px;
+  transition: transform 150ms ease;
+}
+
+.row__poster:hover {
+  transform: scale(1.04);
+}
+.row__space:hover {
+  border-radius: 20px;
+  box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.425);
+}
+
+.row__posters {
+  display: flex;
+  flex-direction: column;
+  margin-left: 1;
+  margin-right: 15px;
+}
+.row__space {
+  width: 240px;
+  margin-bottom: 20px;
+  height: 350px;
+  box-shadow: 0 0 100px 8px grey inset;
+  object-fit: contain;
+  background-position: center;
+  border-radius: 20px;
+  margin-left: 10px;
+}
+.poster__titleSpace {
+  width: 70%;
+  margin-left: 35px;
+  background-color: rgb(0, 0, 0);
+  margin-top: -25px;
+  border-radius: 20px;
+  text-align: center;
+}
+.poster__titleSpace:hover {
+  cursor: pointer;
+  background-color: rgb(90, 64, 64);
+}
+.poster__title {
+  color: aliceblue;
+  font-size: 12px;
+  padding: 10px;
+}
+
+.radius {
+  width: 30px;
+  height: 30px;
+  margin-left: 18vh;
+  margin-bottom: 5px;
+  transform: transform 150ms;
+}
+.radius:hover {
+  transform: scale(1.08);
+  cursor: pointer;
+}
+.more__vert {
+  padding-left: 20px;
+  margin-top: -85vh;
+  margin-left: 215px;
+  font-weight: 900;
+  width: 1px;
+  transform: rotate(-90deg);
+  background-color: rgba(9, 223, 187, 0.336);
+  height: 1px;
+  color: black;
+}
