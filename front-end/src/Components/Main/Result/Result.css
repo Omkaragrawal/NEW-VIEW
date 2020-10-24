@@ -1,0 +1,157 @@
+.result {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  position: fixed;
+  color: white;
+  transition: 200ms ease-in-out;
+  top: 0px;
+  flex-direction: column;
+  background-color: rgb(3, 14, 61);
+}
+.button {
+  color: white;
+  width: 50px;
+  height: 50px;
+  padding: 20px;
+  margin-top: 20px;
+}
+.button:hover {
+  cursor: pointer;
+  color: blue;
+}
+.inner__space {
+  width: 192vh;
+  max-width: 100%;
+  margin-left: 50px;
+  margin-top: 40px;
+  height: 90vh;
+  display: flex;
+  background-color: rgb(3, 14, 61);
+}
+.result__image {
+  width: 90vh;
+  height: 90vh;
+  object-fit: contain;
+}
+.result__image > img {
+  width: 60vh;
+  margin-left: 5px;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  height: 90vh;
+}
+.button__div {
+  width: auto;
+  height: 10vh;
+  background-color: rgba(0, 0, 0, 0.397);
+  margin-top: 70vh;
+}
+.button__div > .event {
+  width: 20vh;
+  padding: 12px;
+  margin-left: 15vh;
+  text-align: center;
+}
+.event:hover {
+  cursor: pointer;
+}
+.result__info {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  height: 90vh;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  background-color: rgb(0, 0, 0, 0.2);
+  box-shadow: 0 0 100px 1px rgba(250, 250, 250, 0.2);
+  overflow-y: scroll;
+}
+
+.result__title {
+  width: auto;
+  margin-left: 2vh;
+  margin-top: -30px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  font-size: 4vh;
+  color: rgb(0, 255, 98);
+  font-family: sans-serif;
+}
+.result__overview {
+  margin-left: 2vh;
+}
+.tagline {
+  font-size: 3vh;
+  margin-top: -20px;
+  margin-bottom: 1vh;
+}
+.sub-title {
+  font-size: 4vh;
+  color: rgb(0, 255, 115);
+  margin-bottom: 2vh;
+}
+.res__content {
+  text-indent: 2vh;
+  font-size: 3vh;
+  margin-bottom: 2vh;
+}
+.result__genre {
+  margin-left: 2vh;
+}
+.genre_title {
+  font-size: 4vh;
+  margin-bottom: 2vh;
+  color: rgb(0, 255, 115);
+}
+.genre__list {
+  text-indent: 2vh;
+  font-size: 3vh;
+  margin-bottom: 2vh;
+}
+.production {
+  font-size: 4vh;
+  margin-bottom: 2vh;
+  color: rgb(0, 255, 115);
+}
+.production__list {
+  text-indent: 2vh;
+  font-size: 3vh;
+  margin-bottom: 2vh;
+}
+
+.additional__info {
+  width: auto;
+  display: flex;
+  flex-direction: row;
+  margin-left: 2vh;
+  margin-bottom: 20px;
+}
+
+.additional__one {
+  width: 100%;
+  max-height: 30vh;
+  overflow-y: scroll;
+}
+.additional__two {
+  width: 100%;
+  height: 30vh;
+  overflow-y: scroll;
+}
+.title {
+  font-size: 4vh;
+  margin-bottom: 2vh;
+  color: rgb(0, 255, 115);
+}
+.content {
+  font-size: 3vh;
+  margin-bottom: 2vh;
+  text-indent: 2vh;
+}
+.rec-movies {
+  margin: 40px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
